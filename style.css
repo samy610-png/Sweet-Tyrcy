@@ -1,0 +1,110 @@
+body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #fff5f7;
+  color: #4a3b3b;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #ffe4ec, #fffaf5);
+  padding: 50px 20px;
+}
+
+h1 {
+  font-size: 42px;
+  color: #c2185b;
+  margin: 0;
+}
+
+.slogan {
+  font-style: italic;
+  color: #ad1457;
+  margin-top: 10px;
+}
+
+.tagline {
+  color: #6d4c41;
+  margin-top: 5px;
+}
+
+/* SECTION ABOUT */
+.about {
+  padding: 20px;
+  font-size: 18px;
+  color: #5d4037;
+}
+
+/* PRODUITS */
+.products {
+  padding: 40px 20px;
+}
+
+h2 {
+  color: #b76e79;
+  margin-bottom: 30px;
+}
+
+/* CARDS PRODUITS */
+.card {
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border: 1px solid #f3d6dc;
+}
+
+.card h3 {
+  color: #c2185b;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+.note {
+  font-size: 13px;
+  color: #8d6e63;
+  font-style: italic;
+}
+
+/* COMMANDE */
+.order {
+  background-color: #ffe4ec;
+  padding: 40px 20px;
+}
+
+.payment, .delivery {
+  margin: 10px 0;
+  color: #4e342e;
+}
+
+/* BOUTON */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #c2185b;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ad1457;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  background-color: #fff;
+  color: #999;
+  font-size: 14px;
+}
