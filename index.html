@@ -11,93 +11,105 @@
 body {
   font-family: "Times New Roman", serif;
   margin: 0;
-  background: linear-gradient(to bottom, #fff5f7, #ffffff);
+  background: linear-gradient(to bottom, #fff8fb, #ffffff);
   text-align: center;
   color: #4a3b3b;
 }
 
 /* HEADER */
 header {
-  background: #fdf7f9;
+  background: #fff6f9;
   padding: 60px 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
 }
 
 .brand {
-  font-size: 48px;
-  color: #c2185b;
+  font-size: 54px;
+  color: #d88aa5;
   letter-spacing: 2px;
-}
-
-.copyright {
-  font-size: 18px;
 }
 
 .slogan {
   font-style: italic;
-  color: #ad1457;
+  color: #a86b7d;
 }
 
 .tagline {
-  color: #6d4c41;
-}
-
-.divider {
-  width: 60px;
-  height: 2px;
-  background: #c2185b;
-  margin: 10px auto;
+  color: #7a5b66;
 }
 
 /* ABOUT */
 .about {
   padding: 30px;
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-.about em {
-  color: #c2185b;
-}
-
-/* TITRES */
 h2 {
-  color: #b76e79;
+  color: #c98aa0;
   margin-top: 50px;
 }
 
-/* CARDS */
+/* 💗 CADRES STYLE MOULURES (DISCRET CHIC) */
 .card {
-  background: white;
-  border-radius: 25px;
+  background: #ffffff;
+  border-radius: 20px;
   margin: 25px auto;
   padding: 25px;
   width: 90%;
-  max-width: 520px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border: 1px solid #f3d7df;
+  max-width: 560px;
+
   position: relative;
+
+  border: 2px solid #f3d7e2;
+  box-shadow: 0 10px 25px rgba(255, 192, 203, 0.15);
+}
+
+/* moulures coins élégantes */
+.card::before,
+.card::after {
+  content: "❦";
+  position: absolute;
+  font-size: 14px;
+  color: #f2b6c6;
+}
+
+.card::before {
+  top: 10px;
+  left: 12px;
 }
 
 .card::after {
-  content: "🎀";
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  bottom: 10px;
+  right: 12px;
+}
+
+/* TITRE PRODUIT */
+.card h3 {
+  color: #b8748d;
+}
+
+/* DESCRIPTION LUXE */
+.desc {
+  font-family: "Brush Script MT", cursive;
+  font-size: 16px;
+  color: #6f4e57;
+  margin: 10px 0;
+  line-height: 1.5;
 }
 
 /* INPUTS */
 input, select {
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid #e8c6d0;
+  border: 1px solid #f1cbd6;
   margin-top: 8px;
 }
 
 /* BUTTON */
 button {
-  background: linear-gradient(135deg, #c2185b, #e91e63);
+  background: linear-gradient(135deg, #f7b6c8, #e7a9bb);
   color: white;
   border: none;
   padding: 12px 25px;
@@ -108,24 +120,31 @@ button {
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* PANIER */
 .cart {
-  background: #fff0f4;
+  background: #fff3f7;
   padding: 35px;
   margin-top: 40px;
 }
 
 footer {
   padding: 20px;
-  color: #999;
+  color: #888;
+  font-size: 14px;
+}
+
+.instagram {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #d88aa5;
 }
 
 .small-note {
   font-size: 13px;
-  color: #b76e79;
+  color: #c98aa0;
 }
 
 </style>
@@ -134,16 +153,26 @@ footer {
 <body>
 
 <header>
-  <h1 class="brand">Sweet Tyrcy <span class="copyright">©</span></h1>
+  <h1 class="brand">Sweet Tyrcy</h1>
   <p class="slogan">Heavenly Pastries</p>
-  <div class="divider"></div>
   <p class="tagline">Taste a slice of paradise</p>
 </header>
 
+<!-- ABOUT -->
 <section class="about">
-<p>Sweet Tyrcy est né de ma passion pour la pâtisserie...</p>
+
+<h2>About my business</h2>
+
+<p>
+Sweet Tyrcy est né de ma passion pour la pâtisserie. Cette passion, présente depuis mon enfance, m’a amenée à perfectionner mes recettes. Aujourd’hui, je suis enfin prête à partager ma version de la pâtisserie avec vous.
+</p>
+
 <p><em>“Waouh… est-ce que le paradis a ce goût-là ?”</em></p>
-<p>Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !</p>
+
+<p>
+Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
+</p>
+
 </section>
 
 <h2>Nos créations</h2>
@@ -151,22 +180,26 @@ footer {
 <!-- PRODUITS -->
 
 <div class="card">
-<h3>Fondant au chocolat</h3>
+<h3>Fondants au chocolat</h3>
+<p class="desc">Un gâteau intense au chocolat avec un cœur coulant irrésistible, pensé pour les amateurs de sensations chocolatées.</p>
 <p>500 FCFA</p>
 <input type="number" id="fondant" value="1">
 <button onclick="add('Fondant',500,'fondant')">Ajouter</button>
 </div>
 
 <div class="card">
-<h3>Box de 6 brownies</h3>
+<h3>Box de brownies</h3>
+<p class="desc">Des carrés ultra fondants riches en chocolat, parfaits à partager ou à savourer seul.</p>
 <p>3000 FCFA</p>
 <input type="number" id="brownie" value="1">
 <button onclick="add('Brownies',3000,'brownie')">Ajouter</button>
 </div>
 
 <div class="card">
-<h3>Bento Cake</h3>
+<h3>Bento Cakes</h3>
+<p class="desc">Petits gâteaux moelleux personnalisés, parfaits pour offrir ou se faire plaisir en toute intimité.</p>
 <p class="small-note">⚠️ Supplément pour décorations chargées</p>
+
 <select id="bento-flavor">
 <option>Nutella</option>
 <option>Kinder</option>
@@ -175,14 +208,16 @@ footer {
 <option>Fraise</option>
 <option>Autres (WhatsApp)</option>
 </select>
+
 <input type="number" id="bento" value="1">
 <button onclick="add('Bento Cake',7000,'bento','bento-flavor')">Ajouter</button>
 </div>
 
 <div class="card">
-<h3>Layer Cake (10–12 parts)</h3>
-<p>12000 FCFA</p>
+<h3>Layer Cakes</h3>
+<p class="desc">Gâteaux à étages généreux, moelleux et entièrement personnalisés selon vos envies.</p>
 <p class="small-note">⚠️ Supplément pour décorations chargées</p>
+
 <select id="layer-flavor">
 <option>Nutella</option>
 <option>Kinder</option>
@@ -191,13 +226,15 @@ footer {
 <option>Fraise</option>
 <option>Autres (WhatsApp)</option>
 </select>
+
 <input type="number" id="layer" value="1">
 <button onclick="add('Layer Cake',12000,'layer','layer-flavor')">Ajouter</button>
 </div>
 
 <div class="card">
-<h3>Mini'Crush (Layer Cup)</h3>
-<p>2000 FCFA</p>
+<h3>Layer Cups (Mini’Crush)</h3>
+<p class="desc">Des couches de crème, biscuits et fruits en pot : un dessert aussi beau que délicieux.</p>
+
 <select id="mini-flavor">
 <option>Nutella</option>
 <option>Kinder</option>
@@ -206,12 +243,14 @@ footer {
 <option>Fraise</option>
 <option>Autres (WhatsApp)</option>
 </select>
+
 <input type="number" id="mini" value="1">
 <button onclick="add('Mini Crush',2000,'mini','mini-flavor')">Ajouter</button>
 </div>
 
 <div class="card">
 <h3>Crêpes nature</h3>
+<p class="desc">Douces, légères et délicatement dorées, la simplicité parfaite à tout moment.</p>
 <select id="crepe1">
 <option>5 (1000 FCFA)</option>
 <option>15 (2500 FCFA)</option>
@@ -221,6 +260,7 @@ footer {
 
 <div class="card">
 <h3>Crêpes Nutella</h3>
+<p class="desc">Crêpes moelleuses garnies de Nutella fondant pour un plaisir gourmand réconfortant.</p>
 <select id="crepe2">
 <option>5 (2000 FCFA)</option>
 <option>15 (5000 FCFA)</option>
@@ -230,20 +270,15 @@ footer {
 
 <div class="card">
 <h3>Crêpes salées</h3>
-<p>3 crêpes = 2000 FCFA</p>
+<p class="desc">Formule gourmande : 3 crêpes savoureuses pour un repas complet.</p>
+<p>3 = 2000 FCFA</p>
 <input type="number" id="sale" value="1">
 <button onclick="add('Crêpes salées (pack 3)',2000,'sale')">Ajouter</button>
 </div>
 
 <div class="card">
-<h3>Pancake fourré Nutella</h3>
-<p>500 FCFA</p>
-<input type="number" id="pancake" value="1">
-<button onclick="add('Pancake',500,'pancake')">Ajouter</button>
-</div>
-
-<div class="card">
-<h3>Plat de lasagne</h3>
+<h3>Lasagnes</h3>
+<p class="desc">Un plat généreux et réconfortant, composé de couches fondantes et gratinées.</p>
 <p>4000 FCFA</p>
 <input type="number" id="lasagne" value="1">
 <button onclick="add('Lasagne',4000,'lasagne')">Ajouter</button>
@@ -251,6 +286,7 @@ footer {
 
 <div class="card">
 <h3>Hachis Parmentier</h3>
+<p class="desc">Purée onctueuse et viande savoureuse gratinée pour un confort total.</p>
 <p>4000 FCFA</p>
 <input type="number" id="hachis" value="1">
 <button onclick="add('Hachis',4000,'hachis')">Ajouter</button>
@@ -262,13 +298,15 @@ footer {
 <ul id="cart"></ul>
 <p><strong>Total : <span id="total">0</span> FCFA</strong></p>
 
-<input type="date" id="date"><br><br>
-<input type="time" id="time"><br><br>
-
 <button onclick="validate()">Valider la commande</button>
-<button onclick="whatsapp()">Commande spéciale</button>
+<button onclick="whatsapp()">Commande WhatsApp</button>
 
 </div>
+
+<footer>
+<p>Sweet Tyrcy © 2026</p>
+<p class="instagram">Instagram : @sweet_tyrcy</p>
+</footer>
 
 <script>
 
@@ -276,7 +314,7 @@ let cart = [];
 let total = 0;
 
 function add(name, price, id, flavorId=null) {
-  let qty = parseInt(document.getElementById(id).value);
+  let qty = document.getElementById(id).value;
   let flavor = flavorId ? document.getElementById(flavorId).value : "";
   let subtotal = price * qty;
 
