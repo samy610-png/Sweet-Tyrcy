@@ -411,12 +411,27 @@ function update() {
 }
 
 function validate() {
-  alert(
-    "Commande enregistrée ✔️\n\n" +
-    "Paiement Wave / Orange Money : 0797285031\n" +
-    "Livraison via Yango\n" +
-    "Envoyer capture + localisation sur WhatsApp"
-  );
+
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+
+  let msg = "✨ Commande Sweet Tyrcy ✨%0A%0A";
+
+  cart.forEach(i => {
+    msg += "• " + i + "%0A";
+  });
+
+  msg += "%0A💰 Total : " + total + " FCFA";
+  msg += "%0A📅 Date : " + date;
+  msg += "%0A⏰ Heure : " + time;
+
+  msg += "%0A%0A💳 Paiement : Wave / Orange Money (0797285031)";
+  msg += "%0A🚚 Livraison : Yango";
+  msg += "%0A📸 Envoyer capture + localisation";
+
+  let phone = "2250797285031";
+
+  window.open("https://wa.me/" + phone + "?text=" + msg, "_blank");
 }
 
 function whatsapp() {
