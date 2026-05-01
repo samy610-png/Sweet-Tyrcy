@@ -1,0 +1,79 @@
+<section class="products">
+  <h2>Nos créations</h2>
+
+  <div class="card">
+    <h3>Fondant au chocolat</h3>
+    <p>500 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Box de 6 brownies</h3>
+    <p>3000 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Bento Cake Basic</h3>
+    <p>Nutella, Kinder, Oreo, Lotus, Fraise, Citron...</p>
+    <p>7000 FCFA</p>
+    <p class="note">Supplément pour décorations chargées</p>
+  </div>
+
+  <div class="card">
+    <h3>Layer Cake (10–12 parts)</h3>
+    <p>12000 FCFA</p>
+    <p class="note">Supplément pour décorations chargées</p>
+  </div>
+
+  <div class="card">
+    <h3>Mini'Crush (Layer Cup)</h3>
+    <p>2000 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Crêpes nature</h3>
+    <p>5 crêpes : 1000 FCFA</p>
+    <p>15 crêpes : 2500 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Crêpes Nutella</h3>
+    <p>5 crêpes : 2000 FCFA</p>
+    <p>15 crêpes : 5000 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Crêpes salées</h3>
+    <p>3 crêpes : 2000 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Pancake fourré Nutella</h3>
+    <p>500 FCFA / unité</p>
+  </div>
+
+  <div class="card">
+    <h3>Plat de lasagne</h3>
+    <p>4000 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Hachis Parmentier</h3>
+    <p>4000 FCFA</p>
+  </div>
+
+  <div class="card">
+    <h3>Tarte (moyenne)</h3>
+    <p>Pomme ou autre garniture</p>
+    <p>4000 FCFA</p>
+  </div>
+
+</section>
+<p class="custom">
+  Pour toute autre demande ne figurant pas sur la carte, veuillez nous contacter en privé.
+</p>
+.custom {
+  margin-top: 20px;
+.custom {
+  font-style: italic;
+  color: #6d4c41;
+}
