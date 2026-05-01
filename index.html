@@ -123,6 +123,11 @@ footer {
   color: #999;
 }
 
+.small-note {
+  font-size: 13px;
+  color: #b76e79;
+}
+
 </style>
 </head>
 
@@ -136,10 +141,8 @@ footer {
 </header>
 
 <section class="about">
-<p>Sweet Tyrcy est né de ma passion pour la pâtisserie. Cette passion, présente depuis mon enfance, m’a amenée à perfectionner mes recettes. Aujourd’hui, je suis enfin prête à partager ma version de la pâtisserie avec vous.</p>
-
+<p>Sweet Tyrcy est né de ma passion pour la pâtisserie...</p>
 <p><em>“Waouh… est-ce que le paradis a ce goût-là ?”</em></p>
-
 <p>Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !</p>
 </section>
 
@@ -163,9 +166,14 @@ footer {
 
 <div class="card">
 <h3>Bento Cake</h3>
+<p class="small-note">⚠️ Supplément pour décorations chargées</p>
 <select id="bento-flavor">
-<option>Nutella</option><option>Kinder</option><option>Oreo</option>
-<option>Lotus</option><option>Fraise</option><option>Citron</option>
+<option>Nutella</option>
+<option>Kinder</option>
+<option>Lotus</option>
+<option>Citron</option>
+<option>Fraise</option>
+<option>Autres (WhatsApp)</option>
 </select>
 <input type="number" id="bento" value="1">
 <button onclick="add('Bento Cake',7000,'bento','bento-flavor')">Ajouter</button>
@@ -174,15 +182,32 @@ footer {
 <div class="card">
 <h3>Layer Cake (10–12 parts)</h3>
 <p>12000 FCFA</p>
+<p class="small-note">⚠️ Supplément pour décorations chargées</p>
+<select id="layer-flavor">
+<option>Nutella</option>
+<option>Kinder</option>
+<option>Lotus</option>
+<option>Citron</option>
+<option>Fraise</option>
+<option>Autres (WhatsApp)</option>
+</select>
 <input type="number" id="layer" value="1">
-<button onclick="add('Layer Cake',12000,'layer')">Ajouter</button>
+<button onclick="add('Layer Cake',12000,'layer','layer-flavor')">Ajouter</button>
 </div>
 
 <div class="card">
 <h3>Mini'Crush (Layer Cup)</h3>
 <p>2000 FCFA</p>
+<select id="mini-flavor">
+<option>Nutella</option>
+<option>Kinder</option>
+<option>Lotus</option>
+<option>Citron</option>
+<option>Fraise</option>
+<option>Autres (WhatsApp)</option>
+</select>
 <input type="number" id="mini" value="1">
-<button onclick="add('Mini Crush',2000,'mini')">Ajouter</button>
+<button onclick="add('Mini Crush',2000,'mini','mini-flavor')">Ajouter</button>
 </div>
 
 <div class="card">
@@ -205,9 +230,9 @@ footer {
 
 <div class="card">
 <h3>Crêpes salées</h3>
-<p>2000 FCFA</p>
+<p>3 crêpes = 2000 FCFA</p>
 <input type="number" id="sale" value="1">
-<button onclick="add('Crêpes salées',2000,'sale')">Ajouter</button>
+<button onclick="add('Crêpes salées (pack 3)',2000,'sale')">Ajouter</button>
 </div>
 
 <div class="card">
@@ -231,16 +256,6 @@ footer {
 <button onclick="add('Hachis',4000,'hachis')">Ajouter</button>
 </div>
 
-<div class="card">
-<h3>Tarte</h3>
-<select id="tarte-flavor">
-<option>Pomme</option><option>Citron</option>
-<option>Mangue</option><option>Chocolat</option><option>Bissap</option>
-</select>
-<input type="number" id="tarte" value="1">
-<button onclick="add('Tarte',4000,'tarte','tarte-flavor')">Ajouter</button>
-</div>
-
 <!-- PANIER -->
 <div class="cart">
 <h2>Votre panier</h2>
@@ -253,16 +268,7 @@ footer {
 <button onclick="validate()">Valider la commande</button>
 <button onclick="whatsapp()">Commande spéciale</button>
 
-<p style="margin-top:20px;font-size:14px;">
-Paiement obligatoire avant validation.<br>
-Dépôt au : 0797285031 (Wave / Orange Money)<br>
-Livraison via Yango.<br>
-Envoyez localisation + capture du dépôt sur WhatsApp.
-</p>
-
 </div>
-
-<footer>Sweet Tyrcy © 2026</footer>
 
 <script>
 
@@ -283,8 +289,7 @@ function add(name, price, id, flavorId=null) {
 function addCrepe(name, id) {
   let val = document.getElementById(id).value;
   let price = val.includes("1000") ? 1000 :
-              val.includes("2500") ? 2500 :
-              val.includes("2000") ? 2000 : 5000;
+              val.includes("2500") ? 2500 : 2000;
 
   cart.push(name + " " + val);
   total += price;
@@ -306,7 +311,7 @@ function update() {
 }
 
 function validate() {
-  alert("Commande bien enregistrée ✔️\n\nPlus qu’à faire le dépôt au : 0797285031 (Wave ou Orange Money)\n\nLivraison via Yango.\nEnvoyez votre localisation ainsi que la capture du dépôt sur WhatsApp.");
+  alert("Commande enregistrée ✔️");
 }
 
 function whatsapp() {
