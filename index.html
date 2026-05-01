@@ -1,210 +1,322 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweet Tyrcy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Tyrcy</title>
 
-  <style>
-    body {
-      font-family: "Times New Roman", serif;
-      margin: 0;
-      background: #fff5f7;
-      color: #4a3b3b;
-      text-align: center;
-    }
+<style>
 
-    header {
-      background: linear-gradient(135deg, #ffe4ec, #fffaf5);
-      padding: 50px 20px;
-    }
+body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  background: linear-gradient(to bottom, #fff5f7, #ffffff);
+  text-align: center;
+  color: #4a3b3b;
+}
 
-    h1 { color: #c2185b; margin: 0; }
-    .slogan { font-style: italic; color: #ad1457; }
-    .tagline { color: #6d4c41; }
+/* HEADER */
+header {
+  background: #fdf7f9;
+  padding: 60px 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
 
-    .about {
-      padding: 25px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
+.brand {
+  font-size: 48px;
+  color: #c2185b;
+  letter-spacing: 2px;
+}
 
-    h2 { color: #b76e79; margin-top: 40px; }
+.copyright {
+  font-size: 18px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+.slogan {
+  font-style: italic;
+  color: #ad1457;
+}
 
-    .card {
-      background: #fffaf7;
-      border: 2px solid #e8c6d0;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      position: relative;
-    }
+.tagline {
+  color: #6d4c41;
+}
 
-    .card::after {
-      content: "🎀";
-      position: absolute;
-      top: 10px;
-      right: 15px;
-    }
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #c2185b;
+  margin: 10px auto;
+}
 
-    select, input {
-      padding: 8px;
-      border-radius: 10px;
-      border: 1px solid #e8c6d0;
-      margin-top: 5px;
-    }
+/* ABOUT */
+.about {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.7;
+}
 
-    button {
-      background: #c2185b;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 20px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
+.about em {
+  color: #c2185b;
+}
 
-    button:hover { background: #8e4a5a; }
+/* TITRES */
+h2 {
+  color: #b76e79;
+  margin-top: 50px;
+}
 
-    .cart {
-      background: #ffe4ec;
-      padding: 25px;
-      margin: 20px;
-      border-radius: 20px;
-    }
+/* CARDS */
+.card {
+  background: white;
+  border-radius: 25px;
+  margin: 25px auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #f3d7df;
+  position: relative;
+}
 
-    footer {
-      background: white;
-      padding: 15px;
-      font-size: 14px;
-    }
+.card::after {
+  content: "🎀";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
 
-    @media(max-width:600px){
-      h1 { font-size: 28px; }
-    }
-  </style>
+/* INPUTS */
+input, select {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #e8c6d0;
+  margin-top: 8px;
+}
+
+/* BUTTON */
+button {
+  background: linear-gradient(135deg, #c2185b, #e91e63);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* PANIER */
+.cart {
+  background: #fff0f4;
+  padding: 35px;
+  margin-top: 40px;
+}
+
+footer {
+  padding: 20px;
+  color: #999;
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Sweet Tyrcy</h1>
+  <h1 class="brand">Sweet Tyrcy <span class="copyright">©</span></h1>
   <p class="slogan">Heavenly Pastries</p>
+  <div class="divider"></div>
   <p class="tagline">Taste a slice of paradise</p>
 </header>
 
 <section class="about">
-  <p>Sweet Tyrcy est né de ma passion pour la pâtisserie. Cette passion, présente depuis mon enfance, m’a amenée à perfectionner mes recettes. Aujourd’hui, je suis enfin prête à partager ma version de la pâtisserie avec vous.</p>
-  <p><em>“Waouh… est-ce que le paradis a ce goût-là ?”</em></p>
-  <p>Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !</p>
+<p>Sweet Tyrcy est né de ma passion pour la pâtisserie. Cette passion, présente depuis mon enfance, m’a amenée à perfectionner mes recettes. Aujourd’hui, je suis enfin prête à partager ma version de la pâtisserie avec vous.</p>
+
+<p><em>“Waouh… est-ce que le paradis a ce goût-là ?”</em></p>
+
+<p>Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !</p>
 </section>
 
 <h2>Nos créations</h2>
 
-<div class="grid">
+<!-- PRODUITS -->
 
-  <!-- FONDANT -->
-  <div class="card">
-    <h3>Fondant</h3>
-    <p>500 FCFA</p>
-    <input type="number" id="fondant" value="1" min="1">
-    <button onclick="add('Fondant',500,'fondant')">Ajouter</button>
-  </div>
+<div class="card">
+<h3>Fondant au chocolat</h3>
+<p>500 FCFA</p>
+<input type="number" id="fondant" value="1">
+<button onclick="add('Fondant',500,'fondant')">Ajouter</button>
+</div>
 
-  <!-- BENTO -->
-  <div class="card">
-    <h3>Bento Cake</h3>
-    <select id="bento-flavor">
-      <option>Nutella</option><option>Kinder</option><option>Oreo</option>
-      <option>Lotus</option><option>Fraise</option><option>Citron</option>
-    </select>
-    <input type="number" id="bento" value="1" min="1">
-    <button onclick="add('Bento Cake',7000,'bento','bento-flavor')">Ajouter</button>
-  </div>
+<div class="card">
+<h3>Box de 6 brownies</h3>
+<p>3000 FCFA</p>
+<input type="number" id="brownie" value="1">
+<button onclick="add('Brownies',3000,'brownie')">Ajouter</button>
+</div>
 
-  <!-- TARTE -->
-  <div class="card">
-    <h3>Tarte</h3>
-    <select id="tarte-flavor">
-      <option>Pomme</option><option>Citron</option>
-      <option>Mangue</option><option>Chocolat</option><option>Bissap</option>
-    </select>
-    <input type="number" id="tarte" value="1" min="1">
-    <button onclick="add('Tarte',4000,'tarte','tarte-flavor')">Ajouter</button>
-  </div>
+<div class="card">
+<h3>Bento Cake</h3>
+<select id="bento-flavor">
+<option>Nutella</option><option>Kinder</option><option>Oreo</option>
+<option>Lotus</option><option>Fraise</option><option>Citron</option>
+</select>
+<input type="number" id="bento" value="1">
+<button onclick="add('Bento Cake',7000,'bento','bento-flavor')">Ajouter</button>
+</div>
 
-  <!-- MINI CRUSH -->
-  <div class="card">
-    <h3>Mini'Crush</h3>
-    <input type="number" id="mini" value="1" min="1">
-    <button onclick="add('Mini Crush',2000,'mini')">Ajouter</button>
-  </div>
+<div class="card">
+<h3>Layer Cake (10–12 parts)</h3>
+<p>12000 FCFA</p>
+<input type="number" id="layer" value="1">
+<button onclick="add('Layer Cake',12000,'layer')">Ajouter</button>
+</div>
 
+<div class="card">
+<h3>Mini'Crush (Layer Cup)</h3>
+<p>2000 FCFA</p>
+<input type="number" id="mini" value="1">
+<button onclick="add('Mini Crush',2000,'mini')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Crêpes nature</h3>
+<select id="crepe1">
+<option>5 (1000 FCFA)</option>
+<option>15 (2500 FCFA)</option>
+</select>
+<button onclick="addCrepe('Crêpes nature','crepe1')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Crêpes Nutella</h3>
+<select id="crepe2">
+<option>5 (2000 FCFA)</option>
+<option>15 (5000 FCFA)</option>
+</select>
+<button onclick="addCrepe('Crêpes Nutella','crepe2')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Crêpes salées</h3>
+<p>2000 FCFA</p>
+<input type="number" id="sale" value="1">
+<button onclick="add('Crêpes salées',2000,'sale')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Pancake fourré Nutella</h3>
+<p>500 FCFA</p>
+<input type="number" id="pancake" value="1">
+<button onclick="add('Pancake',500,'pancake')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Plat de lasagne</h3>
+<p>4000 FCFA</p>
+<input type="number" id="lasagne" value="1">
+<button onclick="add('Lasagne',4000,'lasagne')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Hachis Parmentier</h3>
+<p>4000 FCFA</p>
+<input type="number" id="hachis" value="1">
+<button onclick="add('Hachis',4000,'hachis')">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Tarte</h3>
+<select id="tarte-flavor">
+<option>Pomme</option><option>Citron</option>
+<option>Mangue</option><option>Chocolat</option><option>Bissap</option>
+</select>
+<input type="number" id="tarte" value="1">
+<button onclick="add('Tarte',4000,'tarte','tarte-flavor')">Ajouter</button>
 </div>
 
 <!-- PANIER -->
 <div class="cart">
-  <h2>Votre panier</h2>
-  <ul id="cart"></ul>
-  <p><strong>Total : <span id="total">0</span> FCFA</strong></p>
+<h2>Votre panier</h2>
+<ul id="cart"></ul>
+<p><strong>Total : <span id="total">0</span> FCFA</strong></p>
 
-  <label>Date :</label><br>
-  <input type="date" id="date"><br><br>
+<input type="date" id="date"><br><br>
+<input type="time" id="time"><br><br>
 
-  <label>Heure :</label><br>
-  <input type="time" id="time"><br><br>
+<button onclick="validate()">Valider la commande</button>
+<button onclick="whatsapp()">Commande spéciale</button>
 
-  <button onclick="validateOrder()">Valider la commande</button>
-  <button onclick="sendWhatsApp()">Commande spéciale (WhatsApp)</button>
+<p style="margin-top:20px;font-size:14px;">
+Paiement obligatoire avant validation.<br>
+Dépôt au : 0797285031 (Wave / Orange Money)<br>
+Livraison via Yango.<br>
+Envoyez localisation + capture du dépôt sur WhatsApp.
+</p>
+
 </div>
 
 <footer>Sweet Tyrcy © 2026</footer>
 
 <script>
+
 let cart = [];
 let total = 0;
 
-function add(name, price, qtyId, flavorId=null){
-  let qty = parseInt(document.getElementById(qtyId).value);
+function add(name, price, id, flavorId=null) {
+  let qty = parseInt(document.getElementById(id).value);
   let flavor = flavorId ? document.getElementById(flavorId).value : "";
   let subtotal = price * qty;
 
   total += subtotal;
-  let item = name + (flavor ? " ("+flavor+")":"") + " x"+qty+" = "+subtotal+" FCFA";
-  cart.push(item);
+  cart.push(name + (flavor ? " ("+flavor+")" : "") + " x" + qty + " = " + subtotal + " FCFA");
 
   update();
 }
 
-function update(){
+function addCrepe(name, id) {
+  let val = document.getElementById(id).value;
+  let price = val.includes("1000") ? 1000 :
+              val.includes("2500") ? 2500 :
+              val.includes("2000") ? 2000 : 5000;
+
+  cart.push(name + " " + val);
+  total += price;
+
+  update();
+}
+
+function update() {
   let list = document.getElementById("cart");
-  list.innerHTML="";
-  cart.forEach(i=>{
-    let li=document.createElement("li");
-    li.textContent=i;
+  list.innerHTML = "";
+
+  cart.forEach(i => {
+    let li = document.createElement("li");
+    li.textContent = i;
     list.appendChild(li);
   });
-  document.getElementById("total").textContent=total;
+
+  document.getElementById("total").textContent = total;
 }
 
-function validateOrder(){
-  alert("Commande enregistrée ✔️\nTotal : "+total+" FCFA\nMerci 💕");
+function validate() {
+  alert("Commande bien enregistrée ✔️\n\nPlus qu’à faire le dépôt au : 0797285031 (Wave ou Orange Money)\n\nLivraison via Yango.\nEnvoyez votre localisation ainsi que la capture du dépôt sur WhatsApp.");
 }
 
-function sendWhatsApp(){
-  let msg="Commande:%0A";
-  cart.forEach(i=>msg+="- "+i+"%0A");
-  msg+="Total:"+total+" FCFA";
-  window.open("https://wa.me/2250797285031?text="+msg);
+function whatsapp() {
+  let msg = "Commande:%0A";
+  cart.forEach(i => msg += "- " + i + "%0A");
+  msg += "Total: " + total + " FCFA";
+
+  window.open("https://wa.me/2250797285031?text=" + msg);
 }
+
 </script>
 
 </body>
