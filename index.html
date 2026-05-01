@@ -82,7 +82,7 @@ h2 {
   color: #b8748d;
 }
 
-/* DESCRIPTION LUXE */
+/* DESCRIPTION (même style que "Waouh") */
 .desc {
   font-family: "Brush Script MT", cursive;
   font-size: 16px;
@@ -176,14 +176,14 @@ Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
 <div class="card">
 <h3>Fondants au chocolat</h3>
 <p class="desc">Un gâteau intense au chocolat avec cœur coulant irrésistible.</p>
-<p>500 FCFA</p>
+<p>500 FCFA (unité)</p>
 <input type="number" id="fondant" value="1">
 <button onclick="add('Fondant chocolat',500,'fondant')">Ajouter</button>
 </div>
 
 <div class="card">
 <h3>Box de brownies</h3>
-<p class="desc">Carrés ultra fondants riches en chocolat.</p>
+<p class="desc">Carrés ultra fondants riches en chocolat, parfaits à offrir, partager ou déguster seul.</p>
 <p>3000 FCFA</p>
 <input type="number" id="brownie" value="1">
 <button onclick="add('Brownies',3000,'brownie')">Ajouter</button>
@@ -191,12 +191,18 @@ Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
 
 <div class="card">
 <h3>Bento Cakes</h3>
-<p class="desc">Petits gâteaux personnalisés parfaits pour offrir.</p>
+<p class="desc">Petits gâteaux moelleux personnalisés, parfaits à offrir, partager ou déguster seul.</p>
+
 <p class="small-note">⚠️ Supplément décorations chargées</p>
+<p>7000 FCFA</p>
 
 <select id="bento-flavor">
-<option>Nutella</option><option>Kinder</option><option>Lotus</option>
-<option>Citron</option><option>Fraise</option><option>Autres (WhatsApp)</option>
+<option>Nutella</option>
+<option>Kinder</option>
+<option>Lotus</option>
+<option>Citron</option>
+<option>Fraise</option>
+<option>Autres (WhatsApp)</option>
 </select>
 
 <input type="number" id="bento" value="1">
@@ -204,13 +210,19 @@ Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
 </div>
 
 <div class="card">
-<h3>Layer Cakes</h3>
-<p class="desc">Gâteaux à étages personnalisés selon vos envies.</p>
+<h3>Layer Cakes (10–12 parts)</h3>
+<p class="desc">Gâteaux à étages généreux, moelleux et personnalisés selon vos envies.</p>
+
 <p class="small-note">⚠️ Supplément décorations chargées</p>
+<p>12000 FCFA</p>
 
 <select id="layer-flavor">
-<option>Nutella</option><option>Kinder</option><option>Lotus</option>
-<option>Citron</option><option>Fraise</option><option>Autres (WhatsApp)</option>
+<option>Nutella</option>
+<option>Kinder</option>
+<option>Lotus</option>
+<option>Citron</option>
+<option>Fraise</option>
+<option>Autres (WhatsApp)</option>
 </select>
 
 <input type="number" id="layer" value="1">
@@ -220,10 +232,15 @@ Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
 <div class="card">
 <h3>Layer Cups (Mini’Crush)</h3>
 <p class="desc">Couches de crème, biscuits et fruits en pot.</p>
+<p>2000 FCFA</p>
 
 <select id="mini-flavor">
-<option>Nutella</option><option>Kinder</option><option>Lotus</option>
-<option>Citron</option><option>Fraise</option><option>Autres (WhatsApp)</option>
+<option>Nutella</option>
+<option>Kinder</option>
+<option>Lotus</option>
+<option>Citron</option>
+<option>Fraise</option>
+<option>Autres (WhatsApp)</option>
 </select>
 
 <input type="number" id="mini" value="1">
@@ -256,24 +273,48 @@ Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
 
 <div class="card">
 <h3>Crêpes salées</h3>
-<p class="desc">3 crêpes = repas complet savoureux.</p>
+<p class="desc">3 crêpes savoureuses pour un repas complet.</p>
 <p>2000 FCFA (3 pièces)</p>
+
 <input type="number" id="sale" value="1">
 <button onclick="add('Crêpes salées (pack 3)',2000,'sale')">Ajouter</button>
 </div>
 
-<!-- 🆕 TARTES -->
+<!-- TARTES -->
 <div class="card">
 <h3>Tartes (moyenne)</h3>
-<p class="desc">Entre classiques et saveurs originales, chaque tarte est une expérience gourmande.</p>
+<p class="desc">Entre classiques et saveurs originales, chaque tarte est une expérience gourmande raffinée.</p>
+
+<p>4000 FCFA</p>
 
 <select id="tarte-flavor">
-<option>Pomme</option><option>Citron</option><option>Mangue</option>
-<option>Chocolat</option><option>Bissap</option><option>Autres (WhatsApp)</option>
+<option>Pomme</option>
+<option>Citron</option>
+<option>Mangue</option>
+<option>Chocolat</option>
+<option>Bissap</option>
+<option>Autres (WhatsApp)</option>
 </select>
 
 <input type="number" id="tarte" value="1">
+
 <button onclick="add('Tarte moyenne',4000,'tarte','tarte-flavor')">Ajouter</button>
+</div>
+
+<!-- FLOWER BOX -->
+<div class="card">
+<h3>Flower Sweet Box</h3>
+<p class="desc">
+10 ou 12 crêpes en forme de roses élégantes avec un petit pot de Nutella. Parfait comme cadeau.
+</p>
+
+<select id="flower-box">
+<option>6 crêpes (3000 FCFA)</option>
+<option>12 crêpes (5500 FCFA)</option>
+</select>
+
+<input type="number" id="flowerqty" value="1">
+<button onclick="addFlower()">Ajouter</button>
 </div>
 
 <div class="card">
@@ -317,7 +358,6 @@ Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
 <footer>
 
 <p>Sweet Tyrcy © 2026</p>
-
 <p class="instagram">Instagram : @sweet_tyrcy</p>
 
 </footer>
@@ -349,6 +389,17 @@ function addCrepe(name, id) {
   update();
 }
 
+function addFlower() {
+  let val = document.getElementById("flower-box").value;
+  let qty = document.getElementById("flowerqty").value;
+  let price = val.includes("3000") ? 3000 : 5500;
+
+  cart.push("Flower Sweet Box " + val + " x" + qty);
+  total += price * qty;
+
+  update();
+}
+
 function update() {
   let list = document.getElementById("cart");
   list.innerHTML = "";
@@ -365,7 +416,7 @@ function update() {
 function validate() {
   alert(
     "Commande enregistrée ✔️\n\n" +
-    "Paiement obligatoire via Wave / Orange Money : 0797285031\n" +
+    "Paiement obligatoire Wave / Orange Money : 0797285031\n" +
     "Livraison via Yango\n" +
     "Envoyer capture + localisation sur WhatsApp"
   );
@@ -384,7 +435,7 @@ function whatsapp() {
   msg += "%0ADate: " + date;
   msg += "%0AHeure: " + time;
 
-  msg += "%0A%0APaiement Wave/OM : 0797285031";
+  msg += "%0APaiement Wave/OM : 0797285031";
   msg += "%0ALivraison Yango";
   msg += "%0AEnvoyer capture + localisation";
 
