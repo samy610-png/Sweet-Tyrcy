@@ -2,459 +2,1452 @@
 <html lang="fr">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sweet Tyrcy</title>
+
+<title>Sweet Tyrcy | Heavenly Pastries</title>
 
 <style>
 
-body {
-  font-family: "Times New Roman", serif;
-  margin: 0;
-  background: linear-gradient(to bottom, #fff8fb, #ffffff);
-  text-align: center;
-  color: #4a3b3b;
+*{
+box-sizing:border-box;
 }
+
+body{
+font-family:"Times New Roman",serif;
+margin:0;
+background:linear-gradient(#fff7fb,#ffffff);
+text-align:center;
+color:#4a3b3b;
+overflow-x:hidden;
+}
+
 
 /* HEADER */
-header {
-  background: #fff6f9;
-  padding: 60px 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+
+header{
+background:
+linear-gradient(
+135deg,
+rgba(255,240,247,0.9),
+rgba(255,255,255,0.95)
+);
+
+padding:70px 20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+
+animation:fade 1.5s ease;
 }
 
-.brand {
-  font-size: 54px;
-  color: #d88aa5;
-  letter-spacing: 2px;
+
+.brand{
+
+font-size:58px;
+color:#d88aa5;
+letter-spacing:3px;
+
+text-shadow:
+0 3px 8px rgba(216,138,165,0.25);
+
 }
 
-.slogan {
-  font-style: italic;
-  color: #a86b7d;
+
+.slogan{
+
+font-style:italic;
+font-size:22px;
+color:#a86b7d;
+
 }
 
-.tagline {
-  color: #7a5b66;
+
+.tagline{
+
+color:#7a5b66;
+font-size:18px;
+
 }
+
+
+
+/* PETITS EFFETS */
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
 
 /* ABOUT */
-.about {
-  padding: 30px;
-  max-width: 850px;
-  margin: auto;
-  line-height: 1.8;
+
+
+.about{
+
+padding:35px 20px;
+max-width:850px;
+margin:auto;
+line-height:1.8;
+
 }
 
-h2 {
-  color: #c98aa0;
-  margin-top: 50px;
+
+h2{
+
+color:#c98aa0;
+margin-top:55px;
+font-size:30px;
+
 }
 
-/* 💗 CARTES LUXE PASTEL */
-.card {
-  background: #ffffff;
-  border-radius: 20px;
-  margin: 25px auto;
-  padding: 25px;
-  width: 90%;
-  max-width: 560px;
 
-  position: relative;
-  border: 2px solid #f3d7e2;
-  box-shadow: 0 10px 25px rgba(255, 192, 203, 0.15);
+
+/* CARTES */
+
+
+.card{
+
+background:white;
+
+border-radius:28px;
+
+margin:28px auto;
+
+padding:30px 25px;
+
+width:90%;
+max-width:560px;
+
+position:relative;
+
+border:2px solid #f5d8e4;
+
+box-shadow:
+0 15px 35px rgba(216,138,165,0.18);
+
+transition:0.4s;
+
+overflow:hidden;
+
 }
 
-/* moulures */
-.card::before,
-.card::after {
-  content: "❦";
-  position: absolute;
-  font-size: 14px;
-  color: #f2b6c6;
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 20px 45px rgba(216,138,165,0.3);
+
 }
 
-.card::before { top: 10px; left: 12px; }
-.card::after { bottom: 10px; right: 12px; }
 
-/* TITRE */
-.card h3 {
-  color: #b8748d;
+
+/* DECORATIONS */
+
+.card::before{
+
+content:"❦";
+
+position:absolute;
+
+top:12px;
+
+left:15px;
+
+font-size:18px;
+
+color:#f2b6c6;
+
 }
 
-/* 💗 DESCRIPTION UNIFORME (WAOUH STYLE = TIMES NEW ROMAN) */
-.desc {
-  font-family: "Times New Roman", serif;
-  font-size: 15px;
-  color: #6f4e57;
-  margin: 10px 0;
-  line-height: 1.6;
+
+.card::after{
+
+content:"❦";
+
+position:absolute;
+
+bottom:12px;
+
+right:15px;
+
+font-size:18px;
+
+color:#f2b6c6;
+
 }
+
+
+
+.card h3{
+
+font-size:24px;
+
+color:#b8748d;
+
+margin-top:10px;
+
+}
+
+
+
+/* NEW PRODUCT */
+
+.new{
+
+position:absolute;
+
+top:15px;
+
+right:-35px;
+
+background:#d88aa5;
+
+color:white;
+
+padding:8px 45px;
+
+font-size:13px;
+
+transform:rotate(45deg);
+
+font-weight:bold;
+
+}
+
+
+
+/* DESCRIPTION */
+
+
+.desc{
+
+font-size:16px;
+
+color:#6f4e57;
+
+line-height:1.7;
+
+margin:15px;
+
+}
+
+
+
+/* PRIX */
+
+
+.price{
+
+font-size:20px;
+
+color:#b8748d;
+
+font-weight:bold;
+
+}
+
+
 
 /* INPUTS */
-input, select {
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid #f1cbd6;
-  margin-top: 8px;
+
+
+input,select{
+
+padding:12px;
+
+border-radius:15px;
+
+border:1px solid #efc8d8;
+
+margin-top:10px;
+
+font-family:"Times New Roman";
+
 }
+
+
 
 /* BUTTON */
-button {
-  background: linear-gradient(135deg, #f7b6c8, #e7a9bb);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  margin-top: 15px;
-  cursor: pointer;
-  font-weight: bold;
+
+
+button{
+
+background:
+linear-gradient(
+135deg,
+#f7b6c8,
+#e7a9bb
+);
+
+color:white;
+
+border:none;
+
+padding:14px 30px;
+
+border-radius:30px;
+
+margin-top:15px;
+
+cursor:pointer;
+
+font-family:"Times New Roman";
+
+font-size:16px;
+
+box-shadow:
+0 8px 15px rgba(216,138,165,0.25);
+
+transition:0.3s;
+
 }
 
-button:hover {
-  transform: scale(1.04);
+
+button:hover{
+
+transform:scale(1.08);
+
 }
+
+
 
 /* PANIER */
-.cart {
-  background: #fff3f7;
-  padding: 35px;
-  margin-top: 40px;
+
+
+.cart{
+
+background:#fff2f7;
+
+padding:40px 20px;
+
+margin-top:60px;
+
+border-radius:40px 40px 0 0;
+
+box-shadow:
+0 -10px 30px rgba(216,138,165,0.15);
+
 }
+
+
+#cart{
+
+text-align:left;
+
+max-width:600px;
+
+margin:auto;
+
+line-height:2;
+
+}
+
+
+
+#total{
+
+color:#d88aa5;
+
+font-size:24px;
+
+}
+
+
 
 /* FOOTER */
-footer {
-  padding: 20px;
-  font-family: "Times New Roman", serif;
-  color: #7a5b66;
+
+
+footer{
+
+padding:30px;
+
+color:#7a5b66;
+
 }
 
-.instagram {
-  color: #d88aa5;
-  font-weight: bold;
+
+.instagram{
+
+color:#d88aa5;
+
+font-weight:bold;
+
 }
 
-.small-note {
-  font-size: 13px;
-  color: #c98aa0;
+
+
+.small-note{
+
+font-size:13px;
+
+color:#c98aa0;
+
 }
+
+
+/* MOBILE */
+
+
+@media(max-width:600px){
+
+.brand{
+
+font-size:42px;
+
+}
+
+
+.card{
+
+width:94%;
+
+}
+
+
+h2{
+
+font-size:26px;
+
+}
+
+}
+
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-  <h1 class="brand">Sweet Tyrcy</h1>
-  <p class="slogan">Heavenly Pastries</p>
-  <p class="tagline">Taste a slice of paradise</p>
+
+<h1 class="brand">Sweet Tyrcy</h1>
+
+<p class="slogan">Heavenly Pastries</p>
+
+<p class="tagline">
+Taste a slice of paradise ✨
+</p>
+
 </header>
 
-<!-- ABOUT -->
+
 <section class="about">
+
 
 <h2>About my business</h2>
 
+
 <p>
-Sweet Tyrcy est né de ma passion pour la pâtisserie. Cette passion, présente depuis mon enfance, m’a amenée à perfectionner mes recettes. Aujourd’hui, je suis enfin prête à partager ma version de la pâtisserie avec vous.
+Sweet Tyrcy est né de ma passion pour la pâtisserie.
+Cette passion présente depuis mon enfance m’a amenée à perfectionner mes recettes afin de partager aujourd’hui ma propre vision de la gourmandise.
 </p>
 
-<p style="color:#d88aa5;">
+
+<p style="color:#d88aa5;font-size:20px;">
 “Waouh… est-ce que le paradis a ce goût-là ?”
 </p>
 
+
 <p>
-Je veux que vous ressentiez tout l’amour que j’y mets. Alors régalez-vous !
+Chaque création est préparée avec amour pour vous offrir un moment doux, élégant et inoubliable.
 </p>
+
 
 </section>
 
+
+
 <h2>Nos créations</h2>
 
-<!-- PRODUITS -->
+
 
 <div class="card">
+
 <h3>Fondants au chocolat</h3>
-<p class="desc">Une douceur intense au chocolat révélant un cœur fondant irrésistible, pensée pour offrir un instant de pur réconfort.</p>
-<p>500 FCFA (unité)</p>
+
+<p class="desc">
+Une douceur intense au chocolat révélant un cœur fondant irrésistible.
+</p>
+
+<p class="price">
+500 FCFA
+</p>
+
 <input type="number" id="fondant" value="1">
-<button onclick="add('Fondant chocolat',500,'fondant')">Ajouter</button>
+
+<br>
+
+<button onclick="add('Fondant chocolat',500,'fondant')">
+Ajouter
+</button>
+
+</div>
 </div>
 
+
 <div class="card">
+
 <h3>Box de brownies</h3>
-<p class="desc">De généreux carrés ultra fondants au chocolat, riches et profonds en goût, parfaits à offrir, partager ou savourer seul.</p>
-<p>3000 FCFA</p>
+
+<p class="desc">
+De généreux carrés ultra fondants au chocolat, riches et gourmands, parfaits à partager ou à savourer seul.
+</p>
+
+<p class="price">
+3000 FCFA
+</p>
+
 <input type="number" id="brownie" value="1">
-<button onclick="add('Brownies',3000,'brownie')">Ajouter</button>
+
+<br>
+
+<button onclick="add('Brownies',3000,'brownie')">
+Ajouter
+</button>
+
 </div>
 
-<div class="card">
-<h3>Bento Cakes</h3>
-<p class="desc">De petits gâteaux moelleux et délicatement personnalisés, pensés pour offrir une attention douce, intime et élégante.</p>
 
-<p class="small-note">⚠️ Supplément décorations chargées</p>
-<p>7000 FCFA</p>
+
+<div class="card">
+
+<h3>Bento Cakes</h3>
+
+<p class="desc">
+De petits gâteaux moelleux et personnalisés, pensés pour offrir une attention douce, intime et élégante.
+</p>
+
+<p class="small-note">
+⚠️ Supplément possible pour décorations chargées
+</p>
+
+<p class="price">
+7000 FCFA
+</p>
+
 
 <select id="bento-flavor">
+
 <option>Nutella</option>
 <option>Kinder</option>
 <option>Lotus</option>
 <option>Citron</option>
 <option>Fraise</option>
 <option>Autres (WhatsApp)</option>
+
 </select>
+
+
+<br>
 
 <input type="number" id="bento" value="1">
-<button onclick="add('Bento Cake',7000,'bento','bento-flavor')">Ajouter</button>
+
+<br>
+
+<button onclick="add('Bento Cake',7000,'bento','bento-flavor')">
+Ajouter
+</button>
+
 </div>
 
-<div class="card">
-<h3>Layer Cakes (10–12 parts)</h3>
-<p class="desc">Des gâteaux à étages généreux, moelleux et raffinés, créés pour sublimer chaque moment.</p>
 
-<p class="small-note">⚠️ Supplément décorations chargées</p>
-<p>12000 FCFA</p>
+
+<div class="card">
+
+<h3>Layer Cakes (10–12 parts)</h3>
+
+<p class="desc">
+Des gâteaux à étages généreux, moelleux et raffinés, créés pour sublimer chaque occasion.
+</p>
+
+
+<p class="small-note">
+⚠️ Supplément possible pour décorations chargées
+</p>
+
+
+<p class="price">
+12000 FCFA
+</p>
+
 
 <select id="layer-flavor">
+
 <option>Nutella</option>
 <option>Kinder</option>
 <option>Lotus</option>
 <option>Citron</option>
 <option>Fraise</option>
 <option>Autres (WhatsApp)</option>
+
 </select>
+
+
+<br>
 
 <input type="number" id="layer" value="1">
-<button onclick="add('Layer Cake',12000,'layer','layer-flavor')">Ajouter</button>
+
+<br>
+
+<button onclick="add('Layer Cake',12000,'layer','layer-flavor')">
+Ajouter
+</button>
+
 </div>
 
-<div class="card">
-<h3>Layer Cups (Mini’Crush)</h3>
-<p class="desc">Un dessert en couches délicates mêlant crème, biscuits et fruits pour une expérience douce et gourmande.</p>
 
-<p>2000 FCFA</p>
+
+<!-- NOUVEAU PRODUIT -->
+
+<div class="card">
+
+<div class="new">
+NEW PRODUCT ✨
+</div>
+
+
+<h3>Trileçe</h3>
+
+
+<p class="desc">
+Un dessert délicatement imbibé aux trois laits, accompagné d’une texture fondante et aérienne pour une expérience douce et gourmande.
+</p>
+
+
+<p class="price">
+Choisissez votre format
+</p>
+
+
+<select id="trilece">
+
+<option>Mini (2000 FCFA)</option>
+
+<option>Moyen (3500 FCFA)</option>
+
+<option>Plat (10500 FCFA)</option>
+
+</select>
+
+
+<br>
+
+
+<input type="number" id="trileceqty" value="1">
+
+
+<br>
+
+
+<button onclick="addTrilece()">
+Ajouter
+</button>
+
+
+</div>
+<div class="card">
+
+<h3>Layer Cups (Mini’Crush)</h3>
+
+
+<p class="desc">
+Un dessert en couches délicates mêlant crème, biscuits et gourmandise pour un moment doux et raffiné.
+</p>
+
+
+<p class="price">
+2000 FCFA
+</p>
+
 
 <select id="mini-flavor">
+
 <option>Nutella</option>
 <option>Kinder</option>
 <option>Lotus</option>
 <option>Citron</option>
 <option>Fraise</option>
 <option>Autres (WhatsApp)</option>
+
 </select>
+
+
+<br>
 
 <input type="number" id="mini" value="1">
-<button onclick="add('Mini Crush',2000,'mini','mini-flavor')">Ajouter</button>
+
+
+<br>
+
+
+<button onclick="add('Mini Crush',2000,'mini','mini-flavor')">
+Ajouter
+</button>
+
+
 </div>
 
+
+
+
+
 <div class="card">
+
+
 <h3>Crêpes nature</h3>
-<p class="desc">Des crêpes légères et délicatement dorées, simples et réconfortantes à tout moment.</p>
+
+
+<p class="desc">
+Des crêpes légères, délicatement dorées et préparées avec amour pour une pause gourmande.
+</p>
+
+
 
 <select id="crepe1">
-<option>5 (1000 FCFA)</option>
-<option>15 (2500 FCFA)</option>
+
+<option>5 crêpes (1000 FCFA)</option>
+
+<option>15 crêpes (2500 FCFA)</option>
+
 </select>
 
-<button onclick="addCrepe('Crêpes nature','crepe1')">Ajouter</button>
+
+<br>
+
+
+<button onclick="addCrepe('Crêpes nature','crepe1')">
+Ajouter
+</button>
+
+
 </div>
 
+
+
+
+
 <div class="card">
+
+
 <h3>Crêpes Nutella</h3>
-<p class="desc">Des crêpes moelleuses garnies de Nutella fondant pour une douceur intense et réconfortante.</p>
+
+
+<p class="desc">
+Des crêpes moelleuses garnies de Nutella fondant pour une douceur intense et réconfortante.
+</p>
+
+
 
 <select id="crepe2">
-<option>5 (2000 FCFA)</option>
-<option>15 (5000 FCFA)</option>
+
+<option>5 crêpes (2000 FCFA)</option>
+
+<option>15 crêpes (5000 FCFA)</option>
+
 </select>
 
-<button onclick="addCrepe('Crêpes Nutella','crepe2')">Ajouter</button>
+
+<br>
+
+
+<button onclick="addCrepe('Crêpes Nutella','crepe2')">
+Ajouter
+</button>
+
+
 </div>
 
+
+
+
+
 <div class="card">
+
+
 <h3>Crêpes salées</h3>
-<p class="desc">3 crêpes savoureuses pour un repas simple, généreux et satisfaisant.</p>
-<p>2000 FCFA (3 pièces)</p>
+
+
+<p class="desc">
+Un pack généreux de crêpes salées parfait pour un repas simple et savoureux.
+</p>
+
+
+
+<p class="price">
+2000 FCFA (3 pièces)
+</p>
+
+
 
 <input type="number" id="sale" value="1">
-<button onclick="add('Crêpes salées (pack 3)',2000,'sale')">Ajouter</button>
+
+
+<br>
+
+
+<button onclick="add('Crêpes salées (pack 3)',2000,'sale')">
+Ajouter
+</button>
+
+
 </div>
 
-<div class="card">
-<h3>Tartes (moyenne)</h3>
-<p class="desc">Des tartes délicatement préparées entre tradition et originalité, pour un plaisir raffiné.</p>
 
-<p>4000 FCFA</p>
+
+
+
+<div class="card">
+
+
+<h3>Tartes (moyenne)</h3>
+
+
+<p class="desc">
+Des tartes délicates préparées entre tradition et originalité pour un plaisir raffiné.
+</p>
+
+
+
+<p class="price">
+4000 FCFA
+</p>
+
+
 
 <select id="tarte-flavor">
+
 <option>Pomme</option>
 <option>Citron</option>
 <option>Mangue</option>
 <option>Chocolat</option>
 <option>Bissap</option>
 <option>Autres (WhatsApp)</option>
+
 </select>
 
-<input type="number" id="tarte" value="1">
-
-<button onclick="add('Tarte moyenne',4000,'tarte','tarte-flavor')">Ajouter</button>
-</div>
-
-<div class="card">
-<h3>Flower Sweet Box</h3>
-<p class="desc">De savoureuses crêpes délicatement roulées en forme de rose, élégantes et accompagnées d’un pot de Nutella.</p>
-
-<select id="flower-box">
-<option>6 crêpes (3000 FCFA)</option>
-<option>12 crêpes (5500 FCFA)</option>
-</select>
-
-<input type="number" id="flowerqty" value="1">
-<button onclick="addFlower()">Ajouter</button>
-</div>
-
-<div class="card">
-<h3>Lasagnes</h3>
-<p class="desc">Un plat généreux aux couches fondantes et gratinées pour un moment réconfortant.</p>
-<p>4000 FCFA</p>
-<input type="number" id="lasagne" value="1">
-<button onclick="add('Lasagne',4000,'lasagne')">Ajouter</button>
-</div>
-
-<div class="card">
-<h3>Hachis Parmentier</h3>
-<p class="desc">Une purée onctueuse recouvrant une viande savoureuse et gratinée.</p>
-<p>4000 FCFA</p>
-<input type="number" id="hachis" value="1">
-<button onclick="add('Hachis',4000,'hachis')">Ajouter</button>
-</div>
-
-<!-- PANIER -->
-<div class="cart">
-
-<h2>Votre panier</h2>
-
-<ul id="cart"></ul>
-
-<p><strong>Total : <span id="total">0</span> FCFA</strong></p>
 
 <br>
 
-<input type="date" id="date">
-<br><br>
-<input type="time" id="time">
 
-<br><br>
+<input type="number" id="tarte" value="1">
 
-<button onclick="validate()">Valider la commande</button>
-<button onclick="whatsapp()">Commande WhatsApp</button>
+
+<br>
+
+
+<button onclick="add('Tarte moyenne',4000,'tarte','tarte-flavor')">
+Ajouter
+</button>
+
 
 </div>
 
+
+
+
+
+<div class="card">
+
+
+<h3>Flower Sweet Box 🌸</h3>
+
+
+<p class="desc">
+De délicates crêpes roulées en forme de rose accompagnées d’un pot de Nutella pour une création élégante.
+</p>
+
+
+
+<select id="flower-box">
+
+<option>6 crêpes (3000 FCFA)</option>
+
+<option>12 crêpes (5500 FCFA)</option>
+
+</select>
+
+
+
+<br>
+
+
+<input type="number" id="flowerqty" value="1">
+
+
+<br>
+
+
+<button onclick="addFlower()">
+Ajouter
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>Lasagnes</h3>
+
+
+<p class="desc">
+Un plat généreux aux couches fondantes et gratinées pour un moment chaleureux et gourmand.
+</p>
+
+
+
+<p class="price">
+4000 FCFA
+</p>
+
+
+
+<input type="number" id="lasagne" value="1">
+
+
+<br>
+
+
+<button onclick="add('Lasagne',4000,'lasagne')">
+Ajouter
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>Hachis Parmentier</h3>
+
+
+<p class="desc">
+Une purée onctueuse recouvrant une viande savoureuse et gratinée.
+</p>
+
+
+
+<p class="price">
+4000 FCFA
+</p>
+
+
+
+<input type="number" id="hachis" value="1">
+
+
+<br>
+
+
+<button onclick="add('Hachis Parmentier',4000,'hachis')">
+Ajouter
+</button>
+
+
+</div>
+<!-- PANIER -->
+
+
+<div class="cart">
+
+
+<h2>
+Votre panier ✨
+</h2>
+
+
+<ul id="cart"></ul>
+
+
+
+<p>
+<strong>
+Total :
+<span id="total">0</span> FCFA
+</strong>
+</p>
+
+
+
+<br>
+
+
+<input type="date" id="date">
+
+
+<br><br>
+
+
+<input type="time" id="time">
+
+
+<br><br>
+
+
+<button onclick="validate()">
+Valider la commande
+</button>
+
+
+<button onclick="whatsapp()">
+Commande WhatsApp
+</button>
+
+
+</div>
+
+
+
+
+
 <footer>
 
-<p>Sweet Tyrcy © 2026</p>
-<p class="instagram">Instagram : @sweet_tyrcy</p>
+
+<p>
+Sweet Tyrcy © 2026
+</p>
+
+
+<p class="instagram">
+Instagram : @sweet_tyrcy
+</p>
+
+
+<p>
+Heavenly Pastries ✨
+</p>
+
 
 </footer>
 
+
+
+
+
 <script>
 
+
 let cart = [];
+
 let total = 0;
 
-function add(name, price, id, flavorId=null) {
-  let qty = document.getElementById(id).value;
-  let flavor = flavorId ? document.getElementById(flavorId).value : "";
-  let subtotal = price * qty;
 
-  total += subtotal;
-  cart.push(name + (flavor ? " ("+flavor+")" : "") + " x" + qty);
 
-  update();
+function add(name,price,id,flavorId=null){
+
+
+let qty=document.getElementById(id).value;
+
+
+let flavor = flavorId 
+? document.getElementById(flavorId).value 
+: "";
+
+
+
+let subtotal = price * qty;
+
+
+
+total += subtotal;
+
+
+
+cart.push(
+name 
++ 
+(flavor ? " ("+flavor+")" : "")
++
+" x"
++
+qty
+);
+
+
+
+update();
+
+
 }
 
-function addCrepe(name, id) {
-  let val = document.getElementById(id).value;
-  let price = val.includes("1000") ? 1000 :
-              val.includes("2500") ? 2500 : 2000;
 
-  cart.push(name + " " + val);
-  total += price;
 
-  update();
+
+
+
+/* TRILECE */
+
+
+function addTrilece(){
+
+
+let value=document.getElementById("trilece").value;
+
+
+let qty=document.getElementById("trileceqty").value;
+
+
+
+let price = 2000;
+
+
+
+if(value.includes("3500")){
+
+price=3500;
+
 }
 
-function addFlower() {
-  let val = document.getElementById("flower-box").value;
-  let qty = document.getElementById("flowerqty").value;
-  let price = val.includes("3000") ? 3000 : 5500;
 
-  cart.push("Flower Sweet Box " + val + " x" + qty);
-  total += price * qty;
+if(value.includes("10500")){
 
-  update();
+price=10500;
+
 }
 
-function update() {
-  let list = document.getElementById("cart");
-  list.innerHTML = "";
 
-  cart.forEach(i => {
-    let li = document.createElement("li");
-    li.textContent = i;
-    list.appendChild(li);
-  });
 
-  document.getElementById("total").textContent = total;
+cart.push(
+"Trileçe - "
++
+value
++
+" x"
++
+qty
+);
+
+
+
+total += price * qty;
+
+
+
+update();
+
+
 }
 
-function validate() {
 
-  let date = document.getElementById("date").value;
-  let time = document.getElementById("time").value;
 
-  let msg = "✨ Commande Sweet Tyrcy ✨%0A%0A";
 
-  cart.forEach(i => {
-    msg += "• " + i + "%0A";
-  });
 
-  msg += "%0A💰 Total : " + total + " FCFA";
-  msg += "%0A📅 Date : " + date;
-  msg += "%0A⏰ Heure : " + time;
 
-  msg += "%0A%0A💳 Paiement : Wave / Orange Money (0797285031)";
-  msg += "%0A🚚 Livraison : Yango";
-  msg += "%0A📸 Envoyer capture + localisation";
 
-  let phone = "2250797285031";
+function addCrepe(name,id){
 
-  window.open("https://wa.me/" + phone + "?text=" + msg, "_blank");
+
+let value=document.getElementById(id).value;
+
+
+
+let price;
+
+
+
+if(value.includes("1000")){
+
+price=1000;
+
 }
 
-function whatsapp() {
+else if(value.includes("2500")){
 
-  let date = document.getElementById("date").value;
-  let time = document.getElementById("time").value;
+price=2500;
 
-  let msg = "Commande Sweet Tyrcy:%0A";
-
-  cart.forEach(i => msg += "- " + i + "%0A");
-
-  msg += "%0ATotal: " + total + " FCFA";
-  msg += "%0ADate: " + date;
-  msg += "%0AHeure: " + time;
-
-  msg += "%0APaiement Wave/OM : 0797285031";
-  msg += "%0ALivraison Yango";
-  msg += "%0AEnvoyer capture + localisation";
-
-  window.open("https://wa.me/2250797285031?text=" + msg);
 }
+
+else if(value.includes("2000")){
+
+price=2000;
+
+}
+
+else{
+
+price=5000;
+
+}
+
+
+
+cart.push(
+name+" "+value
+);
+
+
+
+total += price;
+
+
+
+update();
+
+
+}
+
+
+
+
+
+
+
+function addFlower(){
+
+
+let value=document.getElementById("flower-box").value;
+
+
+let qty=document.getElementById("flowerqty").value;
+
+
+
+let price=value.includes("3000")
+?
+3000
+:
+5500;
+
+
+
+cart.push(
+"Flower Sweet Box "
++
+value
++
+" x"
++
+qty
+);
+
+
+
+total += price * qty;
+
+
+
+update();
+
+
+}
+
+
+
+
+
+
+
+function update(){
+
+
+let list=document.getElementById("cart");
+
+
+list.innerHTML="";
+
+
+
+cart.forEach(item=>{
+
+
+let li=document.createElement("li");
+
+
+li.textContent=item;
+
+
+list.appendChild(li);
+
+
+
+});
+
+
+
+document.getElementById("total").textContent=total;
+
+
+
+}
+
+
+
+
+
+
+
+function validate(){
+
+
+let date=document.getElementById("date").value;
+
+
+let time=document.getElementById("time").value;
+
+
+
+let msg=
+"✨ Commande Sweet Tyrcy ✨%0A%0A";
+
+
+
+cart.forEach(item=>{
+
+
+msg += "• "+item+"%0A";
+
+
+});
+
+
+
+msg +=
+"%0A💰 Total : "
++
+total
++
+" FCFA";
+
+
+
+msg +=
+"%0A📅 Date : "
++
+date;
+
+
+
+msg +=
+"%0A⏰ Heure : "
++
+time;
+
+
+
+msg +=
+"%0A%0A💳 Paiement : Wave / Orange Money (0797285031)";
+
+
+
+msg +=
+"%0A🚚 Livraison : Yango";
+
+
+
+msg +=
+"%0A📸 Envoyer capture + localisation";
+
+
+
+window.open(
+"https://wa.me/2250797285031?text="+msg,
+"_blank"
+);
+
+
+
+}
+
+
+
+
+
+
+
+function whatsapp(){
+
+
+let date=document.getElementById("date").value;
+
+
+let time=document.getElementById("time").value;
+
+
+
+let msg=
+"Commande Sweet Tyrcy:%0A%0A";
+
+
+
+cart.forEach(item=>{
+
+
+msg += "- "+item+"%0A";
+
+
+});
+
+
+
+msg +=
+"%0ATotal : "
++
+total
++
+" FCFA";
+
+
+
+msg +=
+"%0ADate : "
++
+date;
+
+
+
+msg +=
+"%0AHeure : "
++
+time;
+
+
+
+msg +=
+"%0APaiement Wave/Orange Money : 0797285031";
+
+
+
+msg +=
+"%0ALivraison Yango";
+
+
+
+window.open(
+"https://wa.me/2250797285031?text="+msg
+);
+
+
+
+}
+
+
 
 </script>
 
+
 </body>
+
 </html>
