@@ -75,18 +75,19 @@
       background: none;
       color: var(--text);
       text-align: left;
-      font-size: 24px;
       line-height: 1;
       white-space: nowrap;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
     }
 
-    .header-brand span {
+    .header-logo {
+      width: 65px;
+      height: auto;
       display: block;
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--pink-dark);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      object-fit: contain;
     }
 
     .main-nav {
@@ -1054,14 +1055,6 @@
         padding: 13px 17px;
       }
 
-      .header-brand {
-        font-size: 21px;
-      }
-
-      .header-brand span {
-        font-size: 10px;
-      }
-
       .main-nav {
         gap: 0;
       }
@@ -1163,10 +1156,13 @@
   <header class="site-header">
     <div class="header-inner">
 
-     <button class="header-brand" onclick="showPage('home')">
-  Sweet Tyrcy
-  <span>Heavenly Pastries</span>
-</button>
+      <button class="header-brand" onclick="showPage('home')">
+        <img
+          src="images/logo sweet tyrcy.jpeg"
+          alt="Sweet Tyrcy"
+          class="header-logo"
+        >
+      </button>
 
       <nav class="main-nav">
 
