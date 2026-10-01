@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sweet Tyrcy · Heavenly Pastries</title>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -83,12 +85,13 @@
       flex-shrink: 0;
     }
 
-.header-logo {
-  width: 150px;
-  height: 150px;
-  display: block;
-  object-fit: contain;
-}
+    .header-logo {
+      width: 150px;
+      height: 150px;
+      display: block;
+      object-fit: contain;
+    }
+
     .main-nav {
       display: flex;
       align-items: center;
@@ -3065,6 +3068,23 @@
   <script>
 
     /* =========================
+       SUPABASE
+    ========================= */
+
+    const SUPABASE_URL =
+      "https://cxzoizejyuafgkwcbbcg.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_pHiIcWaZRm1J2ZHVsOvZyA_4bkXne-X";
+
+    const supabaseClient =
+      supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    /* =========================
        CART
     ========================= */
 
@@ -4260,30 +4280,48 @@
        REVIEWS
     ========================= */
 
-    let reviews =
-      JSON.parse(
-        localStorage.getItem(
-          "sweetTyrcyReviews"
-        )
-      ) || [];
+    let reviews = [];
 
 
-    function saveReviews() {
+    async function loadReviews() {
 
-      localStorage.setItem(
-        "sweetTyrcyReviews",
-        JSON.stringify(reviews)
-      );
+      const {
+        data,
+        error
+      } = await supabaseClient
+        .from("reviews")
+        .select("*")
+        .order("created_at", {
+          ascending: false
+        });
+
+
+      if (error) {
+
+        console.error(
+          "Erreur lors du chargement des avis :",
+          error
+        );
+
+        return;
+
+      }
+
+
+      reviews = data || [];
+
+      renderReviews();
 
     }
 
 
-    function submitReview() {
+    async function submitReview() {
 
       const name =
         document.getElementById(
           "reviewName"
         ).value.trim();
+
 
       const rating =
         parseInt(
@@ -4292,15 +4330,11 @@
           ).value
         );
 
+
       const text =
         document.getElementById(
           "reviewText"
         ).value.trim();
-
-      const photoInput =
-        document.getElementById(
-          "reviewPhoto"
-        );
 
 
       if (!name) {
@@ -4325,85 +4359,61 @@
       }
 
 
-      const createReview =
-        photoData => {
-
-          reviews.unshift({
-
+      const {
+        error
+      } = await supabaseClient
+        .from("reviews")
+        .insert([
+          {
             name: name,
-
             rating: rating,
-
-            text: text,
-
-            photo: photoData || "",
-
-            date:
-              new Date()
-                .toLocaleDateString(
-                  "fr-FR"
-                )
-
-          });
+            comment: text
+          }
+        ]);
 
 
-          saveReviews();
+      if (error) {
 
-          renderReviews();
+        console.error(
+          "Erreur lors de l'envoi de l'avis :",
+          error
+        );
 
+        showToast(
+          "Une erreur est survenue. Veuillez réessayer."
+        );
 
-          document.getElementById(
-            "reviewName"
-          ).value = "";
-
-          document.getElementById(
-            "reviewText"
-          ).value = "";
-
-          document.getElementById(
-            "reviewPhoto"
-          ).value = "";
-
-          document.getElementById(
-            "reviewRating"
-          ).value = "5";
-
-
-          showToast(
-            "Merci pour votre petit mot ♡"
-          );
-
-        };
-
-
-      if (
-        photoInput.files &&
-        photoInput.files[0]
-      ) {
-
-        const file =
-          photoInput.files[0];
-
-        const reader =
-          new FileReader();
-
-
-        reader.onload = event => {
-
-          createReview(
-            event.target.result
-          );
-
-        };
-
-
-        reader.readAsDataURL(file);
-
-      } else {
-
-        createReview("");
+        return;
 
       }
+
+
+      document.getElementById(
+        "reviewName"
+      ).value = "";
+
+
+      document.getElementById(
+        "reviewText"
+      ).value = "";
+
+
+      document.getElementById(
+        "reviewPhoto"
+      ).value = "";
+
+
+      document.getElementById(
+        "reviewRating"
+      ).value = "5";
+
+
+      showToast(
+        "Merci pour votre petit mot ♡"
+      );
+
+
+      await loadReviews();
 
     }
 
@@ -4438,14 +4448,27 @@
         reviews.map(
           review => {
 
+            const rating =
+              review.rating || 0;
+
+
             const stars =
               "★".repeat(
-                review.rating
+                rating
               ) +
               "☆".repeat(
-                5 -
-                review.rating
+                5 - rating
               );
+
+
+            const formattedDate =
+              review.created_at
+                ? new Date(
+                    review.created_at
+                  ).toLocaleDateString(
+                    "fr-FR"
+                  )
+                : "";
 
 
             return `
@@ -4459,7 +4482,7 @@
                   </div>
 
                   <div class="review-date">
-                    ${escapeHtml(review.date)}
+                    ${escapeHtml(formattedDate)}
                   </div>
 
                 </div>
@@ -4469,20 +4492,8 @@
                 </div>
 
                 <p class="review-content">
-                  ${escapeHtml(review.text)}
+                  ${escapeHtml(review.comment)}
                 </p>
-
-                ${
-                  review.photo
-                    ? `
-                      <img
-                        src="${review.photo}"
-                        alt="Photo partagée par ${escapeHtml(review.name)}"
-                        class="review-image"
-                      >
-                    `
-                    : ""
-                }
 
               </article>
 
@@ -4512,7 +4523,7 @@
 
     updateFlowerBoxPrice();
 
-    renderReviews();
+    loadReviews();
 
   </script>
 
