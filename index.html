@@ -17,7 +17,7 @@
     :root {
       --pink: #d88aa5;
       --pink-dark: #b8748d;
-      --pink-light: #fff3f7;   
+      --pink-light: #fff3f7;
       --pink-soft: #fce8ef;
       --cream: #fffaf7;
       --white: #ffffff;
@@ -266,6 +266,15 @@
       margin-top: 38px;
     }
 
+    .creator-signature {
+      margin-top: 55px;
+      color: var(--pink-dark);
+      font-family: "Brush Script MT", "Segoe Script", cursive;
+      font-size: 28px;
+      font-style: italic;
+      text-align: center;
+    }
+
     /* =========================
        BUTTONS
     ========================= */
@@ -395,6 +404,15 @@
       margin-bottom: 0;
     }
 
+    .event-card {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .event-card h2 {
+      margin-bottom: 22px;
+    }
+
     /* =========================
        CREATIONS
     ========================= */
@@ -444,6 +462,13 @@
       line-height: 1.6;
       margin-bottom: 16px;
       font-size: 15px;
+    }
+
+    .decoration-note {
+      color: var(--pink-dark);
+      font-style: italic;
+      font-size: 13px;
+      margin-top: -4px;
     }
 
     .product-price {
@@ -703,9 +728,9 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 25px;
-      max-width: 850px;
+      max-width: 1050px;
       margin: auto;
     }
 
@@ -1050,6 +1075,11 @@
       .review-layout {
         grid-template-columns: 1fr;
       }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        max-width: 850px;
+      }
     }
 
     @media (max-width: 650px) {
@@ -1099,6 +1129,11 @@
 
       .hero-actions .btn {
         width: 100%;
+      }
+
+      .creator-signature {
+        margin-top: 45px;
+        font-size: 25px;
       }
 
       .story-card {
@@ -1263,6 +1298,10 @@
               Contact
             </button>
 
+          </div>
+
+          <div class="creator-signature">
+            By Tyrcianne Samira
           </div>
 
         </div>
@@ -1601,8 +1640,8 @@
                 À partir de 8 000 FCFA
               </div>
 
-              <p class="product-description">
-                Pour une décoration personnalisée, envoyez votre image
+              <p class="product-description decoration-note">
+                Pour une décoration personnalisée, envoyez-nous votre modèle
                 d’inspiration sur WhatsApp. Un supplément peut s’appliquer
                 selon la décoration souhaitée.
               </p>
@@ -1656,8 +1695,8 @@
                 15 500 FCFA
               </div>
 
-              <p class="product-description">
-                Pour une décoration personnalisée, envoyez votre image
+              <p class="product-description decoration-note">
+                Pour une décoration personnalisée, envoyez-nous votre modèle
                 d’inspiration sur WhatsApp. Un supplément peut s’appliquer
                 selon la décoration souhaitée.
               </p>
@@ -2180,28 +2219,38 @@
             </article>
 
 
-            <!-- BOX MIX -->
+            <!-- SWEET GIFT BOX -->
 
-            <article class="product-card simple-product">
+            <article class="product-card">
 
               <h3>
-                Box Mix
+                Sweet Gift Box
               </h3>
 
               <p class="product-description">
-                Un petit mélange gourmand composé de fondant,
-                de crêpes salées et de crêpes au Nutella.
+                Une douce attention à offrir ou à s’offrir. La Sweet Gift Box
+                réunit un Bento Cake et 6 cupcakes gourmands, parfaite pour
+                célébrer un anniversaire, faire plaisir à quelqu’un ou
+                simplement créer un joli moment sucré.
               </p>
 
+              <select id="sweetGiftBoxFlavor" class="product-select">
+                <option>Nutella</option>
+                <option>Citron</option>
+                <option>Lotus</option>
+                <option>Chocolat au lait</option>
+                <option>Cookies &amp; Cream (Oreo)</option>
+              </select>
+
               <div class="product-price">
-                À définir
+                15 000 FCFA
               </div>
 
               <div class="product-actions">
 
                 <input
                   type="number"
-                  id="boxMixQuantity"
+                  id="sweetGiftBoxQuantity"
                   class="quantity-input"
                   value="1"
                   min="1"
@@ -2209,7 +2258,7 @@
 
                 <button
                   class="btn btn-primary"
-                  onclick="showToast('Prix de la Box Mix à confirmer.')"
+                  onclick="addSweetGiftBoxToCart()"
                 >
                   Ajouter au panier
                 </button>
@@ -2219,6 +2268,26 @@
             </article>
 
           </div>
+
+        </div>
+
+
+        <!-- BUFFETS & EVENEMENTS -->
+
+        <div class="story-card event-card">
+
+          <h2>
+            Pour vos buffets &amp; événements
+          </h2>
+
+          <p>
+            Sweet Tyrcy prépare également des assortiments gourmands pour vos
+            anniversaires, réceptions, célébrations et événements.
+          </p>
+
+          <p>
+            Contactez-nous sur WhatsApp.
+          </p>
 
         </div>
 
@@ -2439,6 +2508,20 @@
           <div class="gallery-card">
             <div class="gallery-image-wrap">
               <img
+                src="images/Aperol Spritz cake.jpeg"
+                alt="pink aperol spritz inspired cake"
+                class="gallery-image"
+              >
+            </div>
+            <div class="gallery-caption">
+              pink aperol spritz inspired cake
+            </div>
+          </div>
+
+
+          <div class="gallery-card">
+            <div class="gallery-image-wrap">
+              <img
                 src="images/crêpe salée.jpeg"
                 alt="Crêpes Salées"
                 class="gallery-image"
@@ -2495,13 +2578,13 @@
           <div class="gallery-card">
             <div class="gallery-image-wrap">
               <img
-                src="images/trileçe2.jpeg"
-                alt="Trileçe"
+                src="images/pink aperol spritz cake.jpeg"
+                alt="pink aperol spritz inspired cake"
                 class="gallery-image"
               >
             </div>
             <div class="gallery-caption">
-              Trileçe
+              pink aperol spritz inspired cake
             </div>
           </div>
 
@@ -2509,7 +2592,21 @@
           <div class="gallery-card">
             <div class="gallery-image-wrap">
               <img
-                src="images/trileçe3.jpeg"
+                src="images/crêpe salée 2.jpeg"
+                alt="Crêpes Salées"
+                class="gallery-image"
+              >
+            </div>
+            <div class="gallery-caption">
+              Crêpes Salées
+            </div>
+          </div>
+
+
+          <div class="gallery-card">
+            <div class="gallery-image-wrap">
+              <img
+                src="images/trileçe2.jpeg"
                 alt="Trileçe"
                 class="gallery-image"
               >
@@ -2537,20 +2634,6 @@
           <div class="gallery-card">
             <div class="gallery-image-wrap">
               <img
-                src="images/crêpe salée 2.jpeg"
-                alt="Crêpes Salées"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Crêpes Salées
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
                 src="images/tarte pomme.jpeg"
                 alt="Tarte Pomme"
                 class="gallery-image"
@@ -2558,6 +2641,48 @@
             </div>
             <div class="gallery-caption">
               Tarte Pomme
+            </div>
+          </div>
+
+
+          <div class="gallery-card">
+            <div class="gallery-image-wrap">
+              <img
+                src="images/Box mix2.jpeg"
+                alt="assortiment mix"
+                class="gallery-image"
+              >
+            </div>
+            <div class="gallery-caption">
+              assortiment mix
+            </div>
+          </div>
+
+
+          <div class="gallery-card">
+            <div class="gallery-image-wrap">
+              <img
+                src="images/trileçe3.jpeg"
+                alt="Trileçe"
+                class="gallery-image"
+              >
+            </div>
+            <div class="gallery-caption">
+              Trileçe
+            </div>
+          </div>
+
+
+          <div class="gallery-card">
+            <div class="gallery-image-wrap">
+              <img
+                src="images/Aperol cake.jpeg"
+                alt="aperol spritz cake"
+                class="gallery-image"
+              >
+            </div>
+            <div class="gallery-caption">
+              aperol spritz cake
             </div>
           </div>
 
@@ -2851,6 +2976,28 @@
             >
               Ouvrir mon panier
             </button>
+
+          </div>
+
+
+          <div class="contact-card">
+
+            <h3>
+              WhatsApp
+            </h3>
+
+            <p>
+              Pour toute question ou demande, écrivez-nous directement.
+            </p>
+
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/2250797285031"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              07 97 28 50 31
+            </a>
 
           </div>
 
@@ -3435,6 +3582,34 @@
       addToCart(
         "Layer Cake",
         15500,
+        quantity,
+        flavor
+      );
+
+    }
+
+
+    /* =========================
+       SWEET GIFT BOX
+    ========================= */
+
+    function addSweetGiftBoxToCart() {
+
+      const flavor =
+        document.getElementById(
+          "sweetGiftBoxFlavor"
+        ).value;
+
+      const quantity =
+        parseInt(
+          document.getElementById(
+            "sweetGiftBoxQuantity"
+          ).value
+        ) || 1;
+
+      addToCart(
+        "Sweet Gift Box",
+        15000,
         quantity,
         flavor
       );
