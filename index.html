@@ -8,11 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --pink: #d88aa5;
@@ -27,9 +23,7 @@
       --shadow: rgba(216, 138, 165, 0.16);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Times New Roman", serif;
@@ -38,16 +32,8 @@
       min-height: 100vh;
     }
 
-    button,
-    input,
-    select,
-    textarea {
-      font-family: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
+    button, input, select, textarea { font-family: inherit; }
+    button { cursor: pointer; }
 
     /* =========================
        HEADER
@@ -89,7 +75,8 @@
       width: 150px;
       height: 150px;
       display: block;
-      object-fit: contain;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .main-nav {
@@ -109,10 +96,52 @@
       transition: 0.25s ease;
     }
 
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--pink-dark);
+    .nav-link:hover, .nav-link.active { color: var(--pink-dark); }
+
+    /* Barre de recherche */
+    .header-search {
+      display: flex;
+      align-items: center;
+      width: 210px;
+      flex-shrink: 0;
+      background: var(--pink-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 4px 3px 16px;
+      transition: 0.25s ease;
     }
+
+    .header-search:focus-within {
+      background: var(--white);
+      border-color: var(--pink);
+      box-shadow: 0 5px 18px var(--shadow);
+    }
+
+    .header-search input {
+      width: 100%;
+      min-width: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .header-search input::placeholder { color: var(--text-light); opacity: 0.8; }
+
+    .search-submit {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border: none;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--pink-dark);
+      font-size: 18px;
+      transition: 0.25s ease;
+    }
+
+    .search-submit:hover { background: var(--pink-light); }
 
     .header-cart-button {
       position: relative;
@@ -147,32 +176,15 @@
        PAGES
     ========================= */
 
-    .page {
-      display: none;
-      animation: pageFade 0.35s ease;
-    }
-
-    .page.active {
-      display: block;
-    }
+    .page { display: none; animation: pageFade 0.35s ease; }
+    .page.active { display: block; }
 
     @keyframes pageFade {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .page-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 80px 28px;
-    }
+    .page-inner { max-width: 1200px; margin: auto; padding: 80px 28px; }
 
     /* =========================
        HERO
@@ -193,8 +205,7 @@
         var(--cream);
     }
 
-    .hero::before,
-    .hero::after {
+    .hero::before, .hero::after {
       content: "♡";
       position: absolute;
       color: rgba(216, 138, 165, 0.16);
@@ -202,23 +213,10 @@
       pointer-events: none;
     }
 
-    .hero::before {
-      left: -25px;
-      top: 80px;
-      transform: rotate(-15deg);
-    }
+    .hero::before { left: -25px; top: 80px; transform: rotate(-15deg); }
+    .hero::after { right: -20px; bottom: 40px; transform: rotate(15deg); }
 
-    .hero::after {
-      right: -20px;
-      bottom: 40px;
-      transform: rotate(15deg);
-    }
-
-    .hero-content {
-      max-width: 850px;
-      position: relative;
-      z-index: 2;
-    }
+    .hero-content { max-width: 850px; position: relative; z-index: 2; }
 
     .hero-eyebrow {
       color: var(--pink-dark);
@@ -236,27 +234,9 @@
       margin-bottom: 18px;
     }
 
-    .hero-slogan {
-      font-size: 26px;
-      color: var(--pink-dark);
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 18px;
-      letter-spacing: 2px;
-      color: var(--text-light);
-      margin-bottom: 30px;
-    }
-
-    .hero-intro {
-      max-width: 650px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.8;
-      color: var(--text-light);
-    }
+    .hero-slogan { font-size: 26px; color: var(--pink-dark); font-style: italic; margin-bottom: 10px; }
+    .hero-tagline { font-size: 18px; letter-spacing: 2px; color: var(--text-light); margin-bottom: 30px; }
+    .hero-intro { max-width: 650px; margin: auto; font-size: 18px; line-height: 1.8; color: var(--text-light); }
 
     .hero-actions {
       display: flex;
@@ -291,45 +271,18 @@
       min-height: 46px;
     }
 
-    .btn-primary {
-      background: var(--pink);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--pink-dark);
-      border-color: var(--pink-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--pink-dark);
-    }
-
-    .btn-outline:hover {
-      background: var(--pink-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-soft {
-      background: var(--pink-light);
-      color: var(--pink-dark);
-      border-color: var(--border);
-    }
-
-    .btn-soft:hover {
-      background: var(--pink-soft);
-    }
+    .btn-primary { background: var(--pink); color: white; }
+    .btn-primary:hover { background: var(--pink-dark); border-color: var(--pink-dark); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--pink-dark); }
+    .btn-outline:hover { background: var(--pink-light); transform: translateY(-2px); }
+    .btn-soft { background: var(--pink-light); color: var(--pink-dark); border-color: var(--border); }
+    .btn-soft:hover { background: var(--pink-soft); }
 
     /* =========================
        TITLES
     ========================= */
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 55px;
-    }
+    .section-heading { text-align: center; margin-bottom: 55px; }
 
     .section-eyebrow {
       color: var(--pink-dark);
@@ -346,13 +299,7 @@
       margin-bottom: 18px;
     }
 
-    .section-heading p {
-      max-width: 650px;
-      margin: auto;
-      color: var(--text-light);
-      font-size: 17px;
-      line-height: 1.7;
-    }
+    .section-heading p { max-width: 650px; margin: auto; color: var(--text-light); font-size: 17px; line-height: 1.7; }
 
     /* =========================
        STORY
@@ -368,58 +315,28 @@
       position: relative;
     }
 
-    .story-card::before,
-    .story-card::after {
+    .story-card::before, .story-card::after {
       content: "♡";
       position: absolute;
       color: var(--pink-soft);
       font-size: 55px;
     }
 
-    .story-card::before {
-      top: 18px;
-      left: 20px;
-    }
+    .story-card::before { top: 18px; left: 20px; }
+    .story-card::after { bottom: 18px; right: 20px; }
 
-    .story-card::after {
-      bottom: 18px;
-      right: 20px;
-    }
+    .story-card h2 { font-weight: normal; font-size: 42px; margin-bottom: 30px; color: var(--pink-dark); }
+    .story-card p { font-size: 18px; line-height: 1.9; margin-bottom: 20px; color: var(--text-light); }
+    .story-card p:last-child { margin-bottom: 0; }
 
-    .story-card h2 {
-      font-weight: normal;
-      font-size: 42px;
-      margin-bottom: 30px;
-      color: var(--pink-dark);
-    }
-
-    .story-card p {
-      font-size: 18px;
-      line-height: 1.9;
-      margin-bottom: 20px;
-      color: var(--text-light);
-    }
-
-    .story-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .event-card {
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .event-card h2 {
-      margin-bottom: 22px;
-    }
+    .event-card { margin-top: 10px; text-align: center; }
+    .event-card h2 { margin-bottom: 22px; }
 
     /* =========================
        CREATIONS
     ========================= */
 
-    .category {
-      margin-bottom: 70px;
-    }
+    .category { margin-bottom: 70px; }
 
     .category-title {
       font-size: 31px;
@@ -429,11 +346,15 @@
       margin-bottom: 28px;
     }
 
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .category-subtitle {
+      text-align: center;
+      color: var(--pink-dark);
+      font-family: "Brush Script MT", "Segoe Script", cursive;
+      font-size: 20px;
+      margin: -14px 0 28px;
     }
+
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 
     .product-card {
       background: var(--white);
@@ -446,37 +367,34 @@
       position: relative;
     }
 
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px var(--shadow);
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px var(--shadow); }
+
+    .product-card.search-highlight {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px var(--pink-soft), 0 15px 35px var(--shadow);
+      animation: searchPulse 1.2s ease 2;
     }
 
-    .product-card h3 {
-      font-size: 25px;
-      font-weight: normal;
-      margin-bottom: 10px;
+    @keyframes searchPulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
-    .product-description {
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      font-size: 15px;
-    }
+    .product-card h3 { font-size: 25px; font-weight: normal; margin-bottom: 10px; }
+
+    .product-description { color: var(--text-light); line-height: 1.6; margin-bottom: 16px; font-size: 15px; }
 
     .decoration-note {
       color: var(--pink-dark);
-      font-style: italic;
-      font-size: 13px;
-      margin-top: -4px;
+      font-style: normal;
+      font-size: 15px;
+      line-height: 1.6;
+      background: var(--pink-light);
+      border-left: 3px solid var(--pink);
+      padding: 10px 12px;
     }
 
-    .product-price {
-      color: var(--pink-dark);
-      font-size: 19px;
-      margin-top: auto;
-      margin-bottom: 17px;
-    }
+    .product-price { color: var(--pink-dark); font-size: 19px; margin-top: auto; margin-bottom: 17px; }
 
     .product-select {
       width: 100%;
@@ -489,20 +407,22 @@
       outline: none;
     }
 
-    .product-select:focus,
-    .quantity-input:focus,
-    .cart-input:focus,
-    .cart-note:focus,
-    .review-input:focus,
-    .review-textarea:focus {
-      border-color: var(--pink);
+    .product-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-light);
+      font-size: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
     }
 
-    .product-actions {
-      display: flex;
-      gap: 9px;
-      align-items: stretch;
-    }
+    .product-option input { width: 18px; height: 18px; accent-color: var(--pink); flex-shrink: 0; }
+
+    .product-select:focus, .quantity-input:focus, .cart-input:focus, .cart-note:focus,
+    .review-input:focus, .review-textarea:focus { border-color: var(--pink); }
+
+    .product-actions { display: flex; gap: 9px; align-items: stretch; }
 
     .quantity-input {
       width: 70px;
@@ -516,11 +436,7 @@
       padding: 10px 5px;
     }
 
-    .product-actions .btn {
-      flex: 1;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
+    .product-actions .btn { flex: 1; padding-left: 10px; padding-right: 10px; }
 
     .product-badge {
       position: absolute;
@@ -533,16 +449,26 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
-    /* =========================
-       GALLERY
+        /* =========================
+       GALLERY (présentation éditoriale)
     ========================= */
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 28px 24px;
+      align-items: start;
     }
+
+    .g2 { grid-column: span 2; }
+    .g3 { grid-column: span 3; }
+    .g4 { grid-column: span 4; }
+
+    .g2 .gallery-image-wrap { aspect-ratio: 4 / 5; }
+    .g3 .gallery-image-wrap { aspect-ratio: 1 / 1; }
+    .g4 .gallery-image-wrap { aspect-ratio: 4 / 3; }
+    .gallery-card.sq .gallery-image-wrap { aspect-ratio: 1 / 1; }
+    .gallery-card.down { margin-top: 38px; }
 
     .gallery-card {
       background: var(--white);
@@ -552,17 +478,9 @@
       box-shadow: 0 8px 25px rgba(216, 138, 165, 0.07);
     }
 
-    .gallery-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px var(--shadow);
-    }
+    .gallery-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px var(--shadow); }
 
-    .gallery-image-wrap {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background: var(--pink-light);
-    }
+    .gallery-image-wrap { width: 100%; overflow: hidden; background: var(--pink-light); }
 
     .gallery-image {
       width: 100%;
@@ -572,74 +490,31 @@
       transition: transform 0.4s ease;
     }
 
-    .gallery-card:hover .gallery-image {
-      transform: scale(1.03);
-    }
+    .gallery-card:hover .gallery-image { transform: scale(1.03); }
 
-    .gallery-caption {
-      padding: 17px 18px 19px;
-      text-align: center;
-      color: var(--pink-dark);
-      font-size: 18px;
-    }
+    .gallery-caption { padding: 17px 18px 19px; text-align: center; color: var(--pink-dark); font-size: 18px; }
 
-    .gallery-coming-soon {
-      text-align: center;
-      margin-top: 45px;
-      color: var(--text-light);
-      font-style: italic;
-      font-size: 18px;
-    }
+    .gallery-coming-soon { text-align: center; margin-top: 45px; color: var(--text-light); font-style: italic; font-size: 18px; }
 
     /* =========================
        REVIEWS
     ========================= */
 
-    .reviews-section {
-      margin-top: 85px;
-    }
+    .reviews-section { margin-top: 85px; }
 
-    .review-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: start;
-    }
+    .review-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; align-items: start; }
 
-    .review-form-card,
-    .reviews-list-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 35px;
-    }
+    .review-form-card, .reviews-list-card { background: var(--white); border: 1px solid var(--border); padding: 35px; }
 
-    .review-form-card h3,
-    .reviews-list-card h3 {
-      font-size: 29px;
-      font-weight: normal;
-      color: var(--pink-dark);
-      margin-bottom: 20px;
-    }
+    .review-form-card h3, .reviews-list-card h3 { font-size: 29px; font-weight: normal; color: var(--pink-dark); margin-bottom: 20px; }
 
-    .review-form-intro {
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-bottom: 23px;
-    }
+    .review-form-intro { color: var(--text-light); line-height: 1.7; margin-bottom: 23px; }
 
-    .review-field {
-      margin-bottom: 15px;
-    }
+    .review-field { margin-bottom: 15px; }
 
-    .review-label {
-      display: block;
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 7px;
-    }
+    .review-label { display: block; color: var(--text-light); font-size: 14px; margin-bottom: 7px; }
 
-    .review-input,
-    .review-textarea {
+    .review-input, .review-textarea {
       width: 100%;
       border: 1px solid var(--border);
       background: var(--cream);
@@ -649,120 +524,33 @@
       font-size: 15px;
     }
 
-    .review-textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
+    .review-textarea { min-height: 120px; resize: vertical; }
 
-    .review-photo-input {
-      width: 100%;
-      color: var(--text-light);
-      font-size: 14px;
-    }
+    .reviews-list { display: grid; gap: 17px; }
 
-    .review-note {
-      margin-top: 10px;
-      color: var(--text-light);
-      font-size: 12px;
-      line-height: 1.5;
-    }
+    .review-empty { color: var(--text-light); line-height: 1.7; font-style: italic; }
 
-    .reviews-list {
-      display: grid;
-      gap: 17px;
-    }
+    .review-card { border: 1px solid var(--border); background: var(--cream); padding: 20px; }
 
-    .review-empty {
-      color: var(--text-light);
-      line-height: 1.7;
-      font-style: italic;
-    }
-
-    .review-card {
-      border: 1px solid var(--border);
-      background: var(--cream);
-      padding: 20px;
-    }
-
-    .review-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 8px;
-    }
-
-    .review-name {
-      color: var(--pink-dark);
-      font-size: 19px;
-    }
-
-    .review-date {
-      color: var(--text-light);
-      font-size: 12px;
-    }
-
-    .review-stars {
-      color: var(--pink-dark);
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .review-content {
-      color: var(--text-light);
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    .review-image {
-      width: 100%;
-      max-height: 280px;
-      object-fit: cover;
-      margin-top: 15px;
-      border: 1px solid var(--border);
-    }
+    .review-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 8px; }
+    .review-name { color: var(--pink-dark); font-size: 19px; }
+    .review-date { color: var(--text-light); font-size: 12px; }
+    .review-stars { color: var(--pink-dark); letter-spacing: 2px; margin-bottom: 10px; font-size: 15px; }
+    .review-content { color: var(--text-light); line-height: 1.7; font-size: 15px; }
 
     /* =========================
        CONTACT
     ========================= */
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      max-width: 1050px;
-      margin: auto;
-    }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1050px; margin: auto; }
 
-    .contact-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 38px;
-      text-align: center;
-    }
+    .contact-card { background: var(--white); border: 1px solid var(--border); padding: 38px; text-align: center; }
 
-    .contact-card h3 {
-      font-weight: normal;
-      font-size: 27px;
-      margin-bottom: 13px;
-      color: var(--pink-dark);
-    }
+    .contact-card h3 { font-weight: normal; font-size: 27px; margin-bottom: 13px; color: var(--pink-dark); }
+    .contact-card p { color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
 
-    .contact-card p {
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .contact-link {
-      color: var(--pink-dark);
-      text-decoration: none;
-      font-size: 17px;
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
-    }
+    .contact-link { color: var(--pink-dark); text-decoration: none; font-size: 17px; }
+    .contact-link:hover { text-decoration: underline; }
 
     /* =========================
        FOOTER
@@ -776,9 +564,13 @@
       font-size: 14px;
     }
 
-    footer strong {
+    footer strong { color: var(--pink-dark); font-weight: normal; }
+
+    .footer-handcrafted {
+      margin-top: 12px;
       color: var(--pink-dark);
-      font-weight: normal;
+      font-family: "Brush Script MT", "Segoe Script", cursive;
+      font-size: 22px;
     }
 
     /* =========================
@@ -801,10 +593,7 @@
       transition: 0.25s ease;
     }
 
-    .floating-cart:hover {
-      background: var(--pink-dark);
-      transform: translateY(-3px);
-    }
+    .floating-cart:hover { background: var(--pink-dark); transform: translateY(-3px); }
 
     .floating-cart-count {
       position: absolute;
@@ -827,17 +616,8 @@
        OVERLAY
     ========================= */
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(74, 59, 59, 0.25);
-      z-index: 1500;
-      display: none;
-    }
-
-    .overlay.show {
-      display: block;
-    }
+    .overlay { position: fixed; inset: 0; background: rgba(74, 59, 59, 0.25); z-index: 1500; display: none; }
+    .overlay.show { display: block; }
 
     /* =========================
        CART DRAWER
@@ -849,6 +629,7 @@
       right: -460px;
       width: min(460px, 100%);
       height: 100vh;
+      height: 100dvh;
       background: var(--cream);
       z-index: 1600;
       box-shadow: -15px 0 45px rgba(74, 59, 59, 0.12);
@@ -857,9 +638,7 @@
       flex-direction: column;
     }
 
-    .cart-drawer.open {
-      right: 0;
-    }
+    .cart-drawer.open { right: 0; }
 
     .cart-header {
       padding: 25px;
@@ -870,134 +649,37 @@
       background: var(--white);
     }
 
-    .cart-header h2 {
-      font-weight: normal;
-      font-size: 31px;
-      color: var(--pink-dark);
-    }
+    .cart-header h2 { font-weight: normal; font-size: 31px; color: var(--pink-dark); }
 
-    .close-cart {
-      border: none;
-      background: transparent;
-      color: var(--text-light);
-      font-size: 28px;
-      width: 40px;
-      height: 40px;
-    }
+    .close-cart { border: none; background: transparent; color: var(--text-light); font-size: 28px; width: 44px; height: 44px; }
 
-    .cart-content {
-      padding: 22px;
-      overflow-y: auto;
-      flex: 1;
-    }
+    .cart-content { padding: 22px; overflow-y: auto; flex: 1; }
 
-    .empty-cart {
-      text-align: center;
-      padding: 55px 20px;
-      color: var(--text-light);
-      line-height: 1.8;
-    }
+    .empty-cart { text-align: center; padding: 55px 20px; color: var(--text-light); line-height: 1.8; }
 
-    .cart-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 16px;
-      margin-bottom: 12px;
-    }
+    .cart-item { background: var(--white); border: 1px solid var(--border); padding: 16px; margin-bottom: 12px; }
+    .cart-item-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 9px; }
+    .cart-item-name { font-size: 18px; }
+    .cart-item-price { color: var(--pink-dark); white-space: nowrap; }
+    .cart-item-flavor { color: var(--text-light); font-size: 14px; margin-bottom: 12px; }
+    .cart-item-bottom { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 
-    .cart-item-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 9px;
-    }
+    .cart-quantity { display: flex; align-items: center; border: 1px solid var(--border); background: var(--cream); }
+    .cart-quantity button { width: 34px; height: 34px; border: none; background: transparent; color: var(--pink-dark); font-size: 18px; }
+    .cart-quantity span { width: 30px; text-align: center; font-size: 14px; }
 
-    .cart-item-name {
-      font-size: 18px;
-    }
+    .remove-item { border: none; background: transparent; color: #a47a86; font-size: 13px; padding: 10px 4px; }
 
-    .cart-item-price {
-      color: var(--pink-dark);
-      white-space: nowrap;
-    }
+    .cart-summary { border-top: 1px solid var(--border); padding-top: 18px; margin-top: 20px; }
 
-    .cart-item-flavor {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
+    .cart-total { display: flex; justify-content: space-between; align-items: center; font-size: 21px; margin-bottom: 18px; }
+    .cart-total strong { color: var(--pink-dark); font-weight: normal; }
 
-    .cart-item-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
+    .cart-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 
-    .cart-quantity {
-      display: flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      background: var(--cream);
-    }
+    .cart-label { display: block; color: var(--text-light); font-size: 13px; margin-bottom: 6px; }
 
-    .cart-quantity button {
-      width: 30px;
-      height: 30px;
-      border: none;
-      background: transparent;
-      color: var(--pink-dark);
-      font-size: 18px;
-    }
-
-    .cart-quantity span {
-      width: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .remove-item {
-      border: none;
-      background: transparent;
-      color: #a47a86;
-      font-size: 13px;
-    }
-
-    .cart-summary {
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-      margin-top: 20px;
-    }
-
-    .cart-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 21px;
-      margin-bottom: 18px;
-    }
-
-    .cart-total strong {
-      color: var(--pink-dark);
-      font-weight: normal;
-    }
-
-    .cart-fields {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .cart-label {
-      display: block;
-      color: var(--text-light);
-      font-size: 13px;
-      margin-bottom: 6px;
-    }
-
-    .cart-input,
-    .cart-note {
+    .cart-input, .cart-note {
       width: 100%;
       border: 1px solid var(--border);
       background: var(--white);
@@ -1007,23 +689,11 @@
       font-size: 14px;
     }
 
-    .cart-note {
-      min-height: 75px;
-      resize: vertical;
-      margin-bottom: 10px;
-    }
+    .cart-note { min-height: 75px; resize: vertical; margin-bottom: 10px; }
 
-    .cart-info {
-      color: var(--text-light);
-      font-size: 13px;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
+    .cart-info { color: var(--text-light); font-size: 13px; line-height: 1.6; margin-bottom: 14px; }
 
-    .cart-buttons {
-      display: grid;
-      gap: 8px;
-    }
+    .cart-buttons { display: grid; gap: 8px; }
 
     /* =========================
        TOAST
@@ -1044,142 +714,76 @@
       font-size: 14px;
     }
 
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
     /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 950px) {
-      .header-inner {
-        flex-wrap: wrap;
-        padding-bottom: 8px;
-      }
+    @media (max-width: 1100px) {
+      .header-inner { gap: 18px; }
+      .header-search { width: 160px; }
+    }
 
+    @media (max-width: 950px) {
+      .header-inner { flex-wrap: wrap; padding-bottom: 8px; gap: 12px; }
+      .header-logo { width: 90px; height: 90px; }
+      .header-search { order: 2; flex: 1; width: auto; }
+      .header-cart-button { order: 2; }
       .main-nav {
         order: 3;
         width: 100%;
         overflow-x: auto;
         justify-content: flex-start;
         padding-bottom: 4px;
+        scrollbar-width: none;
       }
-
-      .products-grid,
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .review-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        max-width: 850px;
-      }
+      .main-nav::-webkit-scrollbar { display: none; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .review-layout { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; max-width: 850px; }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 20px 16px; }
+      .g2 { grid-column: span 2; }
+      .g3, .g4 { grid-column: span 4; }
+      .g3 .gallery-image-wrap { aspect-ratio: 4 / 3; }
+      .gallery-card.down { margin-top: 0; }
     }
 
     @media (max-width: 650px) {
-      .header-inner {
-        padding: 13px 17px;
-      }
-
-      .main-nav {
-        gap: 0;
-      }
-
-      .nav-link {
-        font-size: 13px;
-        padding: 8px 9px;
-        white-space: nowrap;
-      }
-
-      .page-inner {
-        padding: 60px 18px;
-      }
-
-      .hero {
-        min-height: calc(100vh - 120px);
-        padding: 60px 20px;
-      }
-
-      .hero h1 {
-        font-size: 65px;
-      }
-
-      .hero-slogan {
-        font-size: 22px;
-      }
-
-      .hero-tagline {
-        font-size: 15px;
-      }
-
-      .hero-intro {
-        font-size: 16px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .creator-signature {
-        margin-top: 45px;
-        font-size: 25px;
-      }
-
-      .story-card {
-        padding: 38px 24px;
-      }
-
-      .story-card h2 {
-        font-size: 35px;
-      }
-
-      .story-card p {
-        font-size: 16px;
-      }
-
-      .products-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .floating-cart {
-        right: 17px;
-        bottom: 17px;
-      }
-
-      .review-form-card,
-      .reviews-list-card {
-        padding: 25px;
-      }
+      .header-inner { padding: 13px 17px 8px; }
+      .main-nav { gap: 0; }
+      .nav-link { font-size: 14px; padding: 12px 11px; white-space: nowrap; }
+      .product-select, .quantity-input, .cart-input, .cart-note,
+      .review-input, .review-textarea, .header-search input { font-size: 16px; }
+      .btn { min-height: 48px; }
+      .page-inner { padding: 60px 18px; }
+      .hero { min-height: calc(100vh - 120px); padding: 60px 20px; }
+      .hero h1 { font-size: 65px; }
+      .hero-slogan { font-size: 22px; }
+      .hero-tagline { font-size: 15px; }
+      .hero-intro { font-size: 16px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .creator-signature { margin-top: 45px; font-size: 25px; }
+      .story-card { padding: 38px 24px; }
+      .story-card h2 { font-size: 35px; }
+      .story-card p { font-size: 16px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .g2 { grid-column: span 1; }
+      .g3, .g4 { grid-column: span 2; }
+      .gallery-caption { font-size: 15px; padding: 12px 10px 14px; }
+      .floating-cart { right: 17px; bottom: 17px; }
+      .review-form-card, .reviews-list-card { padding: 25px; }
+      .cart-header { padding: 18px 20px; }
+      .cart-content { padding: 18px; }
     }
 
     @media (max-width: 430px) {
-      .product-actions {
-        flex-direction: column;
-      }
-
-      .quantity-input {
-        width: 100%;
-      }
-
-      .cart-fields {
-        grid-template-columns: 1fr;
-      }
+      .product-actions { flex-direction: column; }
+      .quantity-input { width: 100%; }
+      .cart-fields { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1194,46 +798,24 @@
     <div class="header-inner">
 
       <button class="header-brand" onclick="showPage('home')">
-        <img
-          src="images/logo sweet tyrcy.jpeg"
-          alt="Sweet Tyrcy"
-          class="header-logo"
-        >
+        <img src="images/logo sweet tyrcy.jpeg" alt="Sweet Tyrcy" class="header-logo">
       </button>
 
       <nav class="main-nav">
-
-        <button class="nav-link active" data-page="home" onclick="showPage('home')">
-          Accueil
-        </button>
-
-        <button class="nav-link" data-page="story" onclick="showPage('story')">
-          Notre histoire
-        </button>
-
-        <button class="nav-link" data-page="creations" onclick="showPage('creations')">
-          Nos créations
-        </button>
-
-        <button class="nav-link" data-page="gallery" onclick="showPage('gallery')">
-          Galerie
-        </button>
-
-        <button class="nav-link" onclick="openCart()">
-          Commander
-        </button>
-
-        <button class="nav-link" data-page="contact" onclick="showPage('contact')">
-          Contact
-        </button>
-
+        <button class="nav-link active" data-page="home" onclick="showPage('home')">Accueil</button>
+        <button class="nav-link" data-page="story" onclick="showPage('story')">Notre histoire</button>
+        <button class="nav-link" data-page="creations" onclick="showPage('creations')">Nos créations</button>
+        <button class="nav-link" data-page="gallery" onclick="showPage('gallery')">Galerie</button>
+        <button class="nav-link" onclick="openCart()">Commander</button>
+        <button class="nav-link" data-page="contact" onclick="showPage('contact')">Contact</button>
       </nav>
 
-      <button
-        class="header-cart-button"
-        onclick="openCart()"
-        aria-label="Ouvrir le panier"
-      >
+      <form class="header-search" role="search" onsubmit="event.preventDefault(); runSearch();">
+        <input type="search" id="siteSearch" placeholder="Rechercher…" aria-label="Rechercher un produit ou une section" autocomplete="off">
+        <button type="button" class="search-submit" onclick="runSearch()" aria-label="Lancer la recherche">♡</button>
+      </form>
+
+      <button class="header-cart-button" onclick="openCart()" aria-label="Ouvrir le panier">
         ♡
         <span class="cart-count" id="headerCartCount">0</span>
       </button>
@@ -1254,21 +836,13 @@
 
         <div class="hero-content">
 
-          <div class="hero-eyebrow">
-            Bienvenue chez
-          </div>
+          <div class="hero-eyebrow">Bienvenue chez</div>
 
-          <h1>
-            Sweet Tyrcy
-          </h1>
+          <h1>Sweet Tyrcy</h1>
 
-          <div class="hero-slogan">
-            Heavenly Pastries
-          </div>
+          <div class="hero-slogan">Heavenly Pastries</div>
 
-          <div class="hero-tagline">
-            Taste a slice of paradise
-          </div>
+          <div class="hero-tagline">Taste a slice of paradise</div>
 
           <p class="hero-intro">
             Des pâtisseries faites maison avec amour, attention
@@ -1277,32 +851,14 @@
           </p>
 
           <div class="hero-actions">
-
-            <button class="btn btn-primary" onclick="showPage('story')">
-              Notre histoire
-            </button>
-
-            <button class="btn btn-outline" onclick="showPage('creations')">
-              Nos créations
-            </button>
-
-            <button class="btn btn-outline" onclick="showPage('gallery')">
-              A Little Taste
-            </button>
-
-            <button class="btn btn-primary" onclick="openCart()">
-              Commander
-            </button>
-
-            <button class="btn btn-outline" onclick="showPage('contact')">
-              Contact
-            </button>
-
+            <button class="btn btn-primary" onclick="showPage('story')">Notre histoire</button>
+            <button class="btn btn-outline" onclick="showPage('creations')">Nos créations</button>
+            <button class="btn btn-outline" onclick="showPage('gallery')">A Little Taste</button>
+            <button class="btn btn-primary" onclick="openCart()">Commander</button>
+            <button class="btn btn-outline" onclick="showPage('contact')">Contact</button>
           </div>
 
-          <div class="creator-signature">
-            By Tyrcianne Samira
-          </div>
+          <div class="creator-signature">By Tyrcianne Samira</div>
 
         </div>
 
@@ -1320,26 +876,15 @@
       <div class="page-inner">
 
         <div class="section-heading">
-
-          <div class="section-eyebrow">
-            Sweet Tyrcy
-          </div>
-
-          <h2>
-            L’histoire derrière la douceur
-          </h2>
-
+          <div class="section-eyebrow">Sweet Tyrcy</div>
+          <h2>L’histoire derrière la douceur</h2>
         </div>
 
         <div class="story-card">
 
-          <h2>
-            About my business
-          </h2>
+          <h2>About my business</h2>
 
-          <p>
-            La pâtisserie a été le premier métier que j’ai rêvé de faire.
-          </p>
+          <p>La pâtisserie a été le premier métier que j’ai rêvé de faire.</p>
 
           <p>
             Pendant des années, j’ai perfectionné mes recettes avec l’espoir
@@ -1361,22 +906,16 @@
             disiez, le temps d’une bouchée :
           </p>
 
-          <p>
-            « Ça vient tout droit du paradis. »
-          </p>
+          <p>« Ça vient tout droit du paradis. »</p>
 
-          <p>
-            So yes, just a pretty girl doing cute pastries for a living.
-          </p>
+          <p>So yes, just a pretty girl doing cute pastries for a living.</p>
 
         </div>
 
       </div>
 
     </section>
-
-
-    <!-- =========================
+        <!-- =========================
          CREATIONS
     ========================= -->
 
@@ -1385,20 +924,12 @@
       <div class="page-inner">
 
         <div class="section-heading">
-
-          <div class="section-eyebrow">
-            Sweet Tyrcy
-          </div>
-
-          <h2>
-            Nos créations
-          </h2>
-
+          <div class="section-eyebrow">Sweet Tyrcy</div>
+          <h2>Nos créations</h2>
           <p>
             Des douceurs préparées avec soin, pour les petites envies
             comme pour les grandes occasions.
           </p>
-
         </div>
 
 
@@ -1406,9 +937,7 @@
 
         <div class="category">
 
-          <h3 class="category-title">
-            Douceurs
-          </h3>
+          <h3 class="category-title">Douceurs</h3>
 
           <div class="products-grid">
 
@@ -1416,217 +945,76 @@
             <!-- FONDANTS -->
 
             <article class="product-card simple-product">
-
-              <h3>
-                Fondants au chocolat
-              </h3>
-
+              <h3>Fondants au chocolat</h3>
               <p class="product-description">
                 Premier produit de la maison, craquez pour ce petit bijou
                 chocolaté qui renferme un cœur coulant.
               </p>
-
-              <div class="product-price">
-                500 FCFA / unité
-              </div>
-
+              <div class="product-price">500 FCFA / unité</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="fondantQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSimpleProduct('Fondants au chocolat', 500, 'fondantQuantity')"
-                >
+                <input type="number" id="fondantQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addSimpleProduct('Fondants au chocolat', 500, 'fondantQuantity')">
                   Ajouter au panier
                 </button>
-
               </div>
-
-            </article>
-
-
-            <!-- BOX FONDANT -->
-
-            <article class="product-card simple-product">
-
-              <h3>
-                Box de fondants
-              </h3>
-
-              <p class="product-description">
-                Une jolie box de petits fondants chocolatés, gourmands
-                et réconfortants.
-              </p>
-
-              <div class="product-price">
-                3 000 FCFA / box
-              </div>
-
-              <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="browniesQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSimpleProduct('Box de fondants', 3000, 'browniesQuantity')"
-                >
-                  Ajouter au panier
-                </button>
-
-              </div>
-
             </article>
 
 
             <!-- COOKIES -->
 
             <article class="product-card">
-
-              <h3>
-                Cookies Nutella
-              </h3>
-
+              <h3>Cookies Nutella</h3>
               <p class="product-description">
                 Un délicieux biscuit à la fois craquant et moelleux
                 qui renferme un cœur fondant au Nutella.
               </p>
-
               <select id="cookieFormat" class="product-select">
-
-                <option value="unit">
-                  À l’unité · 500 FCFA
-                </option>
-
-                <option value="box">
-                  Box de 6 · 3 000 FCFA
-                </option>
-
-                <option value="pie">
-                  Nutella Cookie Pie · 3 000 FCFA
-                </option>
-
+                <option value="unit">À l’unité · 500 FCFA</option>
+                <option value="box">Box de 6 · 3 000 FCFA</option>
+                <option value="pie">Nutella Cookie Pie · 3 000 FCFA</option>
               </select>
-
-              <div class="product-price" id="cookiePrice">
-                500 FCFA
-              </div>
-
+              <div class="product-price" id="cookiePrice">500 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="cookieQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addCookieToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="cookieQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addCookieToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- CAKE MARBRE -->
 
             <article class="product-card">
-
-              <h3>
-                Cake marbré
-              </h3>
-
+              <h3>Cake marbré</h3>
               <p class="product-description">
                 Un cake moelleux comme un nuage qui allie les saveurs
                 de vanille, chocolat et café, une douceur simple mais efficace.
               </p>
-
               <select id="marbreFormat" class="product-select">
-
-                <option value="slice">
-                  Part · 700 FCFA
-                </option>
-
-                <option value="medium">
-                  Cake moyen · 3 500 FCFA
-                </option>
-
-                <option value="large">
-                  Grand cake · 4 000 FCFA
-                </option>
-
+                <option value="slice">Part · 700 FCFA</option>
+                <option value="medium">Cake moyen · 3 500 FCFA</option>
+                <option value="large">Grand cake · 4 000 FCFA</option>
               </select>
-
               <select id="marbreTopping" class="product-select">
-
-                <option value="none">
-                  Sans nappage
-                </option>
-
-                <option value="nutella">
-                  Nappage Nutella · +500 FCFA
-                </option>
-
+                <option value="none">Sans nappage</option>
+                <option value="nutella">Nappage Nutella · +500 FCFA</option>
               </select>
-
-              <div class="product-price" id="marbrePrice">
-                700 FCFA
-              </div>
-
+              <div class="product-price" id="marbrePrice">700 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="marbreQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addMarbreToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="marbreQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addMarbreToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- BENTO -->
 
             <article class="product-card">
-
-              <h3>
-                Bento Cakes
-              </h3>
-
+              <h3>Bento Cakes</h3>
               <p class="product-description">
                 Un petit gâteau pour maximum 3 personnes, fait de génoise,
                 de chantilly et de toppings à votre convenance. Parfait
                 à offrir, célébrer un événement ou pour un photoshoot.
               </p>
-
               <select id="bentoFlavor" class="product-select">
                 <option>Nutella</option>
                 <option>Kinder</option>
@@ -1635,53 +1023,28 @@
                 <option>Fraise</option>
                 <option>Autres</option>
               </select>
-
-              <div class="product-price">
-                À partir de 8 000 FCFA
-              </div>
-
+              <div class="product-price">À partir de 8 000 FCFA</div>
               <p class="product-description decoration-note">
                 Pour une décoration personnalisée, envoyez-nous votre modèle
                 d’inspiration sur WhatsApp. Un supplément peut s’appliquer
                 selon la décoration souhaitée.
               </p>
-
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="bentoQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addBentoToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="bentoQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addBentoToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- LAYER CAKE -->
 
             <article class="product-card">
-
-              <h3>
-                Layer Cakes
-              </h3>
-
+              <h3>Layer Cakes</h3>
               <p class="product-description">
                 Un enchaînement de génoise et de crème avec des toppings
                 à votre convenance, personnalisé pour vos célébrations
                 et pour refléter votre personnalité.
               </p>
-
               <select id="layerCakeFlavor" class="product-select">
                 <option>Nutella</option>
                 <option>Kinder</option>
@@ -1690,111 +1053,49 @@
                 <option>Fraise</option>
                 <option>Autres</option>
               </select>
-
-              <div class="product-price">
-                15 500 FCFA
-              </div>
-
+              <div class="product-price">16 000 FCFA</div>
               <p class="product-description decoration-note">
                 Pour une décoration personnalisée, envoyez-nous votre modèle
                 d’inspiration sur WhatsApp. Un supplément peut s’appliquer
                 selon la décoration souhaitée.
               </p>
-
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="layerCakeQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addLayerCakeToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="layerCakeQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addLayerCakeToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- TRILECE -->
 
             <article class="product-card">
-
-              <span class="product-badge">
-                Nouveau
-              </span>
-
-              <h3>
-                Trileçe
-              </h3>
-
+              <span class="product-badge">Nouveau</span>
+              <h3>Trileçe</h3>
               <p class="product-description">
                 Gâteau d’origine albanaise, composé d’une génoise moelleuse
                 imbibée de trois types de lait, avec de la chantilly à la
                 vanille et recouvert de caramel.
               </p>
-
               <select id="trileceFormat" class="product-select">
-
-                <option value="mini">
-                  Mini · 2 000 FCFA
-                </option>
-
-                <option value="medium">
-                  Moyen · 3 500 FCFA
-                </option>
-
-                <option value="large">
-                  Plat · 10 500 FCFA
-                </option>
-
+                <option value="mini">Mini · 2 000 FCFA</option>
+                <option value="medium">Moyen · 3 500 FCFA</option>
+                <option value="large">Plat · 10 500 FCFA</option>
               </select>
-
-              <div class="product-price" id="trilecePrice">
-                2 000 FCFA
-              </div>
-
+              <div class="product-price" id="trilecePrice">2 000 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="trileceQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addTrileceToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="trileceQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addTrileceToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- LAYER CUPS -->
 
             <article class="product-card">
-
-              <h3>
-                Layer Cups · Mini’Crush
-              </h3>
-
+              <h3>Layer Cups · Mini’Crush</h3>
               <p class="product-description">
                 Une petite douceur en verrine, parfaite pour une envie sucrée.
               </p>
-
               <select id="layerCupFlavor" class="product-select">
                 <option>Nutella</option>
                 <option>Kinder</option>
@@ -1803,46 +1104,22 @@
                 <option>Fraise</option>
                 <option>Autres</option>
               </select>
-
-              <div class="product-price">
-                2 000 FCFA
-              </div>
-
+              <div class="product-price">2 000 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="layerCupQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addLayerCupToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="layerCupQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addLayerCupToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- TARTES -->
 
             <article class="product-card">
-
-              <h3>
-                Tartes
-              </h3>
-
+              <h3>Tartes</h3>
               <p class="product-description">
                 Des tartes certes traditionnelles, mais douces et croustillantes,
                 préparées avec soin.
               </p>
-
               <select id="tarteFlavor" class="product-select">
                 <option>Nutella</option>
                 <option>Kinder</option>
@@ -1851,71 +1128,32 @@
                 <option>Fraise</option>
                 <option>Mangue</option>
                 <option>Pomme</option>
+                <option>Bissap</option>
                 <option>Autres</option>
               </select>
-
-              <div class="product-price">
-                5 000 FCFA
-              </div>
-
+              <div class="product-price">5 000 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="tarteQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addTarteToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="tarteQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addTarteToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- NUTELLA ROLL -->
 
             <article class="product-card simple-product">
-
-              <h3>
-                Nutella Roll
-              </h3>
-
+              <h3>Nutella Roll</h3>
               <p class="product-description">
                 Des cinnamon rolls tout doux, revisités avec du Nutella
                 pour une bouchée encore plus gourmande.
               </p>
-
-              <div class="product-price">
-                1 500 FCFA / pièce
-              </div>
-
+              <div class="product-price">1 500 FCFA / pièce</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="nutellaRollQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSimpleProduct('Nutella Roll', 1500, 'nutellaRollQuantity')"
-                >
+                <input type="number" id="nutellaRollQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addSimpleProduct('Nutella Roll', 1500, 'nutellaRollQuantity')">
                   Ajouter au panier
                 </button>
-
               </div>
-
             </article>
 
           </div>
@@ -1927,9 +1165,7 @@
 
         <div class="category">
 
-          <h3 class="category-title">
-            Crêpes
-          </h3>
+          <h3 class="category-title">Crêpes</h3>
 
           <div class="products-grid">
 
@@ -1937,153 +1173,142 @@
             <!-- CREPES NATURE -->
 
             <article class="product-card">
-
-              <h3>
-                Crêpes nature
-              </h3>
-
+              <h3>Crêpes nature</h3>
               <p class="product-description">
                 De délicieuses crêpes moelleuses, toutes simples et gourmandes,
                 parfaites à déguster seules ou à accompagner selon vos envies.
               </p>
-
               <select id="crepeNatureFormat" class="product-select">
-
-                <option value="5">
-                  5 crêpes · 1 000 FCFA
-                </option>
-
-                <option value="15">
-                  15 crêpes · 2 500 FCFA
-                </option>
-
+                <option value="5">5 crêpes · 1 000 FCFA</option>
+                <option value="15">15 crêpes · 2 500 FCFA</option>
               </select>
-
-              <div class="product-price" id="crepeNaturePrice">
-                1 000 FCFA
-              </div>
-
+              <label class="product-option">
+                <input type="checkbox" id="crepeNatureChantilly">
+                Chantilly · +500 FCFA
+              </label>
+              <label class="product-option">
+                <input type="checkbox" id="crepeNatureCaramel">
+                Caramel · +500 FCFA
+              </label>
+              <div class="product-price" id="crepeNaturePrice">1 000 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="crepeNatureQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addCrepeNatureToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="crepeNatureQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addCrepeNatureToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- CREPES NUTELLA -->
 
             <article class="product-card">
-
-              <h3>
-                Crêpes Nutella
-              </h3>
-
+              <h3>Crêpes Nutella</h3>
               <p class="product-description">
                 De délicieuses crêpes moelleuses généreusement garnies
                 de Nutella, pour une douceur simple et irrésistible.
               </p>
-
               <select id="crepeNutellaFormat" class="product-select">
-
-                <option value="5">
-                  5 crêpes · 2 000 FCFA
-                </option>
-
-                <option value="15">
-                  15 crêpes · 5 000 FCFA
-                </option>
-
+                <option value="5">5 crêpes · 2 000 FCFA</option>
+                <option value="15">15 crêpes · 5 000 FCFA</option>
               </select>
-
-              <div class="product-price" id="crepeNutellaPrice">
-                2 000 FCFA
-              </div>
-
+              <label class="product-option">
+                <input type="checkbox" id="crepeNutellaChantilly">
+                Chantilly · +500 FCFA
+              </label>
+              <div class="product-price" id="crepeNutellaPrice">2 000 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="crepeNutellaQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addCrepeNutellaToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="crepeNutellaQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addCrepeNutellaToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
 
             <!-- FLOWER SWEET BOX -->
 
             <article class="product-card">
-
-              <h3>
-                Flower Sweet Box
-              </h3>
-
+              <h3>Flower Sweet Box</h3>
               <p class="product-description">
                 De délicieuses crêpes moelleuses roulées en forme de roses,
                 parfaites à offrir et à transformer en jolie attention.
               </p>
-
               <select id="flowerBoxFormat" class="product-select">
-
-                <option value="6">
-                  6 crêpes · 3 000 FCFA
-                </option>
-
-                <option value="12">
-                  12 crêpes · 5 500 FCFA
-                </option>
-
+                <option value="6">6 crêpes · 3 000 FCFA</option>
+                <option value="12">12 crêpes · 5 500 FCFA</option>
               </select>
-
-              <div class="product-price" id="flowerBoxPrice">
-                3 000 FCFA
-              </div>
-
+              <div class="product-price" id="flowerBoxPrice">3 000 FCFA</div>
               <div class="product-actions">
+                <input type="number" id="flowerBoxQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addFlowerBoxToCart()">Ajouter au panier</button>
+              </div>
+            </article>
 
-                <input
-                  type="number"
-                  id="flowerBoxQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
+          </div>
 
-                <button
-                  class="btn btn-primary"
-                  onclick="addFlowerBoxToCart()"
-                >
+        </div>
+        
+        <!-- SALE -->
+
+        <div class="category">
+
+          <h3 class="category-title">Salé</h3>
+
+          <div class="products-grid">
+
+
+            <!-- CREPES SALEES -->
+
+            <article class="product-card">
+              <h3>Crêpes salées</h3>
+              <p class="product-description">
+                Des crêpes salées généreuses et gourmandes, parfaites
+                pour une petite pause réconfortante.
+              </p>
+              <select id="crepeSaleeFormat" class="product-select">
+                <option value="ham">1 crêpe salée jambon-fromage · 1 000 FCFA</option>
+                <option value="large">1 grande crêpe salée · 1 500 FCFA</option>
+                <option value="3">3 crêpes salées · 2 500 FCFA</option>
+                <option value="6">6 crêpes salées · 4 500 FCFA</option>
+              </select>
+              <div class="product-price" id="crepeSaleePrice">1 000 FCFA</div>
+              <div class="product-actions">
+                <input type="number" id="crepeSaleeQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addCrepeSaleeToCart()">Ajouter au panier</button>
+              </div>
+            </article>
+
+
+            <!-- LASAGNES -->
+
+            <article class="product-card simple-product">
+              <h3>Lasagnes</h3>
+              <p class="product-description">
+                Des lasagnes généreuses et réconfortantes, préparées
+                pour un vrai moment de gourmandise.
+              </p>
+              <div class="product-price">4 000 FCFA</div>
+              <div class="product-actions">
+                <input type="number" id="lasagnesQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addSimpleProduct('Lasagnes', 4000, 'lasagnesQuantity')">
                   Ajouter au panier
                 </button>
-
               </div>
+            </article>
 
+
+            <!-- HACHIS -->
+
+            <article class="product-card simple-product">
+              <h3>Hachis Parmentier</h3>
+              <p class="product-description">
+                Un plat généreux, fondant et réconfortant, préparé
+                pour les envies de quelque chose de vraiment gourmand.
+              </p>
+              <div class="product-price">4 000 FCFA</div>
+              <div class="product-actions">
+                <input type="number" id="hachisQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addSimpleProduct('Hachis Parmentier', 4000, 'hachisQuantity')">
+                  Ajouter au panier
+                </button>
+              </div>
             </article>
 
           </div>
@@ -2091,149 +1316,26 @@
         </div>
 
 
-        <!-- SALE -->
+        <!-- BOXES & GIFT -->
 
         <div class="category">
 
-          <h3 class="category-title">
-            Salé
-          </h3>
+          <h3 class="category-title">Boxes &amp; Gift</h3>
+
+          <p class="category-subtitle">Our specially curated boxes for your loved ones</p>
 
           <div class="products-grid">
-
-
-            <!-- CREPES SALEES -->
-
-            <article class="product-card simple-product">
-
-              <h3>
-                Crêpes salées
-              </h3>
-
-              <p class="product-description">
-                Des crêpes salées généreuses et gourmandes, parfaites
-                pour une petite pause réconfortante.
-              </p>
-
-              <div class="product-price">
-                2 000 FCFA / pack
-              </div>
-
-              <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="crepesSaleesQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSimpleProduct('Crêpes salées', 2000, 'crepesSaleesQuantity')"
-                >
-                  Ajouter au panier
-                </button>
-
-              </div>
-
-            </article>
-
-
-            <!-- LASAGNES -->
-
-            <article class="product-card simple-product">
-
-              <h3>
-                Lasagnes
-              </h3>
-
-              <p class="product-description">
-                Des lasagnes généreuses et réconfortantes, préparées
-                pour un vrai moment de gourmandise.
-              </p>
-
-              <div class="product-price">
-                4 000 FCFA
-              </div>
-
-              <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="lasagnesQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSimpleProduct('Lasagnes', 4000, 'lasagnesQuantity')"
-                >
-                  Ajouter au panier
-                </button>
-
-              </div>
-
-            </article>
-
-
-            <!-- HACHIS -->
-
-            <article class="product-card simple-product">
-
-              <h3>
-                Hachis Parmentier
-              </h3>
-
-              <p class="product-description">
-                Un plat généreux, fondant et réconfortant, préparé
-                pour les envies de quelque chose de vraiment gourmand.
-              </p>
-
-              <div class="product-price">
-                4 000 FCFA
-              </div>
-
-              <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="hachisQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSimpleProduct('Hachis Parmentier', 4000, 'hachisQuantity')"
-                >
-                  Ajouter au panier
-                </button>
-
-              </div>
-
-            </article>
-
 
             <!-- SWEET GIFT BOX -->
 
             <article class="product-card">
-
-              <h3>
-                Sweet Gift Box
-              </h3>
-
+              <h3>Sweet Gift Box</h3>
               <p class="product-description">
                 Une douce attention à offrir ou à s’offrir. La Sweet Gift Box
-                réunit un Bento Cake et 6 cupcakes gourmands, parfaite pour
-                célébrer un anniversaire, faire plaisir à quelqu’un ou
-                simplement créer un joli moment sucré.
+                réunit un Bento Cake et 5 cupcakes gourmands, tous du même
+                parfum, parfaite pour célébrer un anniversaire, faire plaisir
+                à quelqu’un ou simplement créer un joli moment sucré.
               </p>
-
               <select id="sweetGiftBoxFlavor" class="product-select">
                 <option>Nutella</option>
                 <option>Citron</option>
@@ -2241,30 +1343,11 @@
                 <option>Chocolat au lait</option>
                 <option>Cookies &amp; Cream (Oreo)</option>
               </select>
-
-              <div class="product-price">
-                15 000 FCFA
-              </div>
-
+              <div class="product-price">15 000 FCFA</div>
               <div class="product-actions">
-
-                <input
-                  type="number"
-                  id="sweetGiftBoxQuantity"
-                  class="quantity-input"
-                  value="1"
-                  min="1"
-                >
-
-                <button
-                  class="btn btn-primary"
-                  onclick="addSweetGiftBoxToCart()"
-                >
-                  Ajouter au panier
-                </button>
-
+                <input type="number" id="sweetGiftBoxQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addSweetGiftBoxToCart()">Ajouter au panier</button>
               </div>
-
             </article>
 
           </div>
@@ -2276,18 +1359,14 @@
 
         <div class="story-card event-card">
 
-          <h2>
-            Pour vos buffets &amp; événements
-          </h2>
+          <h2>Pour vos buffets &amp; événements</h2>
 
           <p>
             Sweet Tyrcy prépare également des assortiments gourmands pour vos
             anniversaires, réceptions, célébrations et événements.
           </p>
 
-          <p>
-            Contactez-nous sur WhatsApp.
-          </p>
+          <p>Contactez-nous sur WhatsApp.</p>
 
         </div>
 
@@ -2305,442 +1384,80 @@
       <div class="page-inner">
 
         <div class="section-heading">
-
-          <div class="section-eyebrow">
-            A Little Taste
-          </div>
-
-          <h2>
-            La galerie Sweet Tyrcy
-          </h2>
-
-          <p>
-            Un petit aperçu de nos douceurs, préparées avec amour.
-          </p>
-
+          <div class="section-eyebrow">A Little Taste</div>
+          <h2>La galerie Sweet Tyrcy</h2>
+          <p>Un petit aperçu de nos douceurs, préparées avec amour.</p>
         </div>
 
 
         <div class="gallery-grid">
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/nutella roll 1.jpeg"
-                alt="Nutella Roll"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Nutella Roll
-            </div>
-          </div>
+          <!-- Rangée 1 -->
+          <div class="gallery-card g3"><div class="gallery-image-wrap"><img src="images/nutella roll 1.jpeg" alt="Nutella Roll" class="gallery-image"></div><div class="gallery-caption">Nutella Roll</div></div>
+          <div class="gallery-card g3 down"><div class="gallery-image-wrap"><img src="images/nutella roll 2.jpeg" alt="Nutella Roll" class="gallery-image"></div><div class="gallery-caption">Nutella Roll</div></div>
 
+          <!-- Rangée 2 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/pink bento cake.jpeg" alt="Pink Bento Cake" class="gallery-image"></div><div class="gallery-caption">Pink Bento Cake</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/cocoa roll.jpeg" alt="Cocoa Roll" class="gallery-image"></div><div class="gallery-caption">Cocoa Roll</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/gâteau fraise.jpeg" alt="Layer Cake Fraise" class="gallery-image"></div><div class="gallery-caption">Layer Cake Fraise</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/nutella roll 2.jpeg"
-                alt="Nutella Roll"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Nutella Roll
-            </div>
-          </div>
+          <!-- Rangée 3 -->
+          <div class="gallery-card g4"><div class="gallery-image-wrap"><img src="images/tarte mangue.jpeg" alt="Tarte Mangue" class="gallery-image"></div><div class="gallery-caption">Tarte Mangue</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/box fondant.jpeg" alt="Box de Fondants" class="gallery-image"></div><div class="gallery-caption">Box de Fondants</div></div>
 
+          <!-- Rangée 4 : 2 Bento Cakes + Flower Sweet Box -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/xo bento.jpeg" alt="XO Bento Cake" class="gallery-image"></div><div class="gallery-caption">XO Bento Cake</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/rose crêpe.jpeg" alt="Flower Sweet Box" class="gallery-image"></div><div class="gallery-caption">Flower Sweet Box</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/lily bento.jpeg" alt="Lily Bento Cake" class="gallery-image"></div><div class="gallery-caption">Lily Bento Cake</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/pink bento cake.jpeg"
-                alt="Pink Bento Cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Pink Bento Cake
-            </div>
-          </div>
+          <!-- Rangée 5 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/cake marbré.jpeg" alt="Cake Marbré" class="gallery-image"></div><div class="gallery-caption">Cake Marbré</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/Part de Cake.jpeg" alt="Part de Cake" class="gallery-image"></div><div class="gallery-caption">Part de Cake</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/Cake Marbré.jpeg" alt="Cake Marbré" class="gallery-image"></div><div class="gallery-caption">Cake Marbré</div></div>
 
+          <!-- Rangée 6 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/cookie nutella.jpeg" alt="Cookie Nutella" class="gallery-image"></div><div class="gallery-caption">Cookie Nutella</div></div>
+          <div class="gallery-card g4 down"><div class="gallery-image-wrap"><img src="images/Cookies Nutella.jpeg" alt="Cookies Nutella" class="gallery-image"></div><div class="gallery-caption">Cookies Nutella</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/cocoa roll.jpeg"
-                alt="Cocoa Roll"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Cocoa Roll
-            </div>
-          </div>
+          <!-- Rangée 7 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/Cookies.jpeg" alt="Cookies" class="gallery-image"></div><div class="gallery-caption">Cookies</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/cookie pie.jpeg" alt="Nutella Cookie Pie" class="gallery-image"></div><div class="gallery-caption">Nutella Cookie Pie</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/Cookies .jpeg" alt="Cookies" class="gallery-image"></div><div class="gallery-caption">Cookies</div></div>
 
+          <!-- Rangée 8 -->
+          <div class="gallery-card g4"><div class="gallery-image-wrap"><img src="images/crêpe nutella.jpeg" alt="Crêpes Nutella" class="gallery-image"></div><div class="gallery-caption">Crêpes Nutella</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/Crêpe Nutella.jpeg" alt="Crêpe Nutella" class="gallery-image"></div><div class="gallery-caption">Crêpe Nutella</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/gâteau fraise.jpeg"
-                alt="Layer Cake Fraise"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Layer Cake Fraise
-            </div>
-          </div>
+          <!-- Rangée 9 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/crêpe salée.jpeg" alt="Crêpes Salées" class="gallery-image"></div><div class="gallery-caption">Crêpes Salées</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/crêpe salée 2.jpeg" alt="Crêpes Salées" class="gallery-image"></div><div class="gallery-caption">Crêpes Salées</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/fondant.jpeg" alt="Fondant au Chocolat" class="gallery-image"></div><div class="gallery-caption">Fondant au Chocolat</div></div>
 
+          <!-- Rangée 10 -->
+          <div class="gallery-card g3"><div class="gallery-image-wrap"><img src="images/trileçe1.jpeg" alt="Trileçe" class="gallery-image"></div><div class="gallery-caption">Trileçe</div></div>
+          <div class="gallery-card g3 down"><div class="gallery-image-wrap"><img src="images/pink aperol spritz cake.jpeg" alt="Pink Aperol Spritz Inspired Cake" class="gallery-image"></div><div class="gallery-caption">Pink Aperol Spritz Inspired Cake</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/tarte mangue.jpeg"
-                alt="Tarte Mangue"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Tarte Mangue
-            </div>
-          </div>
+          <!-- Rangée 11 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/nutella bento.jpeg" alt="Nutella Bento Cake" class="gallery-image"></div><div class="gallery-caption">Nutella Bento Cake</div></div>
+          <div class="gallery-card g4 down"><div class="gallery-image-wrap"><img src="images/Aperol Spritz cake.jpeg" alt="Pink Aperol Spritz Inspired Cake" class="gallery-image"></div><div class="gallery-caption">Pink Aperol Spritz Inspired Cake</div></div>
 
+          <!-- Rangée 12 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/tarte pomme.jpeg" alt="Tarte Pomme" class="gallery-image"></div><div class="gallery-caption">Tarte Pomme</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/Apple Pie.jpeg" alt="Apple Pie" class="gallery-image"></div><div class="gallery-caption">Apple Pie</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/trileçe2.jpeg" alt="Trileçe" class="gallery-image"></div><div class="gallery-caption">Trileçe</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/nutella bento.jpeg"
-                alt="Nutella Bento Cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Nutella Bento Cake
-            </div>
-          </div>
+          <!-- Rangée 13 -->
+          <div class="gallery-card g4"><div class="gallery-image-wrap"><img src="images/Aperol cake.jpeg" alt="Aperol Spritz Cake" class="gallery-image"></div><div class="gallery-caption">Aperol Spritz Cake</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/fondant2.jpeg" alt="Fondant au Chocolat" class="gallery-image"></div><div class="gallery-caption">Fondant au Chocolat</div></div>
 
+          <!-- Rangée 14 -->
+          <div class="gallery-card g3"><div class="gallery-image-wrap"><img src="images/pink heart bento.jpeg" alt="Pink Heart Bento Cake" class="gallery-image"></div><div class="gallery-caption">Pink Heart Bento Cake</div></div>
+          <div class="gallery-card g3 down"><div class="gallery-image-wrap"><img src="images/rose crêpe 2.jpeg" alt="Flower Sweet Box" class="gallery-image"></div><div class="gallery-caption">Flower Sweet Box</div></div>
 
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/cake marbré.jpeg"
-                alt="Cake Marbré"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Cake Marbré
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/cookie nutella.jpeg"
-                alt="Cookie Nutella"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Cookie Nutella
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/rose crêpe.jpeg"
-                alt="Flower Sweet Box"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Flower Sweet Box
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/xo bento.jpeg"
-                alt="XO Bento Cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              XO Bento Cake
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/lily bento.jpeg"
-                alt="Lily Bento Cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Lily Bento Cake
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/pink heart bento.jpeg"
-                alt="Pink Heart Bento Cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Pink Heart Bento Cake
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/Aperol Spritz cake.jpeg"
-                alt="pink aperol spritz inspired cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              pink aperol spritz inspired cake
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/crêpe salée.jpeg"
-                alt="Crêpes Salées"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Crêpes Salées
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/cookie pie.jpeg"
-                alt="Nutella Cookie Pie"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Nutella Cookie Pie
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/crêpe nutella.jpeg"
-                alt="Crêpes Nutella"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Crêpes Nutella
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/trileçe1.jpeg"
-                alt="Trileçe"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Trileçe
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/pink aperol spritz cake.jpeg"
-                alt="pink aperol spritz inspired cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              pink aperol spritz inspired cake
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/crêpe salée 2.jpeg"
-                alt="Crêpes Salées"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Crêpes Salées
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/trileçe2.jpeg"
-                alt="Trileçe"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Trileçe
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/rose crêpe 2.jpeg"
-                alt="Flower Sweet Box"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Flower Sweet Box
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/tarte pomme.jpeg"
-                alt="Tarte Pomme"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Tarte Pomme
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/Box mix2.jpeg"
-                alt="assortiment mix"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              assortiment mix
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/trileçe3.jpeg"
-                alt="Trileçe"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Trileçe
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/Aperol cake.jpeg"
-                alt="aperol spritz cake"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              aperol spritz cake
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/box fondant.jpeg"
-                alt="Box de Fondants"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Box de Fondants
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/fondant.jpeg"
-                alt="Fondant au Chocolat"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Fondant au Chocolat
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/fondant2.jpeg"
-                alt="Fondant au Chocolat"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Fondant au Chocolat
-            </div>
-          </div>
-
-
-          <div class="gallery-card">
-            <div class="gallery-image-wrap">
-              <img
-                src="images/fondant3.jpeg"
-                alt="Fondant au Chocolat"
-                class="gallery-image"
-              >
-            </div>
-            <div class="gallery-caption">
-              Fondant au Chocolat
-            </div>
-          </div>
+          <!-- Rangée 15 -->
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/Box mix2.jpeg" alt="Assortiment Mix" class="gallery-image"></div><div class="gallery-caption">Assortiment Mix</div></div>
+          <div class="gallery-card g2 down"><div class="gallery-image-wrap"><img src="images/trileçe3.jpeg" alt="Trileçe" class="gallery-image"></div><div class="gallery-caption">Trileçe</div></div>
+          <div class="gallery-card g2"><div class="gallery-image-wrap"><img src="images/fondant3.jpeg" alt="Fondant au Chocolat" class="gallery-image"></div><div class="gallery-caption">Fondant au Chocolat</div></div>
 
         </div>
 
@@ -2748,8 +1465,7 @@
         <div class="gallery-coming-soon">
           Sweet Moments are Coming...
         </div>
-
-
+        
         <!-- =========================
              REVIEWS
         ========================= -->
@@ -2757,20 +1473,12 @@
         <div class="reviews-section">
 
           <div class="section-heading">
-
-            <div class="section-eyebrow">
-              Sweet Moments
-            </div>
-
-            <h2>
-              Vos petits mots
-            </h2>
-
+            <div class="section-eyebrow">Sweet Moments</div>
+            <h2>Vos petits mots</h2>
             <p>
               Une douceur vous a plu ? Laissez-nous un petit mot
               et partagez votre Sweet Moment.
             </p>
-
           </div>
 
 
@@ -2781,106 +1489,34 @@
 
             <div class="review-form-card">
 
-              <h3>
-                Laisser un avis
-              </h3>
+              <h3>Laisser un avis</h3>
 
               <p class="review-form-intro">
                 Votre expérience compte beaucoup pour nous.
-                Vous pouvez également partager une photo de votre création.
               </p>
 
-
               <div class="review-field">
-
-                <label
-                  class="review-label"
-                  for="reviewName"
-                >
-                  Votre prénom
-                </label>
-
-                <input
-                  type="text"
-                  id="reviewName"
-                  class="review-input"
-                  placeholder="Votre prénom"
-                  maxlength="40"
-                >
-
+                <label class="review-label" for="reviewName">Votre prénom</label>
+                <input type="text" id="reviewName" class="review-input" placeholder="Votre prénom" maxlength="40">
               </div>
 
-
               <div class="review-field">
-
-                <label
-                  class="review-label"
-                  for="reviewRating"
-                >
-                  Votre note
-                </label>
-
-                <select
-                  id="reviewRating"
-                  class="review-input"
-                >
+                <label class="review-label" for="reviewRating">Votre note</label>
+                <select id="reviewRating" class="review-input">
                   <option value="5">★★★★★</option>
                   <option value="4">★★★★☆</option>
                   <option value="3">★★★☆☆</option>
                   <option value="2">★★☆☆☆</option>
                   <option value="1">★☆☆☆☆</option>
                 </select>
-
               </div>
-
 
               <div class="review-field">
-
-                <label
-                  class="review-label"
-                  for="reviewText"
-                >
-                  Votre avis
-                </label>
-
-                <textarea
-                  id="reviewText"
-                  class="review-textarea"
-                  placeholder="Parlez-nous de votre Sweet Moment..."
-                  maxlength="500"
-                ></textarea>
-
+                <label class="review-label" for="reviewText">Votre avis</label>
+                <textarea id="reviewText" class="review-textarea" placeholder="Parlez-nous de votre Sweet Moment..." maxlength="500"></textarea>
               </div>
 
-
-              <div class="review-field">
-
-                <label
-                  class="review-label"
-                  for="reviewPhoto"
-                >
-                  Une photo ? <span>(facultatif)</span>
-                </label>
-
-                <input
-                  type="file"
-                  id="reviewPhoto"
-                  class="review-photo-input"
-                  accept="image/jpeg,image/png,image/webp"
-                >
-
-                <p class="review-note">
-                  La photo est enregistrée uniquement dans ce navigateur
-                  dans cette première version.
-                </p>
-
-              </div>
-
-
-              <button
-                class="btn btn-primary"
-                onclick="submitReview()"
-              >
+              <button class="btn btn-primary" onclick="submitReview()">
                 Publier mon avis
               </button>
 
@@ -2890,16 +1526,8 @@
             <!-- AVIS -->
 
             <div class="reviews-list-card">
-
-              <h3>
-                Vos Sweet Moments
-              </h3>
-
-              <div
-                class="reviews-list"
-                id="reviewsList"
-              ></div>
-
+              <h3>Vos Sweet Moments</h3>
+              <div class="reviews-list" id="reviewsList"></div>
             </div>
 
           </div>
@@ -2920,85 +1548,37 @@
       <div class="page-inner">
 
         <div class="section-heading">
-
-          <div class="section-eyebrow">
-            Sweet Tyrcy
-          </div>
-
-          <h2>
-            Restons en contact
-          </h2>
-
+          <div class="section-eyebrow">Sweet Tyrcy</div>
+          <h2>Restons en contact</h2>
           <p>
             Une question, une envie particulière ou simplement
             l’envie de découvrir Sweet Tyrcy ?
           </p>
-
         </div>
 
         <div class="contact-grid">
 
           <div class="contact-card">
-
-            <h3>
-              Instagram
-            </h3>
-
-            <p>
-              Retrouvez Sweet Tyrcy et ses petites douceurs.
-            </p>
-
-            <a
-              class="contact-link"
-              href="https://instagram.com/sweet_tyrcy"
-              target="_blank"
-            >
-              @sweet_tyrcy
-            </a>
-
+            <h3>Instagram</h3>
+            <p>Retrouvez Sweet Tyrcy et ses petites douceurs.</p>
+            <a class="contact-link" href="https://instagram.com/sweet_tyrcy" target="_blank">@sweet_tyrcy</a>
           </div>
 
-
           <div class="contact-card">
-
-            <h3>
-              Commander
-            </h3>
-
+            <h3>Commander</h3>
             <p>
               Pour passer une commande, retrouvez toutes les
               informations directement dans votre panier.
             </p>
-
-            <button
-              class="btn btn-primary"
-              onclick="openCart()"
-            >
-              Ouvrir mon panier
-            </button>
-
+            <button class="btn btn-primary" onclick="openCart()">Ouvrir mon panier</button>
           </div>
 
-
           <div class="contact-card">
-
-            <h3>
-              WhatsApp
-            </h3>
-
-            <p>
-              Pour toute question ou demande, écrivez-nous directement.
-            </p>
-
-            <a
-              class="btn btn-primary"
-              href="https://wa.me/2250797285031"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <h3>WhatsApp</h3>
+            <p>Pour toute question ou demande, écrivez-nous directement.</p>
+            <a class="btn btn-primary" href="https://wa.me/2250797285031" target="_blank" rel="noopener noreferrer">
               07 97 28 50 31
             </a>
-
           </div>
 
         </div>
@@ -3020,6 +1600,8 @@
     · Heavenly Pastries
     · Taste a slice of paradise
 
+    <p class="footer-handcrafted">Handcrafted with love in Abidjan</p>
+
   </footer>
 
 
@@ -3027,20 +1609,9 @@
        FLOATING CART
   ========================= -->
 
-  <button
-    class="floating-cart"
-    onclick="openCart()"
-    aria-label="Ouvrir le panier"
-  >
+  <button class="floating-cart" onclick="openCart()" aria-label="Ouvrir le panier">
     ♡
-
-    <span
-      class="floating-cart-count"
-      id="floatingCartCount"
-    >
-      0
-    </span>
-
+    <span class="floating-cart-count" id="floatingCartCount">0</span>
   </button>
 
 
@@ -3048,36 +1619,18 @@
        OVERLAY
   ========================= -->
 
-  <div
-    class="overlay"
-    id="overlay"
-    onclick="closeCart()"
-  ></div>
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
 
 
   <!-- =========================
        CART DRAWER
   ========================= -->
 
-  <aside
-    class="cart-drawer"
-    id="cartDrawer"
-  >
+  <aside class="cart-drawer" id="cartDrawer">
 
     <div class="cart-header">
-
-      <h2>
-        Mon panier
-      </h2>
-
-      <button
-        class="close-cart"
-        onclick="closeCart()"
-        aria-label="Fermer"
-      >
-        ×
-      </button>
-
+      <h2>Mon panier</h2>
+      <button class="close-cart" onclick="closeCart()" aria-label="Fermer">×</button>
     </div>
 
 
@@ -3085,110 +1638,50 @@
 
       <div id="cartItems"></div>
 
-      <div
-        class="empty-cart"
-        id="emptyCart"
-      >
+      <div class="empty-cart" id="emptyCart">
         Votre panier attend encore quelques douceurs. ♡
       </div>
 
 
-      <div
-        class="cart-summary"
-        id="cartSummary"
-        style="display:none;"
-      >
+      <div class="cart-summary" id="cartSummary" style="display:none;">
 
         <div class="cart-total">
-
-          <span>
-            Total
-          </span>
-
-          <strong id="cartTotal">
-            0 FCFA
-          </strong>
-
+          <span>Total</span>
+          <strong id="cartTotal">0 FCFA</strong>
         </div>
 
 
         <div class="cart-fields">
 
           <div>
-
-            <label
-              class="cart-label"
-              for="orderDate"
-            >
-              Date souhaitée
-            </label>
-
-            <input
-              type="date"
-              id="orderDate"
-              class="cart-input"
-            >
-
+            <label class="cart-label" for="orderDate">Date souhaitée</label>
+            <input type="date" id="orderDate" class="cart-input">
           </div>
 
-
           <div>
-
-            <label
-              class="cart-label"
-              for="orderTime"
-            >
-              Heure souhaitée
-            </label>
-
-            <input
-              type="time"
-              id="orderTime"
-              class="cart-input"
-            >
-
+            <label class="cart-label" for="orderTime">Heure souhaitée</label>
+            <input type="time" id="orderTime" class="cart-input">
           </div>
 
         </div>
 
 
-        <label
-          class="cart-label"
-          for="orderNote"
-        >
-          Note / précision
-        </label>
+        <label class="cart-label" for="orderNote">Note / précision</label>
 
-        <textarea
-          id="orderNote"
-          class="cart-note"
-          placeholder="Une précision pour votre commande ?"
-        ></textarea>
+        <textarea id="orderNote" class="cart-note" placeholder="Une précision pour votre commande ?"></textarea>
 
 
         <p class="cart-info">
-          Après validation, votre commande sera préparée sur WhatsApp.
-          Le paiement peut être effectué via Wave ou Orange Money.
+          Après validation, votre commande sera préparée via WhatsApp.
+          Le paiement intégral est obligatoire avant la livraison.
+          Vous pouvez régler votre commande via Wave ou Orange Money.
           Livraison disponible via Yango.
         </p>
 
 
         <div class="cart-buttons">
-
-          <button
-            class="btn btn-primary"
-            onclick="sendOrderToWhatsApp()"
-          >
-            Commander via WhatsApp
-          </button>
-
-          <button
-            class="btn btn-soft"
-            onclick="clearCart()"
-          >
-            Vider le panier
-          </button>
-
+          <button class="btn btn-primary" onclick="sendOrderToWhatsApp()">Commander via WhatsApp</button>
+          <button class="btn btn-soft" onclick="clearCart()">Vider le panier</button>
         </div>
 
       </div>
@@ -3202,12 +1695,8 @@
        TOAST
   ========================= -->
 
-  <div
-    class="toast"
-    id="toast"
-  ></div>
-
-
+  <div class="toast" id="toast"></div>
+  
   <!-- =========================
        JAVASCRIPT
   ========================= -->
@@ -3218,131 +1707,68 @@
        SUPABASE
     ========================= */
 
-    const SUPABASE_URL =
-      "https://cxzoizejyuafgkwcbbcg.supabase.co";
+    const SUPABASE_URL = "https://cxzoizejyuafgkwcbbcg.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_pHiIcWaZRm1J2ZHVsOvZyA_4bkXne-X";
 
-    const SUPABASE_KEY =
-      "sb_publishable_pHiIcWaZRm1J2ZHVsOvZyA_4bkXne-X";
-
-    const supabaseClient =
-      supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-      );
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
     /* =========================
        CART
     ========================= */
 
-    let cart = JSON.parse(
-      localStorage.getItem("sweetTyrcyCart")
-    ) || [];
-
+    let cart = JSON.parse(localStorage.getItem("sweetTyrcyCart")) || [];
 
     function saveCart() {
-
-      localStorage.setItem(
-        "sweetTyrcyCart",
-        JSON.stringify(cart)
-      );
-
+      localStorage.setItem("sweetTyrcyCart", JSON.stringify(cart));
     }
-
 
     function formatPrice(price) {
-
       return price.toLocaleString("fr-FR") + " FCFA";
-
     }
-
 
     function showToast(message) {
-
-      const toast =
-        document.getElementById("toast");
-
+      const toast = document.getElementById("toast");
       toast.textContent = message;
-
       toast.classList.add("show");
-
       clearTimeout(window.toastTimer);
-
       window.toastTimer = setTimeout(() => {
-
         toast.classList.remove("show");
-
       }, 2200);
-
     }
 
-
-    function addToCart(
-      name,
-      price,
-      quantity = 1,
-      flavor = ""
-    ) {
-
-      quantity =
-        parseInt(quantity) || 1;
-
-      if (quantity < 1) {
-        quantity = 1;
-      }
-
-
-      const existingItem =
-        cart.find(item =>
-          item.name === name &&
-          item.flavor === flavor &&
-          item.price === price
-        );
-
-
-      if (existingItem) {
-
-        existingItem.quantity += quantity;
-
-      } else {
-
-        cart.push({
-          name: name,
-          price: price,
-          quantity: quantity,
-          flavor: flavor
-        });
-
-      }
-
-
-      saveCart();
-
-      updateCart();
-
-      showToast("Ajouté au panier ♡");
-
+    function getQuantity(id) {
+      return parseInt(document.getElementById(id).value) || 1;
     }
 
+    function addToCart(name, price, quantity = 1, flavor = "") {
 
-    function addSimpleProduct(
-      name,
-      price,
-      quantityId
-    ) {
+      quantity = parseInt(quantity) || 1;
+      if (quantity < 1) quantity = 1;
 
-      const quantity =
-        parseInt(
-          document.getElementById(quantityId).value
-        ) || 1;
-
-      addToCart(
-        name,
-        price,
-        quantity,
-        ""
+      const existingItem = cart.find(item =>
+        item.name === name &&
+        item.flavor === flavor &&
+        item.price === price
       );
 
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({ name: name, price: price, quantity: quantity, flavor: flavor });
+      }
+
+      saveCart();
+      updateCart();
+      showToast("Ajouté au panier ♡");
+    }
+
+    function addSimpleProduct(name, price, quantityId) {
+      addToCart(name, price, getQuantity(quantityId), "");
+    }
+
+    function bindChange(ids, handler) {
+      ids.forEach(id => document.getElementById(id).addEventListener("change", handler));
     }
 
 
@@ -3350,77 +1776,26 @@
        COOKIES
     ========================= */
 
-    const cookieFormat =
-      document.getElementById("cookieFormat");
-
-    cookieFormat.addEventListener(
-      "change",
-      updateCookiePrice
-    );
-
-
     function updateCookiePrice() {
-
-      const format =
-        cookieFormat.value;
-
-      const price =
-        format === "unit"
-          ? 500
-          : 3000;
-
-      document.getElementById(
-        "cookiePrice"
-      ).textContent =
-        formatPrice(price);
-
+      const format = document.getElementById("cookieFormat").value;
+      const price = format === "unit" ? 500 : 3000;
+      document.getElementById("cookiePrice").textContent = formatPrice(price);
     }
 
+    bindChange(["cookieFormat"], updateCookiePrice);
 
     function addCookieToCart() {
 
-      const format =
-        document.getElementById(
-          "cookieFormat"
-        ).value;
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "cookieQuantity"
-          ).value
-        ) || 1;
-
+      const format = document.getElementById("cookieFormat").value;
+      const quantity = getQuantity("cookieQuantity");
 
       if (format === "pie") {
-
-        addToCart(
-          "Nutella Cookie Pie / Giant Nutella Cookie",
-          3000,
-          quantity,
-          ""
-        );
-
+        addToCart("Nutella Cookie Pie / Giant Nutella Cookie", 3000, quantity, "");
       } else if (format === "box") {
-
-        addToCart(
-          "Cookies Nutella · Box de 6",
-          3000,
-          quantity,
-          ""
-        );
-
+        addToCart("Cookies Nutella · Box de 6", 3000, quantity, "");
       } else {
-
-        addToCart(
-          "Cookies Nutella · À l’unité",
-          500,
-          quantity,
-          ""
-        );
-
+        addToCart("Cookies Nutella · À l’unité", 500, quantity, "");
       }
-
     }
 
 
@@ -3428,192 +1803,62 @@
        CAKE MARBRE
     ========================= */
 
-    const marbreFormat =
-      document.getElementById(
-        "marbreFormat"
-      );
-
-    const marbreTopping =
-      document.getElementById(
-        "marbreTopping"
-      );
-
-
-    marbreFormat.addEventListener(
-      "change",
-      updateMarbrePrice
-    );
-
-    marbreTopping.addEventListener(
-      "change",
-      updateMarbrePrice
-    );
-
-
     function getMarbreData() {
 
-      const format =
-        marbreFormat.value;
-
-      const topping =
-        marbreTopping.value;
-
+      const format = document.getElementById("marbreFormat").value;
+      const topping = document.getElementById("marbreTopping").value;
 
       let label;
       let price;
 
-
       if (format === "medium") {
-
         label = "Cake moyen";
         price = 3500;
-
       } else if (format === "large") {
-
         label = "Grand cake";
         price = 4000;
-
       } else {
-
         label = "Part";
         price = 700;
-
       }
-
 
       if (topping === "nutella") {
-
         price += 500;
-
         label += " · Nappage Nutella";
-
       }
 
-
-      return {
-        label: label,
-        price: price
-      };
-
+      return { label: label, price: price };
     }
-
 
     function updateMarbrePrice() {
-
-      const data =
-        getMarbreData();
-
-      document.getElementById(
-        "marbrePrice"
-      ).textContent =
-        formatPrice(data.price);
-
+      document.getElementById("marbrePrice").textContent = formatPrice(getMarbreData().price);
     }
 
+    bindChange(["marbreFormat", "marbreTopping"], updateMarbrePrice);
 
     function addMarbreToCart() {
-
-      const data =
-        getMarbreData();
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "marbreQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Cake marbré · " + data.label,
-        data.price,
-        quantity,
-        ""
-      );
-
+      const data = getMarbreData();
+      addToCart("Cake marbré · " + data.label, data.price, getQuantity("marbreQuantity"), "");
     }
 
 
     /* =========================
-       BENTO
+       BENTO / LAYER CAKE / GIFT BOX
     ========================= */
 
     function addBentoToCart() {
-
-      const flavor =
-        document.getElementById(
-          "bentoFlavor"
-        ).value;
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "bentoQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Bento Cake",
-        8000,
-        quantity,
-        flavor
-      );
-
+      const flavor = document.getElementById("bentoFlavor").value;
+      addToCart("Bento Cake", 8000, getQuantity("bentoQuantity"), flavor);
     }
-
-
-    /* =========================
-       LAYER CAKE
-    ========================= */
 
     function addLayerCakeToCart() {
-
-      const flavor =
-        document.getElementById(
-          "layerCakeFlavor"
-        ).value;
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "layerCakeQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Layer Cake",
-        15500,
-        quantity,
-        flavor
-      );
-
+      const flavor = document.getElementById("layerCakeFlavor").value;
+      addToCart("Layer Cake", 16000, getQuantity("layerCakeQuantity"), flavor);
     }
 
-
-    /* =========================
-       SWEET GIFT BOX
-    ========================= */
-
     function addSweetGiftBoxToCart() {
-
-      const flavor =
-        document.getElementById(
-          "sweetGiftBoxFlavor"
-        ).value;
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "sweetGiftBoxQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Sweet Gift Box",
-        15000,
-        quantity,
-        flavor
-      );
-
+      const flavor = document.getElementById("sweetGiftBoxFlavor").value;
+      addToCart("Sweet Gift Box", 15000, getQuantity("sweetGiftBoxQuantity"), flavor);
     }
 
 
@@ -3621,290 +1866,137 @@
        TRILECE
     ========================= */
 
-    const trileceFormat =
-      document.getElementById(
-        "trileceFormat"
-      );
-
-
-    trileceFormat.addEventListener(
-      "change",
-      updateTrilecePrice
-    );
-
-
     function getTrileceData() {
 
-      const format =
-        trileceFormat.value;
+      const format = document.getElementById("trileceFormat").value;
 
+      if (format === "medium") return { label: "Moyen", price: 3500 };
+      if (format === "large") return { label: "Plat", price: 10500 };
 
-      if (format === "medium") {
-
-        return {
-          label: "Moyen",
-          price: 3500
-        };
-
-      }
-
-
-      if (format === "large") {
-
-        return {
-          label: "Plat",
-          price: 10500
-        };
-
-      }
-
-
-      return {
-        label: "Mini",
-        price: 2000
-      };
-
+      return { label: "Mini", price: 2000 };
     }
-
 
     function updateTrilecePrice() {
-
-      const data =
-        getTrileceData();
-
-      document.getElementById(
-        "trilecePrice"
-      ).textContent =
-        formatPrice(data.price);
-
+      document.getElementById("trilecePrice").textContent = formatPrice(getTrileceData().price);
     }
 
+    bindChange(["trileceFormat"], updateTrilecePrice);
 
     function addTrileceToCart() {
-
-      const data =
-        getTrileceData();
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "trileceQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Trileçe · " + data.label,
-        data.price,
-        quantity,
-        ""
-      );
-
+      const data = getTrileceData();
+      addToCart("Trileçe · " + data.label, data.price, getQuantity("trileceQuantity"), "");
     }
 
 
     /* =========================
-       LAYER CUP
+       LAYER CUP / TARTE
     ========================= */
 
     function addLayerCupToCart() {
-
-      const flavor =
-        document.getElementById(
-          "layerCupFlavor"
-        ).value;
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "layerCupQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Layer Cup · Mini’Crush",
-        2000,
-        quantity,
-        flavor
-      );
-
+      const flavor = document.getElementById("layerCupFlavor").value;
+      addToCart("Layer Cup · Mini’Crush", 2000, getQuantity("layerCupQuantity"), flavor);
     }
-
-
-    /* =========================
-       TARTE
-    ========================= */
 
     function addTarteToCart() {
-
-      const flavor =
-        document.getElementById(
-          "tarteFlavor"
-        ).value;
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "tarteQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Tarte",
-        5000,
-        quantity,
-        flavor
-      );
-
+      const flavor = document.getElementById("tarteFlavor").value;
+      addToCart("Tarte", 5000, getQuantity("tarteQuantity"), flavor);
     }
 
 
     /* =========================
-       CREPES NATURE
+       CREPES NATURE (chantilly / caramel)
     ========================= */
-
-    const crepeNatureFormat =
-      document.getElementById(
-        "crepeNatureFormat"
-      );
-
-
-    crepeNatureFormat.addEventListener(
-      "change",
-      updateCrepeNaturePrice
-    );
-
 
     function getCrepeNatureData() {
 
-      const format =
-        crepeNatureFormat.value;
+      const format = document.getElementById("crepeNatureFormat").value;
+      const chantilly = document.getElementById("crepeNatureChantilly").checked;
+      const caramel = document.getElementById("crepeNatureCaramel").checked;
 
+      let label = format === "15" ? "15 crêpes" : "5 crêpes";
+      let price = format === "15" ? 2500 : 1000;
 
-      if (format === "15") {
-
-        return {
-          label: "15 crêpes",
-          price: 2500
-        };
-
+      if (chantilly) {
+        price += 500;
+        label += " + Chantilly";
       }
 
+      if (caramel) {
+        price += 500;
+        label += " + Caramel";
+      }
 
-      return {
-        label: "5 crêpes",
-        price: 1000
-      };
-
+      return { label: label, price: price };
     }
-
 
     function updateCrepeNaturePrice() {
-
-      const data =
-        getCrepeNatureData();
-
-      document.getElementById(
-        "crepeNaturePrice"
-      ).textContent =
-        formatPrice(data.price);
-
+      document.getElementById("crepeNaturePrice").textContent = formatPrice(getCrepeNatureData().price);
     }
 
+    bindChange(["crepeNatureFormat", "crepeNatureChantilly", "crepeNatureCaramel"], updateCrepeNaturePrice);
 
     function addCrepeNatureToCart() {
-
-      const data =
-        getCrepeNatureData();
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "crepeNatureQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Crêpes nature · " + data.label,
-        data.price,
-        quantity,
-        ""
-      );
-
+      const data = getCrepeNatureData();
+      addToCart("Crêpes nature · " + data.label, data.price, getQuantity("crepeNatureQuantity"), "");
     }
 
 
     /* =========================
-       CREPES NUTELLA
+       CREPES NUTELLA (chantilly uniquement)
     ========================= */
-
-    const crepeNutellaFormat =
-      document.getElementById(
-        "crepeNutellaFormat"
-      );
-
-
-    crepeNutellaFormat.addEventListener(
-      "change",
-      updateCrepeNutellaPrice
-    );
-
 
     function getCrepeNutellaData() {
 
-      const format =
-        crepeNutellaFormat.value;
+      const format = document.getElementById("crepeNutellaFormat").value;
+      const chantilly = document.getElementById("crepeNutellaChantilly").checked;
 
+      let label = format === "15" ? "15 crêpes" : "5 crêpes";
+      let price = format === "15" ? 5000 : 2000;
 
-      if (format === "15") {
-
-        return {
-          label: "15 crêpes",
-          price: 5000
-        };
-
+      if (chantilly) {
+        price += 500;
+        label += " + Chantilly";
       }
 
-
-      return {
-        label: "5 crêpes",
-        price: 2000
-      };
-
+      return { label: label, price: price };
     }
-
 
     function updateCrepeNutellaPrice() {
+      document.getElementById("crepeNutellaPrice").textContent = formatPrice(getCrepeNutellaData().price);
+    }
 
-      const data =
-        getCrepeNutellaData();
+    bindChange(["crepeNutellaFormat", "crepeNutellaChantilly"], updateCrepeNutellaPrice);
 
-      document.getElementById(
-        "crepeNutellaPrice"
-      ).textContent =
-        formatPrice(data.price);
-
+    function addCrepeNutellaToCart() {
+      const data = getCrepeNutellaData();
+      addToCart("Crêpes Nutella · " + data.label, data.price, getQuantity("crepeNutellaQuantity"), "");
     }
 
 
-    function addCrepeNutellaToCart() {
+    /* =========================
+       CREPES SALEES
+    ========================= */
 
-      const data =
-        getCrepeNutellaData();
+    function getCrepeSaleeData() {
 
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "crepeNutellaQuantity"
-          ).value
-        ) || 1;
+      const format = document.getElementById("crepeSaleeFormat").value;
 
-      addToCart(
-        "Crêpes Nutella · " + data.label,
-        data.price,
-        quantity,
-        ""
-      );
+      if (format === "large") return { label: "1 grande crêpe salée", price: 1500 };
+      if (format === "3") return { label: "3 crêpes salées", price: 2500 };
+      if (format === "6") return { label: "6 crêpes salées", price: 4500 };
 
+      return { label: "1 crêpe salée jambon-fromage", price: 1000 };
+    }
+
+    function updateCrepeSaleePrice() {
+      document.getElementById("crepeSaleePrice").textContent = formatPrice(getCrepeSaleeData().price);
+    }
+
+    bindChange(["crepeSaleeFormat"], updateCrepeSaleePrice);
+
+    function addCrepeSaleeToCart() {
+      const data = getCrepeSaleeData();
+      addToCart("Crêpes salées · " + data.label, data.price, getQuantity("crepeSaleeQuantity"), "");
     }
 
 
@@ -3912,74 +2004,24 @@
        FLOWER BOX
     ========================= */
 
-    const flowerBoxFormat =
-      document.getElementById(
-        "flowerBoxFormat"
-      );
-
-
-    flowerBoxFormat.addEventListener(
-      "change",
-      updateFlowerBoxPrice
-    );
-
-
     function getFlowerBoxData() {
 
-      const format =
-        flowerBoxFormat.value;
+      const format = document.getElementById("flowerBoxFormat").value;
 
+      if (format === "12") return { label: "12 crêpes", price: 5500 };
 
-      if (format === "12") {
-
-        return {
-          label: "12 crêpes",
-          price: 5500
-        };
-
-      }
-
-
-      return {
-        label: "6 crêpes",
-        price: 3000
-      };
-
+      return { label: "6 crêpes", price: 3000 };
     }
-
 
     function updateFlowerBoxPrice() {
-
-      const data =
-        getFlowerBoxData();
-
-      document.getElementById(
-        "flowerBoxPrice"
-      ).textContent =
-        formatPrice(data.price);
-
+      document.getElementById("flowerBoxPrice").textContent = formatPrice(getFlowerBoxData().price);
     }
 
+    bindChange(["flowerBoxFormat"], updateFlowerBoxPrice);
 
     function addFlowerBoxToCart() {
-
-      const data =
-        getFlowerBoxData();
-
-      const quantity =
-        parseInt(
-          document.getElementById(
-            "flowerBoxQuantity"
-          ).value
-        ) || 1;
-
-      addToCart(
-        "Flower Sweet Box · " + data.label,
-        data.price,
-        quantity,
-        ""
-      );
-
+      const data = getFlowerBoxData();
+      addToCart("Flower Sweet Box · " + data.label, data.price, getQuantity("flowerBoxQuantity"), "");
     }
 
 
@@ -3989,216 +2031,97 @@
 
     function updateCart() {
 
-      const cartItems =
-        document.getElementById(
-          "cartItems"
-        );
-
-      const emptyCart =
-        document.getElementById(
-          "emptyCart"
-        );
-
-      const cartSummary =
-        document.getElementById(
-          "cartSummary"
-        );
-
+      const cartItems = document.getElementById("cartItems");
+      const emptyCart = document.getElementById("emptyCart");
+      const cartSummary = document.getElementById("cartSummary");
 
       if (cart.length === 0) {
 
         cartItems.innerHTML = "";
-
-        emptyCart.style.display =
-          "block";
-
-        cartSummary.style.display =
-          "none";
+        emptyCart.style.display = "block";
+        cartSummary.style.display = "none";
 
       } else {
 
-        emptyCart.style.display =
-          "none";
+        emptyCart.style.display = "none";
+        cartSummary.style.display = "block";
 
-        cartSummary.style.display =
-          "block";
+        cartItems.innerHTML = cart.map((item, index) => {
 
+          const subtotal = item.price * item.quantity;
 
-        cartItems.innerHTML =
-          cart.map(
-            (item, index) => {
+          return `
+            <div class="cart-item">
 
-              const subtotal =
-                item.price *
-                item.quantity;
+              <div class="cart-item-top">
+                <div class="cart-item-name">${escapeHtml(item.name)}</div>
+                <div class="cart-item-price">${formatPrice(subtotal)}</div>
+              </div>
 
+              ${item.flavor ? `<div class="cart-item-flavor">Parfum : ${escapeHtml(item.flavor)}</div>` : ""}
 
-              return `
+              <div class="cart-item-bottom">
 
-                <div class="cart-item">
-
-                  <div class="cart-item-top">
-
-                    <div class="cart-item-name">
-                      ${escapeHtml(item.name)}
-                    </div>
-
-                    <div class="cart-item-price">
-                      ${formatPrice(subtotal)}
-                    </div>
-
-                  </div>
-
-                  ${
-                    item.flavor
-                      ? `
-                        <div class="cart-item-flavor">
-                          Parfum : ${escapeHtml(item.flavor)}
-                        </div>
-                      `
-                      : ""
-                  }
-
-                  <div class="cart-item-bottom">
-
-                    <div class="cart-quantity">
-
-                      <button
-                        onclick="changeCartQuantity(${index}, -1)"
-                      >
-                        −
-                      </button>
-
-                      <span>
-                        ${item.quantity}
-                      </span>
-
-                      <button
-                        onclick="changeCartQuantity(${index}, 1)"
-                      >
-                        +
-                      </button>
-
-                    </div>
-
-                    <button
-                      class="remove-item"
-                      onclick="removeCartItem(${index})"
-                    >
-                      Retirer
-                    </button>
-
-                  </div>
-
+                <div class="cart-quantity">
+                  <button onclick="changeCartQuantity(${index}, -1)">−</button>
+                  <span>${item.quantity}</span>
+                  <button onclick="changeCartQuantity(${index}, 1)">+</button>
                 </div>
 
-              `;
+                <button class="remove-item" onclick="removeCartItem(${index})">Retirer</button>
 
-            }
-          ).join("");
+              </div>
 
+            </div>
+          `;
+
+        }).join("");
       }
 
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-      const total =
-        cart.reduce(
-          (sum, item) =>
-            sum +
-            item.price *
-            item.quantity,
-          0
-        );
+      document.getElementById("cartTotal").textContent = formatPrice(total);
 
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-      document.getElementById(
-        "cartTotal"
-      ).textContent =
-        formatPrice(total);
-
-
-      const count =
-        cart.reduce(
-          (sum, item) =>
-            sum + item.quantity,
-          0
-        );
-
-
-      document.getElementById(
-        "headerCartCount"
-      ).textContent =
-        count;
-
-      document.getElementById(
-        "floatingCartCount"
-      ).textContent =
-        count;
-
+      document.getElementById("headerCartCount").textContent = count;
+      document.getElementById("floatingCartCount").textContent = count;
     }
 
+    function changeCartQuantity(index, amount) {
 
-    function changeCartQuantity(
-      index,
-      amount
-    ) {
-
-      if (!cart[index]) {
-        return;
-      }
-
+      if (!cart[index]) return;
 
       cart[index].quantity += amount;
 
-
       if (cart[index].quantity <= 0) {
-
         cart.splice(index, 1);
-
       }
 
-
       saveCart();
-
       updateCart();
-
     }
-
 
     function removeCartItem(index) {
-
       cart.splice(index, 1);
-
       saveCart();
-
       updateCart();
-
     }
-
 
     function clearCart() {
-
       cart = [];
-
       saveCart();
-
       updateCart();
-
-      showToast(
-        "Votre panier a été vidé."
-      );
-
+      showToast("Votre panier a été vidé.");
     }
 
-
     function escapeHtml(value) {
-
       return String(value)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-
     }
 
 
@@ -4207,42 +2130,15 @@
     ========================= */
 
     function openCart() {
-
-      document
-        .getElementById(
-          "cartDrawer"
-        )
-        .classList.add("open");
-
-      document
-        .getElementById(
-          "overlay"
-        )
-        .classList.add("show");
-
-      document.body.style.overflow =
-        "hidden";
-
+      document.getElementById("cartDrawer").classList.add("open");
+      document.getElementById("overlay").classList.add("show");
+      document.body.style.overflow = "hidden";
     }
 
-
     function closeCart() {
-
-      document
-        .getElementById(
-          "cartDrawer"
-        )
-        .classList.remove("open");
-
-      document
-        .getElementById(
-          "overlay"
-        )
-        .classList.remove("show");
-
-      document.body.style.overflow =
-        "";
-
+      document.getElementById("cartDrawer").classList.remove("open");
+      document.getElementById("overlay").classList.remove("show");
+      document.body.style.overflow = "";
     }
 
 
@@ -4252,59 +2148,133 @@
 
     function showPage(pageId) {
 
-      document
-        .querySelectorAll(".page")
-        .forEach(page => {
-
-          page.classList.remove(
-            "active"
-          );
-
-        });
-
-
-      const target =
-        document.getElementById(
-          pageId
-        );
-
-
-      if (target) {
-
-        target.classList.add(
-          "active"
-        );
-
-      }
-
-
-      document
-        .querySelectorAll(".nav-link")
-        .forEach(link => {
-
-          link.classList.remove(
-            "active"
-          );
-
-          if (
-            link.dataset.page ===
-            pageId
-          ) {
-
-            link.classList.add(
-              "active"
-            );
-
-          }
-
-        });
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+      document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
       });
 
+      const target = document.getElementById(pageId);
+
+      if (target) {
+        target.classList.add("active");
+      }
+
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.remove("active");
+        if (link.dataset.page === pageId) {
+          link.classList.add("active");
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function normalizeText(value) {
+      return String(value)
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+    }
+
+    const SEARCH_SECTIONS = [
+      { keys: ["accueil", "home"], page: "home" },
+      { keys: ["notre histoire", "histoire", "about"], page: "story" },
+      { keys: ["nos creations", "creations", "creation"], page: "creations" },
+      { keys: ["galerie", "gallery", "photos"], page: "gallery" },
+      { keys: ["avis", "petits mots", "sweet moments"], page: "gallery", reviews: true },
+      { keys: ["commander", "panier"], cart: true },
+      { keys: ["contact", "instagram", "whatsapp"], page: "contact" }
+    ];
+
+    function runSearch() {
+
+      const input = document.getElementById("siteSearch");
+      const query = normalizeText(input.value);
+
+      if (!query) {
+        showToast("Tapez un produit ou une section ♡");
+        return;
+      }
+
+      /* 1. Sections du site */
+
+      const section = SEARCH_SECTIONS.find(item =>
+        item.keys.some(key =>
+          key === query || (query.length >= 4 && key.startsWith(query))
+        )
+      );
+
+      if (section) {
+
+        input.blur();
+
+        if (section.cart) {
+          openCart();
+          return;
+        }
+
+        showPage(section.page);
+
+        if (section.reviews) {
+          setTimeout(() => {
+            const reviewsBlock = document.querySelector(".reviews-section");
+            if (reviewsBlock) {
+              reviewsBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 250);
+        }
+
+        return;
+      }
+
+      /* 2. Produits */
+
+      const words = query.split(/\s+/);
+
+      const matches = Array.from(
+        document.querySelectorAll("#creations .product-card")
+      ).filter(card => {
+
+        const title = card.querySelector("h3");
+        const description = card.querySelector(".product-description");
+
+        const text = normalizeText(
+          (title ? title.textContent : "") + " " +
+          (description ? description.textContent : "")
+        );
+
+        return words.every(word =>
+          text.includes(word) ||
+          (word.length > 3 && word.endsWith("s") && text.includes(word.slice(0, -1)))
+        );
+      });
+
+      document.querySelectorAll(".product-card.search-highlight").forEach(card => {
+        card.classList.remove("search-highlight");
+      });
+
+      if (matches.length === 0) {
+        showToast("Aucun résultat pour « " + input.value.trim() + " »");
+        return;
+      }
+
+      input.blur();
+      showPage("creations");
+
+      matches.forEach(card => card.classList.add("search-highlight"));
+
+      setTimeout(() => {
+        matches[0].scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 250);
+
+      setTimeout(() => {
+        matches.forEach(card => card.classList.remove("search-highlight"));
+      }, 5000);
     }
 
 
@@ -4315,139 +2285,55 @@
     function sendOrderToWhatsApp() {
 
       if (cart.length === 0) {
-
-        showToast(
-          "Votre panier est vide ♡"
-        );
-
+        showToast("Votre panier est vide ♡");
         return;
-
       }
 
-
-      const date =
-        document.getElementById(
-          "orderDate"
-        ).value;
-
-      const time =
-        document.getElementById(
-          "orderTime"
-        ).value;
-
-      const note =
-        document.getElementById(
-          "orderNote"
-        ).value.trim();
-
+      const date = document.getElementById("orderDate").value;
+      const time = document.getElementById("orderTime").value;
+      const note = document.getElementById("orderNote").value.trim();
 
       if (!date) {
-
-        showToast(
-          "Veuillez choisir une date."
-        );
-
+        showToast("Veuillez choisir une date.");
         return;
-
       }
-
 
       if (!time) {
-
-        showToast(
-          "Veuillez choisir une heure."
-        );
-
+        showToast("Veuillez choisir une heure.");
         return;
-
       }
 
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-      const total =
-        cart.reduce(
-          (sum, item) =>
-            sum +
-            item.price *
-            item.quantity,
-          0
-        );
+      let message = "Bonjour Sweet Tyrcy ♡\n\n";
 
-
-      let message =
-        "Bonjour Sweet Tyrcy ♡\n\n";
-
-      message +=
-        "Je souhaite passer une commande :\n\n";
-
+      message += "Je souhaite passer une commande :\n\n";
 
       cart.forEach(item => {
 
-        message +=
-          "• " +
-          item.name;
+        message += "• " + item.name;
 
         if (item.flavor) {
-
-          message +=
-            " (" +
-            item.flavor +
-            ")";
-
+          message += " (" + item.flavor + ")";
         }
 
-        message +=
-          " × " +
-          item.quantity +
-          " = " +
-          formatPrice(
-            item.price *
-            item.quantity
-          ) +
-          "\n";
-
+        message += " × " + item.quantity + " = " + formatPrice(item.price * item.quantity) + "\n";
       });
 
-
-      message +=
-        "\nTotal : " +
-        formatPrice(total);
-
-
-      message +=
-        "\nDate souhaitée : " +
-        date;
-
-
-      message +=
-        "\nHeure souhaitée : " +
-        time;
-
+      message += "\nTotal : " + formatPrice(total);
+      message += "\nDate souhaitée : " + date;
+      message += "\nHeure souhaitée : " + time;
 
       if (note) {
-
-        message +=
-          "\nPrécision : " +
-          note;
-
+        message += "\nPrécision : " + note;
       }
 
-
-      message +=
-        "\n\nMerci ♡";
-
+      message += "\n\nMerci ♡";
 
       const whatsappUrl =
-        "https://wa.me/2250797285031?text=" +
-        encodeURIComponent(
-          message
-        );
+        "https://wa.me/2250797285031?text=" + encodeURIComponent(message);
 
-
-      window.open(
-        whatsappUrl,
-        "_blank"
-      );
-
+      window.open(whatsappUrl, "_blank");
     }
 
 
@@ -4457,226 +2343,96 @@
 
     let reviews = [];
 
-
     async function loadReviews() {
 
-      const {
-        data,
-        error
-      } = await supabaseClient
+      const { data, error } = await supabaseClient
         .from("reviews")
         .select("*")
-        .order("created_at", {
-          ascending: false
-        });
-
+        .order("created_at", { ascending: false });
 
       if (error) {
-
-        console.error(
-          "Erreur lors du chargement des avis :",
-          error
-        );
-
+        console.error("Erreur lors du chargement des avis :", error);
         return;
-
       }
 
-
       reviews = data || [];
-
       renderReviews();
-
     }
-
 
     async function submitReview() {
 
-      const name =
-        document.getElementById(
-          "reviewName"
-        ).value.trim();
-
-
-      const rating =
-        parseInt(
-          document.getElementById(
-            "reviewRating"
-          ).value
-        );
-
-
-      const text =
-        document.getElementById(
-          "reviewText"
-        ).value.trim();
-
+      const name = document.getElementById("reviewName").value.trim();
+      const rating = parseInt(document.getElementById("reviewRating").value);
+      const text = document.getElementById("reviewText").value.trim();
 
       if (!name) {
-
-        showToast(
-          "Veuillez entrer votre prénom."
-        );
-
+        showToast("Veuillez entrer votre prénom.");
         return;
-
       }
-
 
       if (!text) {
-
-        showToast(
-          "Veuillez écrire votre avis."
-        );
-
+        showToast("Veuillez écrire votre avis.");
         return;
-
       }
 
-
-      const {
-        error
-      } = await supabaseClient
+      const { error } = await supabaseClient
         .from("reviews")
-        .insert([
-          {
-            name: name,
-            rating: rating,
-            comment: text
-          }
-        ]);
-
+        .insert([{ name: name, rating: rating, comment: text }]);
 
       if (error) {
-
-        console.error(
-          "Erreur lors de l'envoi de l'avis :",
-          error
-        );
-
-        showToast(
-          "Une erreur est survenue. Veuillez réessayer."
-        );
-
+        console.error("Erreur lors de l'envoi de l'avis :", error);
+        showToast("Une erreur est survenue. Veuillez réessayer.");
         return;
-
       }
 
+      document.getElementById("reviewName").value = "";
+      document.getElementById("reviewText").value = "";
+      document.getElementById("reviewRating").value = "5";
 
-      document.getElementById(
-        "reviewName"
-      ).value = "";
-
-
-      document.getElementById(
-        "reviewText"
-      ).value = "";
-
-
-      document.getElementById(
-        "reviewPhoto"
-      ).value = "";
-
-
-      document.getElementById(
-        "reviewRating"
-      ).value = "5";
-
-
-      showToast(
-        "Merci pour votre petit mot ♡"
-      );
-
+      showToast("Merci pour votre petit mot ♡");
 
       await loadReviews();
-
     }
-
 
     function renderReviews() {
 
-      const container =
-        document.getElementById(
-          "reviewsList"
-        );
+      const container = document.getElementById("reviewsList");
 
-
-      if (
-        !reviews ||
-        reviews.length === 0
-      ) {
-
+      if (!reviews || reviews.length === 0) {
         container.innerHTML = `
-
           <p class="review-empty">
             Les premiers petits mots apparaîtront ici...
           </p>
-
         `;
-
         return;
-
       }
 
+      container.innerHTML = reviews.map(review => {
 
-      container.innerHTML =
-        reviews.map(
-          review => {
+        const rating = review.rating || 0;
 
-            const rating =
-              review.rating || 0;
+        const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
 
+        const formattedDate = review.created_at
+          ? new Date(review.created_at).toLocaleDateString("fr-FR")
+          : "";
 
-            const stars =
-              "★".repeat(
-                rating
-              ) +
-              "☆".repeat(
-                5 - rating
-              );
+        return `
+          <article class="review-card">
 
+            <div class="review-top">
+              <div class="review-name">${escapeHtml(review.name)}</div>
+              <div class="review-date">${escapeHtml(formattedDate)}</div>
+            </div>
 
-            const formattedDate =
-              review.created_at
-                ? new Date(
-                    review.created_at
-                  ).toLocaleDateString(
-                    "fr-FR"
-                  )
-                : "";
+            <div class="review-stars">${stars}</div>
 
+            <p class="review-content">${escapeHtml(review.comment)}</p>
 
-            return `
+          </article>
+        `;
 
-              <article class="review-card">
-
-                <div class="review-top">
-
-                  <div class="review-name">
-                    ${escapeHtml(review.name)}
-                  </div>
-
-                  <div class="review-date">
-                    ${escapeHtml(formattedDate)}
-                  </div>
-
-                </div>
-
-                <div class="review-stars">
-                  ${stars}
-                </div>
-
-                <p class="review-content">
-                  ${escapeHtml(review.comment)}
-                </p>
-
-              </article>
-
-            `;
-
-          }
-        ).join("");
-
+      }).join("");
     }
 
 
@@ -4685,19 +2441,13 @@
     ========================= */
 
     updateCart();
-
     updateCookiePrice();
-
     updateMarbrePrice();
-
     updateTrilecePrice();
-
     updateCrepeNaturePrice();
-
     updateCrepeNutellaPrice();
-
+    updateCrepeSaleePrice();
     updateFlowerBoxPrice();
-
     loadReviews();
 
   </script>
