@@ -947,7 +947,61 @@
                 </button>
               </div>
             </article>
+            
+            
+            <!-- BOX DE BROWNIES CLASSIQUES -->
 
+            <article class="product-card">
+              <h3>Box de brownies classiques</h3>
+              <p class="product-description">
+                De délicieux brownies fondants et chocolatés, préparés
+                pour un pur moment de gourmandise. Ajoutez vos toppings
+                et suppléments préférés pour encore plus de douceur.
+              </p>
+
+              <label class="cart-label" for="brownieTopping">Topping</label>
+              <select id="brownieTopping" class="product-select">
+                <option value="none">Sans topping</option>
+                <option value="nutella">Nutella · +500 FCFA</option>
+                <option value="caramel">Caramel · +500 FCFA</option>
+              </select>
+
+              <label class="cart-label" for="brownieSupplement">Supplément gourmand</label>
+              <select id="brownieSupplement" class="product-select">
+                <option value="none">Sans supplément</option>
+                <option value="kinder">Kinder · +1 000 FCFA</option>
+                <option value="lotus">Lotus · +1 000 FCFA</option>
+              </select>
+
+              <div class="product-price" id="browniePrice">3 500 FCFA</div>
+
+              <div class="product-actions">
+                <input type="number" id="brownieQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addBrownieToCart()">
+                  Ajouter au panier
+                </button>
+              </div>
+            </article>
+
+
+            <!-- BOX DE BROWNIES AUX OREO -->
+
+            <article class="product-card">
+              <h3>Box de brownies aux Oreo</h3>
+              <p class="product-description">
+                Des brownies intensément chocolatés, sublimés par
+                la gourmandise des biscuits Oreo.
+              </p>
+
+              <div class="product-price">4 500 FCFA</div>
+
+              <div class="product-actions">
+                <input type="number" id="oreoBrownieQuantity" class="quantity-input" value="1" min="1">
+                <button class="btn btn-primary" onclick="addOreoBrownieToCart()">
+                  Ajouter au panier
+                </button>
+              </div>
+            </article>
 
             <!-- COOKIES -->
 
@@ -1995,6 +2049,70 @@
 
 
     /* =========================
+       BROWNIES
+    ========================= */
+
+    function getBrownieData() {
+      const topping = document.getElementById("brownieTopping").value;
+      const supplement = document.getElementById("brownieSupplement").value;
+
+      let price = 3500;
+      const options = [];
+
+      if (topping === "nutella") {
+        price += 500;
+        options.push("Topping Nutella");
+      } else if (topping === "caramel") {
+        price += 500;
+        options.push("Topping caramel");
+      }
+
+      if (supplement === "kinder") {
+        price += 1000;
+        options.push("Supplément Kinder");
+      } else if (supplement === "lotus") {
+        price += 1000;
+        options.push("Supplément Lotus");
+      }
+
+      return { price: price, options: options };
+    }
+
+    function updateBrowniePrice() {
+      document.getElementById("browniePrice").textContent =
+        formatPrice(getBrownieData().price);
+    }
+
+    bindChange(
+      ["brownieTopping", "brownieSupplement"],
+      updateBrowniePrice
+    );
+
+    function addBrownieToCart() {
+      const data = getBrownieData();
+
+      const name = "Box de brownies classiques" +
+        (data.options.length ? " — " + data.options.join(" — ") : "");
+
+      addToCart(
+        name,
+        data.price,
+        getQuantity("brownieQuantity"),
+        ""
+      );
+    }
+
+    function addOreoBrownieToCart() {
+      addToCart(
+        "Box de brownies aux Oreo",
+        4500,
+        getQuantity("oreoBrownieQuantity"),
+        ""
+      );
+    }    
+
+
+    /* =========================
        CART RENDERING
     ========================= */
 
@@ -2417,6 +2535,7 @@
     updateCrepeNutellaPrice();
     updateCrepeSaleePrice();
     updateFlowerBoxPrice();
+    updateBrowniePrice();
     loadReviews();
 
   </script>
