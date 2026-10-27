@@ -394,6 +394,13 @@
       padding: 10px 12px;
     }
 
+    .lead-time-note {
+      color: var(--pink-dark);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
     .product-price { color: var(--pink-dark); font-size: 19px; margin-top: auto; margin-bottom: 17px; }
 
     .product-select {
@@ -1072,6 +1079,7 @@
                 d’inspiration sur WhatsApp. Un supplément peut s’appliquer
                 selon la décoration souhaitée.
               </p>
+              <p class="lead-time-note">♡ Commande à passer au minimum 48 h à l’avance.</p>
               <div class="product-actions">
                 <input type="number" id="bentoQuantity" class="quantity-input" value="1" min="1">
                 <button class="btn btn-primary" onclick="addBentoToCart()">Ajouter au panier</button>
@@ -1102,6 +1110,7 @@
                 d’inspiration sur WhatsApp. Un supplément peut s’appliquer
                 selon la décoration souhaitée.
               </p>
+              <p class="lead-time-note">♡ Commande à passer au minimum 48 h à l’avance.</p>
               <div class="product-actions">
                 <input type="number" id="layerCakeQuantity" class="quantity-input" value="1" min="1">
                 <button class="btn btn-primary" onclick="addLayerCakeToCart()">Ajouter au panier</button>
@@ -1689,6 +1698,11 @@
         </div>
 
 
+        <p class="cart-info" id="leadTimeCartNote" style="display:none;">
+          ♡ Les Bento Cakes et Layer Cakes sont à commander au minimum 48 h à l’avance : merci de choisir une date en conséquence.
+        </p>
+
+
         <label class="cart-label" for="orderNote">Note / précision</label>
 
         <textarea id="orderNote" class="cart-note" placeholder="Une précision pour votre commande ?"></textarea>
@@ -2173,6 +2187,12 @@
 
       document.getElementById("headerCartCount").textContent = count;
       document.getElementById("floatingCartCount").textContent = count;
+
+      const needsLeadTime = cart.some(item =>
+        item.name === "Bento Cake" || item.name === "Layer Cake"
+      );
+      document.getElementById("leadTimeCartNote").style.display =
+        needsLeadTime ? "block" : "none";
     }
 
     function changeCartQuantity(index, amount) {
