@@ -24,253 +24,51 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: "Times New Roman", serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
+    body { font-family: "Times New Roman", serif; background: var(--cream); color: var(--text); min-height: 100vh; }
     button, input, select, textarea { font-family: inherit; }
     button { cursor: pointer; }
 
-    /* =========================
-       HEADER
-    ========================= */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 250, 247, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      max-width: 1250px;
-      margin: auto;
-      min-height: 78px;
-      padding: 14px 28px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .header-brand {
-      border: none;
-      background: none;
-      color: var(--text);
-      text-align: left;
-      line-height: 1;
-      white-space: nowrap;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .header-logo {
-      width: 150px;
-      height: 150px;
-      display: block;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      flex: 1;
-    }
-
-    .nav-link {
-      border: none;
-      background: transparent;
-      color: var(--text-light);
-      padding: 10px 13px;
-      font-size: 15px;
-      transition: 0.25s ease;
-    }
-
+    /* HEADER */
+    .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(255, 250, 247, 0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .header-inner { max-width: 1250px; margin: auto; min-height: 78px; padding: 14px 28px; display: flex; align-items: center; gap: 30px; }
+    .header-brand { border: none; background: none; color: var(--text); text-align: left; line-height: 1; white-space: nowrap; padding: 0; display: flex; align-items: center; flex-shrink: 0; }
+    .header-logo { width: 150px; height: 150px; display: block; border-radius: 50%; object-fit: cover; }
+    .main-nav { display: flex; align-items: center; justify-content: center; gap: 6px; flex: 1; }
+    .nav-link { border: none; background: transparent; color: var(--text-light); padding: 10px 13px; font-size: 15px; transition: 0.25s ease; }
     .nav-link:hover, .nav-link.active { color: var(--pink-dark); }
 
-    /* Barre de recherche */
-    .header-search {
-      display: flex;
-      align-items: center;
-      width: 210px;
-      flex-shrink: 0;
-      background: var(--pink-soft);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 3px 4px 3px 16px;
-      transition: 0.25s ease;
-    }
-
-    .header-search:focus-within {
-      background: var(--white);
-      border-color: var(--pink);
-      box-shadow: 0 5px 18px var(--shadow);
-    }
-
-    .header-search input {
-      width: 100%;
-      min-width: 0;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: var(--text);
-      font-size: 14px;
-    }
-
+    .header-search { display: flex; align-items: center; width: 210px; flex-shrink: 0; background: var(--pink-soft); border: 1px solid var(--border); border-radius: 999px; padding: 3px 4px 3px 16px; transition: 0.25s ease; }
+    .header-search:focus-within { background: var(--white); border-color: var(--pink); box-shadow: 0 5px 18px var(--shadow); }
+    .header-search input { width: 100%; min-width: 0; border: none; outline: none; background: transparent; color: var(--text); font-size: 14px; }
     .header-search input::placeholder { color: var(--text-light); opacity: 0.8; }
-
-    .search-submit {
-      width: 34px;
-      height: 34px;
-      flex-shrink: 0;
-      border: none;
-      border-radius: 50%;
-      background: transparent;
-      color: var(--pink-dark);
-      font-size: 18px;
-      transition: 0.25s ease;
-    }
-
+    .search-submit { width: 34px; height: 34px; flex-shrink: 0; border: none; border-radius: 50%; background: transparent; color: var(--pink-dark); font-size: 18px; transition: 0.25s ease; }
     .search-submit:hover { background: var(--pink-light); }
 
-    .header-cart-button {
-      position: relative;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--white);
-      color: var(--pink-dark);
-      font-size: 21px;
-      box-shadow: 0 5px 18px var(--shadow);
-      flex-shrink: 0;
-    }
+    .header-cart-button { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--pink-dark); font-size: 21px; box-shadow: 0 5px 18px var(--shadow); flex-shrink: 0; }
+    .cart-count { position: absolute; top: -4px; right: -4px; width: 20px; height: 20px; border-radius: 50%; background: var(--pink); color: white; font-family: Arial, sans-serif; font-size: 11px; display: flex; align-items: center; justify-content: center; }
 
-    .cart-count {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--pink);
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* =========================
-       PAGES
-    ========================= */
-
+    /* PAGES */
     .page { display: none; animation: pageFade 0.35s ease; }
     .page.active { display: block; }
-
-    @keyframes pageFade {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    @keyframes pageFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .page-inner { max-width: 1200px; margin: auto; padding: 80px 28px; }
 
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: calc(100vh - 78px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 70px 25px;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(252, 232, 239, 0.7), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(255, 243, 247, 0.9), transparent 35%),
-        var(--cream);
-    }
-
-    .hero::before, .hero::after {
-      content: "♡";
-      position: absolute;
-      color: rgba(216, 138, 165, 0.16);
-      font-size: 150px;
-      pointer-events: none;
-    }
-
+    /* HERO */
+    .hero { min-height: calc(100vh - 78px); display: flex; align-items: center; justify-content: center; text-align: center; padding: 70px 25px; position: relative; overflow: hidden; background: radial-gradient(circle at 20% 20%, rgba(252, 232, 239, 0.7), transparent 30%), radial-gradient(circle at 80% 70%, rgba(255, 243, 247, 0.9), transparent 35%), var(--cream); }
+    .hero::before, .hero::after { content: "♡"; position: absolute; color: rgba(216, 138, 165, 0.16); font-size: 150px; pointer-events: none; }
     .hero::before { left: -25px; top: 80px; transform: rotate(-15deg); }
     .hero::after { right: -20px; bottom: 40px; transform: rotate(15deg); }
-
     .hero-content { max-width: 850px; position: relative; z-index: 2; }
-
-    .hero-eyebrow {
-      color: var(--pink-dark);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(58px, 10vw, 110px);
-      font-weight: normal;
-      line-height: 0.9;
-      color: var(--text);
-      margin-bottom: 18px;
-    }
-
+    .hero-eyebrow { color: var(--pink-dark); text-transform: uppercase; letter-spacing: 4px; font-size: 13px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(58px, 10vw, 110px); font-weight: normal; line-height: 0.9; color: var(--text); margin-bottom: 18px; }
     .hero-slogan { font-size: 26px; color: var(--pink-dark); font-style: italic; margin-bottom: 10px; }
     .hero-tagline { font-size: 18px; letter-spacing: 2px; color: var(--text-light); margin-bottom: 30px; }
     .hero-intro { max-width: 650px; margin: auto; font-size: 18px; line-height: 1.8; color: var(--text-light); }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 38px; }
+    .creator-signature { margin-top: 55px; color: var(--pink-dark); font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 28px; font-style: italic; text-align: center; }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 38px;
-    }
-
-    .creator-signature {
-      margin-top: 55px;
-      color: var(--pink-dark);
-      font-family: "Brush Script MT", "Segoe Script", cursive;
-      font-size: 28px;
-      font-style: italic;
-      text-align: center;
-    }
-
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    .btn {
-      border: 1px solid var(--pink);
-      padding: 13px 23px;
-      font-size: 15px;
-      transition: 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      min-height: 46px;
-    }
-
+    /* BUTTONS */
+    .btn { border: 1px solid var(--pink); padding: 13px 23px; font-size: 15px; transition: 0.25s ease; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; min-height: 46px; }
     .btn-primary { background: var(--pink); color: white; }
     .btn-primary:hover { background: var(--pink-dark); border-color: var(--pink-dark); transform: translateY(-2px); }
     .btn-outline { background: transparent; color: var(--pink-dark); }
@@ -278,450 +76,142 @@
     .btn-soft { background: var(--pink-light); color: var(--pink-dark); border-color: var(--border); }
     .btn-soft:hover { background: var(--pink-soft); }
 
-    /* =========================
-       TITLES
-    ========================= */
-
+    /* TITLES */
     .section-heading { text-align: center; margin-bottom: 55px; }
-
-    .section-eyebrow {
-      color: var(--pink-dark);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(38px, 6vw, 58px);
-      font-weight: normal;
-      line-height: 1;
-      margin-bottom: 18px;
-    }
-
+    .section-eyebrow { color: var(--pink-dark); font-size: 13px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
+    .section-heading h2 { font-size: clamp(38px, 6vw, 58px); font-weight: normal; line-height: 1; margin-bottom: 18px; }
     .section-heading p { max-width: 650px; margin: auto; color: var(--text-light); font-size: 17px; line-height: 1.7; }
 
-    /* =========================
-       STORY
-    ========================= */
-
-    .story-card {
-      max-width: 900px;
-      margin: auto;
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 55px;
-      box-shadow: 0 18px 45px var(--shadow);
-      position: relative;
-    }
-
-    .story-card::before, .story-card::after {
-      content: "♡";
-      position: absolute;
-      color: var(--pink-soft);
-      font-size: 55px;
-    }
-
+    /* STORY */
+    .story-card { max-width: 900px; margin: auto; background: var(--white); border: 1px solid var(--border); padding: 55px; box-shadow: 0 18px 45px var(--shadow); position: relative; }
+    .story-card::before, .story-card::after { content: "♡"; position: absolute; color: var(--pink-soft); font-size: 55px; }
     .story-card::before { top: 18px; left: 20px; }
     .story-card::after { bottom: 18px; right: 20px; }
-
     .story-card h2 { font-weight: normal; font-size: 42px; margin-bottom: 30px; color: var(--pink-dark); }
     .story-card p { font-size: 18px; line-height: 1.9; margin-bottom: 20px; color: var(--text-light); }
     .story-card p:last-child { margin-bottom: 0; }
-
     .event-card { margin-top: 10px; text-align: center; }
     .event-card h2 { margin-bottom: 22px; }
 
-    /* =========================
-       CREATIONS
-    ========================= */
-
+    /* CREATIONS */
     .category { margin-bottom: 70px; }
-
-    .category-title {
-      font-size: 31px;
-      font-weight: normal;
-      text-align: center;
-      color: var(--pink-dark);
-      margin-bottom: 28px;
-    }
-
-    .category-subtitle {
-      text-align: center;
-      color: var(--pink-dark);
-      font-family: "Brush Script MT", "Segoe Script", cursive;
-      font-size: 20px;
-      margin: -14px 0 28px;
-    }
-
+    .category-title { font-size: 31px; font-weight: normal; text-align: center; color: var(--pink-dark); margin-bottom: 28px; }
+    .category-subtitle { text-align: center; color: var(--pink-dark); font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 20px; margin: -14px 0 28px; }
     .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-
-    .product-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 27px;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      transition: 0.25s ease;
-      position: relative;
-    }
-
+    .product-card { background: var(--white); border: 1px solid var(--border); padding: 27px; display: flex; flex-direction: column; min-height: 100%; transition: 0.25s ease; position: relative; }
     .product-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px var(--shadow); }
-
-    .product-card.search-highlight {
-      border-color: var(--pink);
-      box-shadow: 0 0 0 3px var(--pink-soft), 0 15px 35px var(--shadow);
-      animation: searchPulse 1.2s ease 2;
-    }
-
-    @keyframes searchPulse {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-
+    .product-card.search-highlight { border-color: var(--pink); box-shadow: 0 0 0 3px var(--pink-soft), 0 15px 35px var(--shadow); animation: searchPulse 1.2s ease 2; }
+    @keyframes searchPulse { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
     .product-card h3 { font-size: 25px; font-weight: normal; margin-bottom: 10px; }
-
     .product-description { color: var(--text-light); line-height: 1.6; margin-bottom: 16px; font-size: 15px; }
-
-    .decoration-note {
-      color: var(--pink-dark);
-      font-style: normal;
-      font-size: 15px;
-      line-height: 1.6;
-      background: var(--pink-light);
-      border-left: 3px solid var(--pink);
-      padding: 10px 12px;
-    }
-
-    .lead-time-note {
-      color: var(--pink-dark);
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
+    .decoration-note { color: var(--pink-dark); font-style: normal; font-size: 15px; line-height: 1.6; background: var(--pink-light); border-left: 3px solid var(--pink); padding: 10px 12px; }
+    .lead-time-note { color: var(--pink-dark); font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
     .product-price { color: var(--pink-dark); font-size: 19px; margin-top: auto; margin-bottom: 17px; }
-
-    .product-select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      background: var(--cream);
-      color: var(--text);
-      margin-bottom: 10px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .product-option {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-light);
-      font-size: 15px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
+    .product-select { width: 100%; padding: 10px 12px; border: 1px solid var(--border); background: var(--cream); color: var(--text); margin-bottom: 10px; font-size: 15px; outline: none; }
+    .product-option { display: flex; align-items: center; gap: 10px; color: var(--text-light); font-size: 15px; margin-bottom: 10px; cursor: pointer; }
     .product-option input { width: 18px; height: 18px; accent-color: var(--pink); flex-shrink: 0; }
-
-    .product-select:focus, .quantity-input:focus, .cart-input:focus, .cart-note:focus,
-    .review-input:focus, .review-textarea:focus { border-color: var(--pink); }
-
+    .product-select:focus, .quantity-input:focus, .cart-input:focus, .cart-note:focus, .review-input:focus, .review-textarea:focus { border-color: var(--pink); }
     .product-actions { display: flex; gap: 9px; align-items: stretch; }
-
-    .quantity-input {
-      width: 70px;
-      min-width: 70px;
-      border: 1px solid var(--border);
-      background: var(--cream);
-      color: var(--text);
-      text-align: center;
-      font-size: 15px;
-      outline: none;
-      padding: 10px 5px;
-    }
-
+    .quantity-input { width: 70px; min-width: 70px; border: 1px solid var(--border); background: var(--cream); color: var(--text); text-align: center; font-size: 15px; outline: none; padding: 10px 5px; }
     .product-actions .btn { flex: 1; padding-left: 10px; padding-right: 10px; }
+    .product-badge { position: absolute; top: 16px; right: 16px; background: var(--pink-soft); color: var(--pink-dark); padding: 5px 9px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 
-    .product-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--pink-soft);
-      color: var(--pink-dark);
-      padding: 5px 9px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-        /* =========================
-       GALLERY (carrés, 3 par ligne)
-    ========================= */
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .gallery-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: 0.25s ease;
-      box-shadow: 0 8px 25px rgba(216, 138, 165, 0.07);
-    }
-
+    /* GALLERY (carrés, 3 par ligne) */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+    .gallery-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; transition: 0.25s ease; box-shadow: 0 8px 25px rgba(216, 138, 165, 0.07); }
     .gallery-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px var(--shadow); }
-
-    .gallery-image-wrap {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background: var(--pink-light);
-    }
-
-    .gallery-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
+    .gallery-image-wrap { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: var(--pink-light); }
+    .gallery-image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
     .gallery-card:hover .gallery-image { transform: scale(1.03); }
-
     .gallery-caption { padding: 17px 18px 19px; text-align: center; color: var(--pink-dark); font-size: 18px; }
-
     .gallery-coming-soon { text-align: center; margin-top: 45px; color: var(--text-light); font-style: italic; font-size: 18px; }
 
-    /* =========================
-       REVIEWS
-    ========================= */
-
+    /* REVIEWS */
     .reviews-section { margin-top: 85px; }
-
     .review-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; align-items: start; }
-
     .review-form-card, .reviews-list-card { background: var(--white); border: 1px solid var(--border); padding: 35px; }
-
     .review-form-card h3, .reviews-list-card h3 { font-size: 29px; font-weight: normal; color: var(--pink-dark); margin-bottom: 20px; }
-
     .review-form-intro { color: var(--text-light); line-height: 1.7; margin-bottom: 23px; }
-
     .review-field { margin-bottom: 15px; }
-
     .review-label { display: block; color: var(--text-light); font-size: 14px; margin-bottom: 7px; }
-
-    .review-input, .review-textarea {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: var(--cream);
-      color: var(--text);
-      outline: none;
-      padding: 12px;
-      font-size: 15px;
-    }
-
+    .review-input, .review-textarea { width: 100%; border: 1px solid var(--border); background: var(--cream); color: var(--text); outline: none; padding: 12px; font-size: 15px; }
     .review-textarea { min-height: 120px; resize: vertical; }
-
     .reviews-list { display: grid; gap: 17px; }
-
     .review-empty { color: var(--text-light); line-height: 1.7; font-style: italic; }
-
     .review-card { border: 1px solid var(--border); background: var(--cream); padding: 20px; }
-
     .review-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 8px; }
     .review-name { color: var(--pink-dark); font-size: 19px; }
     .review-date { color: var(--text-light); font-size: 12px; }
     .review-stars { color: var(--pink-dark); letter-spacing: 2px; margin-bottom: 10px; font-size: 15px; }
     .review-content { color: var(--text-light); line-height: 1.7; font-size: 15px; }
 
-    /* =========================
-       CONTACT
-    ========================= */
-
+    /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1050px; margin: auto; }
-
     .contact-card { background: var(--white); border: 1px solid var(--border); padding: 38px; text-align: center; }
-
     .contact-card h3 { font-weight: normal; font-size: 27px; margin-bottom: 13px; color: var(--pink-dark); }
     .contact-card p { color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
-
     .contact-link { color: var(--pink-dark); text-decoration: none; font-size: 17px; }
     .contact-link:hover { text-decoration: underline; }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 35px 20px;
-      color: var(--text-light);
-      font-size: 14px;
-    }
-
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 35px 20px; color: var(--text-light); font-size: 14px; }
     footer strong { color: var(--pink-dark); font-weight: normal; }
+    .footer-handcrafted { margin-top: 12px; color: var(--pink-dark); font-family: "Brush Script MT", "Segoe Script", cursive; font-size: 22px; }
 
-    .footer-handcrafted {
-      margin-top: 12px;
-      color: var(--pink-dark);
-      font-family: "Brush Script MT", "Segoe Script", cursive;
-      font-size: 22px;
-    }
-
-    /* =========================
-       FLOATING CART
-    ========================= */
-
-    .floating-cart {
-      position: fixed;
-      right: 25px;
-      bottom: 25px;
-      width: 58px;
-      height: 58px;
-      border: none;
-      border-radius: 50%;
-      background: var(--pink);
-      color: white;
-      font-size: 24px;
-      z-index: 900;
-      box-shadow: 0 10px 30px rgba(184, 116, 141, 0.3);
-      transition: 0.25s ease;
-    }
-
+    /* FLOATING CART */
+    .floating-cart { position: fixed; right: 25px; bottom: 25px; width: 58px; height: 58px; border: none; border-radius: 50%; background: var(--pink); color: white; font-size: 24px; z-index: 900; box-shadow: 0 10px 30px rgba(184, 116, 141, 0.3); transition: 0.25s ease; }
     .floating-cart:hover { background: var(--pink-dark); transform: translateY(-3px); }
+    .floating-cart-count { position: absolute; top: -5px; right: -4px; width: 22px; height: 22px; border-radius: 50%; background: white; color: var(--pink-dark); font-family: Arial, sans-serif; font-size: 11px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
 
-    .floating-cart-count {
-      position: absolute;
-      top: -5px;
-      right: -4px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: white;
-      color: var(--pink-dark);
-      font-family: Arial, sans-serif;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-    }
-
-    /* =========================
-       OVERLAY
-    ========================= */
-
+    /* OVERLAY */
     .overlay { position: fixed; inset: 0; background: rgba(74, 59, 59, 0.25); z-index: 1500; display: none; }
     .overlay.show { display: block; }
 
-    /* =========================
-       CART DRAWER
-    ========================= */
-
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: -460px;
-      width: min(460px, 100%);
-      height: 100vh;
-      height: 100dvh;
-      background: var(--cream);
-      z-index: 1600;
-      box-shadow: -15px 0 45px rgba(74, 59, 59, 0.12);
-      transition: right 0.35s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
+    /* CART DRAWER */
+    .cart-drawer { position: fixed; top: 0; right: -460px; width: min(460px, 100%); height: 100vh; height: 100dvh; background: var(--cream); z-index: 1600; box-shadow: -15px 0 45px rgba(74, 59, 59, 0.12); transition: right 0.35s ease; display: flex; flex-direction: column; }
     .cart-drawer.open { right: 0; }
-
-    .cart-header {
-      padding: 25px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--white);
-    }
-
+    .cart-header { padding: 25px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--white); }
     .cart-header h2 { font-weight: normal; font-size: 31px; color: var(--pink-dark); }
-
     .close-cart { border: none; background: transparent; color: var(--text-light); font-size: 28px; width: 44px; height: 44px; }
-
     .cart-content { padding: 22px; overflow-y: auto; flex: 1; }
-
     .empty-cart { text-align: center; padding: 55px 20px; color: var(--text-light); line-height: 1.8; }
-
     .cart-item { background: var(--white); border: 1px solid var(--border); padding: 16px; margin-bottom: 12px; }
     .cart-item-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 9px; }
     .cart-item-name { font-size: 18px; }
     .cart-item-price { color: var(--pink-dark); white-space: nowrap; }
     .cart-item-flavor { color: var(--text-light); font-size: 14px; margin-bottom: 12px; }
     .cart-item-bottom { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-
     .cart-quantity { display: flex; align-items: center; border: 1px solid var(--border); background: var(--cream); }
     .cart-quantity button { width: 34px; height: 34px; border: none; background: transparent; color: var(--pink-dark); font-size: 18px; }
     .cart-quantity span { width: 30px; text-align: center; font-size: 14px; }
-
     .remove-item { border: none; background: transparent; color: #a47a86; font-size: 13px; padding: 10px 4px; }
-
     .cart-summary { border-top: 1px solid var(--border); padding-top: 18px; margin-top: 20px; }
-
     .cart-total { display: flex; justify-content: space-between; align-items: center; font-size: 21px; margin-bottom: 18px; }
     .cart-total strong { color: var(--pink-dark); font-weight: normal; }
-
     .cart-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-
     .cart-label { display: block; color: var(--text-light); font-size: 13px; margin-bottom: 6px; }
-
-    .cart-input, .cart-note {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: var(--white);
-      color: var(--text);
-      outline: none;
-      padding: 11px;
-      font-size: 14px;
-    }
-
+    .cart-input, .cart-note { width: 100%; border: 1px solid var(--border); background: var(--white); color: var(--text); outline: none; padding: 11px; font-size: 14px; }
     .cart-note { min-height: 75px; resize: vertical; margin-bottom: 10px; }
-
     .cart-info { color: var(--text-light); font-size: 13px; line-height: 1.6; margin-bottom: 14px; }
-
     .cart-buttons { display: grid; gap: 8px; }
 
-    /* =========================
-       TOAST
-    ========================= */
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 30px;
-      transform: translate(-50%, 20px);
-      background: var(--text);
-      color: white;
-      padding: 13px 20px;
-      z-index: 3000;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s ease;
-      font-size: 14px;
-    }
-
+    /* TOAST */
+    .toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 20px); background: var(--text); color: white; padding: 13px 20px; z-index: 3000; opacity: 0; pointer-events: none; transition: 0.3s ease; font-size: 14px; }
     .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    /* HOME · GOURMANDISES */
+    .home-treats { max-width: 1200px; margin: auto; padding: 80px 28px; }
+    .treats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .treat-card { background: var(--white); border: 1px solid var(--border); padding: 0; overflow: hidden; text-align: left; color: var(--text); transition: 0.25s ease; }
+    .treat-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px var(--shadow); }
+    .treat-image { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--pink-light); transition: transform 0.4s ease; }
+    .treat-card:hover .treat-image { transform: scale(1.04); }
+    .treat-info { padding: 16px 18px 20px; position: relative; background: var(--white); }
+    .treat-name { font-size: 21px; margin-bottom: 4px; }
+    .treat-price { color: var(--pink-dark); font-size: 15px; }
+    .treats-cta { text-align: center; margin-top: 40px; }
 
+    /* RESPONSIVE */
     @media (max-width: 1100px) {
       .header-inner { gap: 18px; }
       .header-search { width: 160px; }
@@ -732,27 +222,20 @@
       .header-logo { width: 90px; height: 90px; }
       .header-search { order: 2; flex: 1; width: auto; }
       .header-cart-button { order: 2; }
-      .main-nav {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 4px;
-        scrollbar-width: none;
-      }
+      .main-nav { order: 3; width: 100%; overflow-x: auto; justify-content: flex-start; padding-bottom: 4px; scrollbar-width: none; }
       .main-nav::-webkit-scrollbar { display: none; }
       .products-grid { grid-template-columns: repeat(2, 1fr); }
       .review-layout { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; max-width: 850px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .treats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     }
 
     @media (max-width: 650px) {
       .header-inner { padding: 13px 17px 8px; }
       .main-nav { gap: 0; }
       .nav-link { font-size: 14px; padding: 12px 11px; white-space: nowrap; }
-      .product-select, .quantity-input, .cart-input, .cart-note,
-      .review-input, .review-textarea, .header-search input { font-size: 16px; }
+      .product-select, .quantity-input, .cart-input, .cart-note, .review-input, .review-textarea, .header-search input { font-size: 16px; }
       .btn { min-height: 48px; }
       .page-inner { padding: 60px 18px; }
       .hero { min-height: calc(100vh - 120px); padding: 60px 20px; }
@@ -774,6 +257,9 @@
       .review-form-card, .reviews-list-card { padding: 25px; }
       .cart-header { padding: 18px 20px; }
       .cart-content { padding: 18px; }
+      .home-treats { padding: 60px 18px; }
+      .treat-name { font-size: 17px; }
+      .treat-info { padding: 12px 12px 16px; }
     }
 
     @media (max-width: 430px) {
@@ -786,9 +272,7 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+  <!-- HEADER -->
 
   <header class="site-header">
     <div class="header-inner">
@@ -822,9 +306,7 @@
 
   <main>
 
-    <!-- =========================
-         HOME
-    ========================= -->
+    <!-- HOME -->
 
     <section class="page active" id="home">
 
@@ -860,12 +342,63 @@
 
       </div>
 
+
+      <!-- LES GOURMANDISES DU MOMENT -->
+
+      <div class="home-treats">
+
+        <div class="section-heading">
+          <div class="section-eyebrow">A Little Taste</div>
+          <h2>Les gourmandises du moment</h2>
+          <p>Quelques-unes de nos douceurs préférées, préparées avec amour.</p>
+        </div>
+
+        <div class="treats-grid">
+
+          <button class="treat-card" onclick="goToProduct('Flower Sweet Box')">
+            <img class="treat-image" src="images/rose crêpe.jpeg" alt="Flower Sweet Box" loading="lazy">
+            <div class="treat-info">
+              <div class="treat-name">Flower Sweet Box</div>
+              <div class="treat-price">À partir de 3 000 FCFA</div>
+            </div>
+          </button>
+
+          <button class="treat-card" onclick="goToProduct('Bento Cakes')">
+            <img class="treat-image" src="images/pink aperol spritz cake.jpeg" alt="Pink Aperol Spritz Inspired Cake" loading="lazy">
+            <div class="treat-info">
+              <div class="treat-name">Pink Aperol Spritz Inspired Cake</div>
+              <div class="treat-price">À partir de 8 000 FCFA</div>
+            </div>
+          </button>
+
+          <button class="treat-card" onclick="goToProduct('Cookies Nutella')">
+            <img class="treat-image" src="images/Cookies Nutella.jpeg" alt="Cookies Nutella" loading="lazy">
+            <div class="treat-info">
+              <div class="treat-name">Cookies</div>
+              <div class="treat-price">500 FCFA / unité</div>
+            </div>
+          </button>
+
+          <button class="treat-card" onclick="goToProduct('Fondants au chocolat')">
+            <img class="treat-image" src="images/fondant.jpeg" alt="Fondants au chocolat" loading="lazy">
+            <div class="treat-info">
+              <div class="treat-name">Fondants au chocolat</div>
+              <div class="treat-price">500 FCFA / unité</div>
+            </div>
+          </button>
+
+        </div>
+
+        <div class="treats-cta">
+          <button class="btn btn-primary" onclick="showPage('creations')">Voir toutes nos créations</button>
+        </div>
+
+      </div>
+
     </section>
 
 
-    <!-- =========================
-         STORY
-    ========================= -->
+    <!-- STORY -->
 
     <section class="page" id="story">
 
@@ -911,9 +444,9 @@
       </div>
 
     </section>
-        <!-- =========================
-         CREATIONS
-    ========================= -->
+
+
+    <!-- CREATIONS -->
 
     <section class="page" id="creations">
 
@@ -954,8 +487,8 @@
                 </button>
               </div>
             </article>
-            
-            
+
+
             <!-- BOX DE BROWNIES CLASSIQUES -->
 
             <article class="product-card">
@@ -1009,6 +542,7 @@
                 </button>
               </div>
             </article>
+
 
             <!-- COOKIES -->
 
@@ -1296,7 +830,8 @@
           </div>
 
         </div>
-        
+
+
         <!-- SALE -->
 
         <div class="category">
@@ -1427,9 +962,7 @@
     </section>
 
 
-    <!-- =========================
-         GALLERY
-    ========================= -->
+    <!-- GALLERY -->
 
     <section class="page" id="gallery">
 
@@ -1442,7 +975,7 @@
         </div>
 
 
-              <div class="gallery-grid">
+        <div class="gallery-grid">
 
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/nutella roll 1.jpeg" alt="Nutella Roll" class="gallery-image"></div><div class="gallery-caption">Nutella Roll</div></div>
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/pink bento cake.jpeg" alt="Pink Bento Cake" class="gallery-image"></div><div class="gallery-caption">Pink Bento Cake</div></div>
@@ -1452,7 +985,6 @@
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/fondant.jpeg" alt="Fondant au Chocolat" class="gallery-image"></div><div class="gallery-caption">Fondant au Chocolat</div></div>
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/trileçe1.jpeg" alt="Trileçe" class="gallery-image"></div><div class="gallery-caption">Trileçe</div></div>
 
-          <!-- 2 Bento Cakes + Flower Sweet Box sur la même ligne -->
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/xo bento.jpeg" alt="XO Bento Cake" class="gallery-image"></div><div class="gallery-caption">XO Bento Cake</div></div>
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/rose crêpe.jpeg" alt="Flower Sweet Box" class="gallery-image"></div><div class="gallery-caption">Flower Sweet Box</div></div>
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/lily bento.jpeg" alt="Lily Bento Cake" class="gallery-image"></div><div class="gallery-caption">Lily Bento Cake</div></div>
@@ -1466,7 +998,6 @@
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/box fondant.jpeg" alt="Box de Fondants" class="gallery-image"></div><div class="gallery-caption">Box de Fondants</div></div>
 
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/tarte pomme.jpeg" alt="Tarte Pomme" class="gallery-image"></div><div class="gallery-caption">Tarte Pomme</div></div>
-          <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/cookie nutella.jpeg" alt="Cookie Nutella" class="gallery-image"></div><div class="gallery-caption">Cookie Nutella</div></div>
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/trileçe2.jpeg" alt="Trileçe" class="gallery-image"></div><div class="gallery-caption">Trileçe</div></div>
 
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/Crêpe Nutella.jpeg" alt="Crêpes Nutella" class="gallery-image"></div><div class="gallery-caption">Crêpes Nutella</div></div>
@@ -1486,10 +1017,9 @@
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/fondant3.jpeg" alt="Fondant au Chocolat" class="gallery-image"></div><div class="gallery-caption">Fondant au Chocolat</div></div>
 
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/Aperol cake.jpeg" alt="Aperol Spritz Cake" class="gallery-image"></div><div class="gallery-caption">Aperol Spritz Cake</div></div>
-          <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/Cookies .jpeg" alt="Cookies" class="gallery-image"></div><div class="gallery-caption">Cookies</div></div>
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/nutella bento.jpeg" alt="Nutella Bento Cake" class="gallery-image"></div><div class="gallery-caption">Nutella Bento Cake</div></div>
-
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/rose crêpe 2.jpeg" alt="Flower Sweet Box" class="gallery-image"></div><div class="gallery-caption">Flower Sweet Box</div></div>
+
           <div class="gallery-card"><div class="gallery-image-wrap"><img src="images/Box mix2.jpeg" alt="Assortiment Mix" class="gallery-image"></div><div class="gallery-caption">Assortiment Mix</div></div>
 
         </div>
@@ -1497,10 +1027,9 @@
         <div class="gallery-coming-soon">
           Sweet Moments are Coming...
         </div>
-        
-        <!-- =========================
-             REVIEWS
-        ========================= -->
+
+
+        <!-- REVIEWS -->
 
         <div class="reviews-section">
 
@@ -1513,9 +1042,7 @@
             </p>
           </div>
 
-
           <div class="review-layout">
-
 
             <!-- FORMULAIRE -->
 
@@ -1554,7 +1081,6 @@
 
             </div>
 
-
             <!-- AVIS -->
 
             <div class="reviews-list-card">
@@ -1571,9 +1097,7 @@
     </section>
 
 
-    <!-- =========================
-         CONTACT
-    ========================= -->
+    <!-- CONTACT -->
 
     <section class="page" id="contact">
 
@@ -1622,9 +1146,7 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1637,9 +1159,7 @@
   </footer>
 
 
-  <!-- =========================
-       FLOATING CART
-  ========================= -->
+  <!-- FLOATING CART -->
 
   <button class="floating-cart" onclick="openCart()" aria-label="Ouvrir le panier">
     ♡
@@ -1647,16 +1167,12 @@
   </button>
 
 
-  <!-- =========================
-       OVERLAY
-  ========================= -->
+  <!-- OVERLAY -->
 
   <div class="overlay" id="overlay" onclick="closeCart()"></div>
 
 
-  <!-- =========================
-       CART DRAWER
-  ========================= -->
+  <!-- CART DRAWER -->
 
   <aside class="cart-drawer" id="cartDrawer">
 
@@ -1664,7 +1180,6 @@
       <h2>Mon panier</h2>
       <button class="close-cart" onclick="closeCart()" aria-label="Fermer">×</button>
     </div>
-
 
     <div class="cart-content">
 
@@ -1674,14 +1189,12 @@
         Votre panier attend encore quelques douceurs. ♡
       </div>
 
-
       <div class="cart-summary" id="cartSummary" style="display:none;">
 
         <div class="cart-total">
           <span>Total</span>
           <strong id="cartTotal">0 FCFA</strong>
         </div>
-
 
         <div class="cart-fields">
 
@@ -1697,16 +1210,13 @@
 
         </div>
 
-
         <p class="cart-info" id="leadTimeCartNote" style="display:none;">
           ♡ Les Bento Cakes et Layer Cakes sont à commander au minimum 48 h à l’avance : merci de choisir une date en conséquence.
         </p>
 
-
         <label class="cart-label" for="orderNote">Note / précision</label>
 
         <textarea id="orderNote" class="cart-note" placeholder="Une précision pour votre commande ?"></textarea>
-
 
         <p class="cart-info">
           Après validation, votre commande sera préparée via WhatsApp.
@@ -1714,7 +1224,6 @@
           Vous pouvez régler votre commande via Wave ou Orange Money.
           Livraison disponible via Yango.
         </p>
-
 
         <div class="cart-buttons">
           <button class="btn btn-primary" onclick="sendOrderToWhatsApp()">Commander via WhatsApp</button>
@@ -1728,21 +1237,16 @@
   </aside>
 
 
-  <!-- =========================
-       TOAST
-  ========================= -->
+  <!-- TOAST -->
 
   <div class="toast" id="toast"></div>
-  
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+
+
+  <!-- JAVASCRIPT -->
 
   <script>
 
-    /* =========================
-       SUPABASE
-    ========================= */
+    /* SUPABASE */
 
     const SUPABASE_URL = "https://cxzoizejyuafgkwcbbcg.supabase.co";
     const SUPABASE_KEY = "sb_publishable_pHiIcWaZRm1J2ZHVsOvZyA_4bkXne-X";
@@ -1750,9 +1254,7 @@
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
-    /* =========================
-       CART
-    ========================= */
+    /* CART */
 
     let cart = JSON.parse(localStorage.getItem("sweetTyrcyCart")) || [];
 
@@ -1809,9 +1311,7 @@
     }
 
 
-    /* =========================
-       COOKIES
-    ========================= */
+    /* COOKIES */
 
     function updateCookiePrice() {
       const format = document.getElementById("cookieFormat").value;
@@ -1836,9 +1336,7 @@
     }
 
 
-    /* =========================
-       CAKE MARBRE
-    ========================= */
+    /* CAKE MARBRE */
 
     function getMarbreData() {
 
@@ -1879,9 +1377,7 @@
     }
 
 
-    /* =========================
-       BENTO / LAYER CAKE / GIFT BOX
-    ========================= */
+    /* BENTO / LAYER CAKE / GIFT BOX */
 
     function addBentoToCart() {
       const flavor = document.getElementById("bentoFlavor").value;
@@ -1899,9 +1395,7 @@
     }
 
 
-    /* =========================
-       TRILECE
-    ========================= */
+    /* TRILECE */
 
     function getTrileceData() {
 
@@ -1925,9 +1419,7 @@
     }
 
 
-    /* =========================
-       LAYER CUP / TARTE
-    ========================= */
+    /* LAYER CUP / TARTE */
 
     function addLayerCupToCart() {
       const flavor = document.getElementById("layerCupFlavor").value;
@@ -1940,9 +1432,7 @@
     }
 
 
-    /* =========================
-       CREPES NATURE (chantilly / caramel)
-    ========================= */
+    /* CREPES NATURE (chantilly / caramel) */
 
     function getCrepeNatureData() {
 
@@ -1978,9 +1468,7 @@
     }
 
 
-    /* =========================
-       CREPES NUTELLA (chantilly uniquement)
-    ========================= */
+    /* CREPES NUTELLA (chantilly uniquement) */
 
     function getCrepeNutellaData() {
 
@@ -2010,9 +1498,7 @@
     }
 
 
-    /* =========================
-       CREPES SALEES
-    ========================= */
+    /* CREPES SALEES */
 
     function getCrepeSaleeData() {
 
@@ -2037,9 +1523,7 @@
     }
 
 
-    /* =========================
-       FLOWER BOX
-    ========================= */
+    /* FLOWER BOX */
 
     function getFlowerBoxData() {
 
@@ -2062,9 +1546,7 @@
     }
 
 
-    /* =========================
-       BROWNIES
-    ========================= */
+    /* BROWNIES */
 
     function getBrownieData() {
       const topping = document.getElementById("brownieTopping").value;
@@ -2123,12 +1605,10 @@
         getQuantity("oreoBrownieQuantity"),
         ""
       );
-    }    
+    }
 
 
-    /* =========================
-       CART RENDERING
-    ========================= */
+    /* CART RENDERING */
 
     function updateCart() {
 
@@ -2232,9 +1712,7 @@
     }
 
 
-    /* =========================
-       CART OPEN / CLOSE
-    ========================= */
+    /* CART OPEN / CLOSE */
 
     function openCart() {
       document.getElementById("cartDrawer").classList.add("open");
@@ -2249,9 +1727,7 @@
     }
 
 
-    /* =========================
-       PAGE NAVIGATION
-    ========================= */
+    /* PAGE NAVIGATION */
 
     function showPage(pageId) {
 
@@ -2276,9 +1752,7 @@
     }
 
 
-    /* =========================
-       SEARCH
-    ========================= */
+    /* SEARCH */
 
     function normalizeText(value) {
       return String(value)
@@ -2384,10 +1858,15 @@
       }, 5000);
     }
 
+    function goToProduct(name) {
+      const input = document.getElementById("siteSearch");
+      input.value = name;
+      runSearch();
+      input.value = "";
+    }
 
-    /* =========================
-       WHATSAPP
-    ========================= */
+
+    /* WHATSAPP */
 
     function sendOrderToWhatsApp() {
 
@@ -2444,9 +1923,7 @@
     }
 
 
-    /* =========================
-       REVIEWS
-    ========================= */
+    /* REVIEWS */
 
     let reviews = [];
 
@@ -2543,9 +2020,7 @@
     }
 
 
-    /* =========================
-       INITIALIZATION
-    ========================= */
+    /* INITIALIZATION */
 
     updateCart();
     updateCookiePrice();
